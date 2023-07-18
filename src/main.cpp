@@ -1,37 +1,52 @@
 #include <Arduino.h>
-#include <MCP23S17.h>
-#include <vector>
+#include "portexpander.h"
 
 constexpr int clockPin = 14;
 constexpr int misoPin = 2;
 constexpr int mosiPin = 15;
 constexpr int chipSelect = 4;
+constexpr int address = 0;
 
-constexpr uint8_t pin = 0;
+constexpr uint8_t pin = 7+1; // This is GPIO Bank B Pin 0,
+unsigned long start;
+
+// The easy Way
 
 SPIClass hspi(2);
-MCP23S17 mcp(&hspi, 4, 0);
-constexpr byte dataOn = 0xFF; 
-constexpr byte dataOff = 0x00;
-constexpr uint16_t bigDataOn = 0xFFFF;
-constexpr uint16_t bigDataOff = 0x0000;
+PortExpander portExpander(&hspi, clockPin, misoPin, mosiPin, chipSelect, address);
 
 void setup() {
   
   Serial.begin(115200);
   Serial.println("Beginning SPI Test");
-  // Setting the Pins
-  mcp.begin(clockPin, misoPin, mosiPin, chipSelect);
-  mcp.pinMode(pin,OUTPUT);
-  mcp.writePort(bigDataOn);
+  
+  portExpander.initPortExpander();
+  portExpander.setBank(PortExpanderBank::B, IOType::OUTPUT_IO);
+  
+  for (uint8_t i = 0; i < 8; i++)
+  {
+    portExpander.writePort(PortExpanderBank::B, i, HIGH);
+  }
+  
 
+  start = millis();
 }
 
 void loop() {
-  mcp.digitalWrite(pin, HIGH);
-  delay(150);
-  mcp.writePort(pin, LOW);
-  delay(150);
+  auto static currentPort = 0;
+  
+  if (millis() - start < 50)
+  {
+    portExpander.writePort(PortExpanderBank::B, currentPort, LOW);
+  } else {
+    portExpander.writePort(PortExpanderBank::B, currentPort, HIGH);
+    currentPort++;
+    start = millis();
+  }
+  if (currentPort > 7)
+  {
+    currentPort = 0;
+  }
+  
 }
-
 
