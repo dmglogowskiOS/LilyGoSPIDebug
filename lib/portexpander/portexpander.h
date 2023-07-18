@@ -59,6 +59,12 @@ class PortExpander{
          */
         void writePort(PortExpanderBank bank, int8_t port, int8_t value);
 
+        /**
+         * @brief Get the Mcp object
+         * 
+         * @return MCP23S17* 
+         */
+        MCP23S17* getMcp();
     private:
         SPIClass *spi;
         MCP23S17 mcp;

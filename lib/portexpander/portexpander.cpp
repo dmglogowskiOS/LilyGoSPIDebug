@@ -1,7 +1,7 @@
 #include <portexpander.h>
 
 
-    PortExpander::PortExpander(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address):
+PortExpander::PortExpander(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address):
     mcp(spi, chipSelect, address), spi(spi)
     {
         spiValues[0] = clock;
@@ -10,11 +10,11 @@
         spiValues[3] = chipSelect;
     };
 
-    void PortExpander::initPortExpander(){
+void PortExpander::initPortExpander(){
         mcp.begin(spiValues[0], spiValues[1], spiValues[2], spiValues[3]);
     };
 
-    void PortExpander::setBank(PortExpanderBank bank, IOType type){
+void PortExpander::setBank(PortExpanderBank bank, IOType type){
         auto iotype = 0x00;
         switch (type)
         {
@@ -94,3 +94,7 @@ void PortExpander::writePort(PortExpanderBank bank, int8_t port, int8_t value){
                 mcp.digitalWrite(port, value);
             }
         }
+
+MCP23S17* PortExpander::getMcp(){
+    return &mcp;
+};
