@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "portexpander.h"
+#include "rtd.h"
 
 constexpr int clockPin = 14;
 constexpr int misoPin = 2;
@@ -9,14 +10,23 @@ constexpr int address = 0;
 
 constexpr uint8_t pin = 7+1; // This is GPIO Bank B Pin 0,
 unsigned long start;
+uint32_t numReads = 0U;
+
+constexpr int nominalResistanceRTD = 1000;
+constexpr int referenceResistanceRTD = 4300;
 
 // The easy Way
 
 SPIClass hspi(2);
 PortExpander portExpander(&hspi, clockPin, misoPin, mosiPin, chipSelect, address);
 
+RTD rtd1(0, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
+RTD rtd2(1, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
+RTD rtd3(2, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
+RTD rtd4(3, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
+
 void setup() {
-  
+  digitalWrite(12,HIGH);
   Serial.begin(115200);
   Serial.println("Beginning SPI Test");
   
@@ -27,25 +37,24 @@ void setup() {
   {
     portExpander.writePort(PortExpanderBank::B, i, HIGH);
   }
-  
+
+  rtd1.rtdInit();
+  rtd2.rtdInit();
+  rtd3.rtdInit();
+  rtd4.rtdInit();
 
   start = millis();
 }
 
 void loop() {
-  auto static currentPort = 0;
-  
-  if (millis() - start < 50)
+  if (millis() - start > 1000)
   {
-    portExpander.writePort(PortExpanderBank::B, currentPort, LOW);
-  } else {
-    portExpander.writePort(PortExpanderBank::B, currentPort, HIGH);
-    currentPort++;
+    Serial.printf("Read Number : %i \n", numReads);
+    Serial.println(rtd4.readTempC(nominalResistanceRTD, referenceResistanceRTD));
+    Serial.println(rtd4.readFault());
+    Serial.println("\n");
+    numReads++;
     start = millis();
-  }
-  if (currentPort > 7)
-  {
-    currentPort = 0;
   }
   
 }

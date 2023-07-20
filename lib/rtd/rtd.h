@@ -6,7 +6,8 @@
 
 // Defining Configs
 
-#define MAX31865_CONFIG_REG 0x00
+#define MAX31865_CONFIG_REG_READ 0x00
+#define MAX31865_CONFIG_REG_WRITE 0x80
 #define MAX31865_CONFIG_BIAS 0x80
 #define MAX31865_CONFIG_MODEAUTO 0x40
 #define MAX31865_CONFIG_MODEOFF 0x00
@@ -39,8 +40,28 @@
 #define RTD_B -5.775e-7
 
 /**
- * @brief RTD class to model primarily the MAX31865 RTD
- * in conjunction with an MCP23S17
+ * @brief Represents which GPIO Bank the chip is connected to on the MCP
+ * 
+ */
+enum class GPIOBank{
+    A,
+    B,
+    NONE,
+};
+
+/**
+ * @brief Represents the Wire Mode for the RTD
+ * 
+ */
+enum class RTDWireMode{
+    TWO_WIRE,
+    THREE_WIRE,
+    FOUR_WIRE
+};
+
+/**
+ * @brief Models an RTD interfaced with via an MCP23S17
+ * 
  */
 class RTD{
     public:
@@ -61,17 +82,41 @@ class RTD{
         void rtdInit();
 
         /**
-         * @brief Reads the current temperature
+         * @brief 
          * 
-         * @return float - Temperature in °C
+         * @param RTDnominal Nominal Resistance of the RTD => Usually 100 or 1000 Ohm
+         * @param refResistor Reference Resistance => Usually 430 or 4300 Ohm
+         * @return float 
          */
-        float readTempC();
+        float readTempC(float RTDnominal, float refResistor);
+
+        /**
+         * @brief Readout of the Fault Register
+         * 
+         * @return uint8_t 
+         */
+        uint8_t readFault();
+        
+        /**
+         * @brief Clears the fault register
+         * 
+         */
+        void clearFault();
+
+        /**
+         * @brief Allows to set the WireMode dynamically
+         * 
+         * @param mode RTDWireMode Enum Member -> See RTDWireMode enum class
+         */
+        void setWires(RTDWireMode mode);
+
     private:
         uint8_t pin;
         uint8_t config;
         uint8_t address;
         MCP23S17* mcp;
         SPIClass* spi;
+        GPIOBank bank;
 
         /**
          * @brief Private Method to read the RTD Raw Value
@@ -89,31 +134,38 @@ class RTD{
         void writeReg(uint8_t regAddress, uint8_t data);
 
         /**
-         * @brief Private Methode to read Data from a Register
+         * @brief Reads the given 8bit Register
          * 
-         * @param regAddress Address of the Register to read from
-         * @return uint8_t - Data that got read 
+         * @param regAddress Address of the Register
+         * @return uint8_t Value of the Register
          */
-        uint8_t readReg(uint8_t regAddress);
+        uint8_t readReg8(uint8_t regAddress);
+
+        /**
+         * @brief Reads 16 Bits from the given Register 
+         * 
+         * @param regAddress Register the Read is initialized on, this will overrun if the given Register is only 8 Bits long,
+         * this behaviour is wanted. 
+         * @return uint16_t 
+         */
+        uint16_t readReg16(uint8_t regAddress);
+
+        /**
+         * @brief Reads the Given Number of bytes into the buffer starting at the given Register
+         * 
+         * @param regAddress Starting Register 
+         * @param buffer Buffer to read into
+         * @param bytesToRead The number of Bytes to Read -> multiply by 8 to get the number of Bits you are reading.
+         */
+        void readRegN(uint8_t regAddress, uint8_t buffer[], uint8_t bytesToRead);
+        
+        /**
+         * @brief Private Method to enable the Bias of the system
+         * 
+         * @param biasMode true to Enable the bias, false to disable.
+         */
+        void enableBias(bool biasMode);
 };
 
-/**
- * @brief Represents which GPIO Bank the chip is connected to on the MCP
- * 
- */
-enum class GPIOBank{
-    A,
-    B,
-};
-
-/**
- * @brief Represents the Wire Mode for the RTD
- * 
- */
-enum class RTDWireMode{
-    TWO_WIRE,
-    THREE_WIRE,
-    FOUR_WIRE = TWO_WIRE
-};
 
 #endif
