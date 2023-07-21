@@ -12,8 +12,8 @@ constexpr uint8_t pin = 7+1; // This is GPIO Bank B Pin 0,
 unsigned long start;
 uint32_t numReads = 0U;
 
-constexpr int nominalResistanceRTD = 1000;
-constexpr int referenceResistanceRTD = 4300;
+constexpr float nominalResistanceRTD = 1000.0f;
+constexpr float referenceResistanceRTD = 4300.0f;
 
 // The easy Way
 
@@ -24,9 +24,11 @@ RTD rtd1(0, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd2(1, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd3(2, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd4(3, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
+RTD rtd0(4, portExpander.getMcp(), GPIOBank::NONE, RTDWireMode::TWO_WIRE);
 
 void setup() {
-  digitalWrite(12,HIGH);
+  pinMode(4, OUTPUT);
+  digitalWrite(4, HIGH);
   Serial.begin(115200);
   Serial.println("Beginning SPI Test");
   
@@ -38,24 +40,27 @@ void setup() {
     portExpander.writePort(PortExpanderBank::B, i, HIGH);
   }
 
+  /*
   rtd1.rtdInit();
   rtd2.rtdInit();
   rtd3.rtdInit();
   rtd4.rtdInit();
+  */
 
+  rtd0.rtdInit();
   start = millis();
+
 }
 
 void loop() {
-  if (millis() - start > 1000)
+  if (millis() - start > 500)
   {
     Serial.printf("Read Number : %i \n", numReads);
-    Serial.println(rtd4.readTempC(nominalResistanceRTD, referenceResistanceRTD));
-    Serial.println(rtd4.readFault());
+    Serial.println(rtd0.readTempC(nominalResistanceRTD, referenceResistanceRTD));
+    Serial.println(rtd0.readFault());
     Serial.println("\n");
     numReads++;
     start = millis();
   }
-  
 }
 

@@ -110,6 +110,8 @@ class RTD{
          */
         void setWires(RTDWireMode mode);
 
+        bool configWriteSuccess();
+        void writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrie);
     private:
         uint8_t pin;
         uint8_t config;
@@ -117,6 +119,8 @@ class RTD{
         MCP23S17* mcp;
         SPIClass* spi;
         GPIOBank bank;
+        RTDWireMode wireMode;
+        bool autoConvertEnabled;
 
         /**
          * @brief Private Method to read the RTD Raw Value
@@ -131,7 +135,7 @@ class RTD{
          * @param regAddress Address of the Register to write to
          * @param data Data to write at that Register
          */
-        void writeReg(uint8_t regAddress, uint8_t data);
+        //void writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrie);
 
         /**
          * @brief Reads the given 8bit Register
@@ -165,6 +169,30 @@ class RTD{
          * @param biasMode true to Enable the bias, false to disable.
          */
         void enableBias(bool biasMode);
+
+        /**
+         * @brief Set the Threshold Registers
+         * 
+         * @param lower Raw Lower Threshhold Data
+         * @param upper Raw Upper Threshold Data
+         */
+        void setThresholds(uint16_t lower, uint16_t upper);
+
+        /**
+         * @brief Enables to Auto Conversion Mode if set to true, disables if set to false
+         * 
+         * @param conversionMode 
+         */
+        void autoConvert(bool conversionMode);
+
+        /**
+         * @brief Allows to set the Noise mode
+         * 
+         * @param mode true 50hz filtering, false, 60hz
+         */
+        void enable50hz(bool mode);
+
+        void forceConfig(u_int8_t value);
 };
 
 

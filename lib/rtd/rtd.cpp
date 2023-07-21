@@ -3,7 +3,7 @@
 #include <SPI.h>
 
 RTD::RTD(uint8_t pinSet, MCP23S17* mcp, GPIOBank bank, RTDWireMode mode):
-    bank(bank)
+    bank(bank), wireMode(mode)
 {
     this->pin = pinSet;
     config = DEFAULT_CONFIG;
@@ -14,14 +14,13 @@ RTD::RTD(uint8_t pinSet, MCP23S17* mcp, GPIOBank bank, RTDWireMode mode):
     {
         pin += 8;
     }
-
-    setWires(mode);
+    autoConvertEnabled = false;
 }
 
 float RTD::readTempC(float RTDnominal, float refResistor){
     float Z1, Z2, Z3, Z4, rt, temp;
 
-    auto RTDraw = readRTD();
+    auto RTDraw = static_cast<float>(readRTD());
     rt = RTDraw / 32768;
     rt *= refResistor;
 
@@ -53,38 +52,69 @@ float RTD::readTempC(float RTDnominal, float refResistor){
     rpoly *= rt; // ^5
     temp += 1.5243e-10 * rpoly;
 
+
     return temp;
 }
 
 void RTD::rtdInit(){
-    writeReg(MAX31865_CONFIG_REG_WRITE, config);
+    setWires(wireMode);
+    enable50hz(false);
+    enableBias(true);
+//    autoConvert(false);
+    autoConvert(true);
+    setThresholds(0, 0xFFFF);
+    clearFault();
+
+    configWriteSuccess();
 }
 
 uint16_t RTD::readRTD(){
-    clearFault();
-    enableBias(true);
-    delay(12);
 
-    config |= MAX31865_CONFIG_1SHOT;
-    writeReg(MAX31865_CONFIG_REG_WRITE, config);
+    clearFault();
+    /*
+    if (!autoConvertEnabled)
+    {
+        enableBias(true);
+        delay(12);
+
+        config |= MAX31865_CONFIG_1SHOT;
+        writeReg(MAX31865_CONFIG_REG_WRITE, config, 1); // originally sent config
+        delay(65);
+    }
+    */
+    forceConfig(0b10100001);
     delay(65);
     uint16_t rtd = readReg16(MAX31865_RTDMSB_REG);
 
-    enableBias(false);
+    if (!autoConvertEnabled)
+    {
+        enableBias(false);
+    }
+    
+    rtd >>= 1;
+    
+    Serial.println(rtd);
     return rtd;
 }
 
-void RTD::writeReg(uint8_t regAddress, uint8_t data){
+void RTD::writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrite){
     if (regAddress < 0b10000000)
     {
         regAddress |= 0b10000000;
     }
 
-    mcp->digitalWrite(pin,LOW);
-    spi->transfer(regAddress);
-    spi->transfer(data);
-    mcp->digitalWrite(pin, HIGH);
-    
+    if (bank == GPIOBank::NONE)
+    {
+        digitalWrite(pin, LOW);
+        spi->transferBytes(&regAddress, NULL, 1);
+        spi->transferBytes(&data, NULL, bytesToWrite);
+        digitalWrite(pin, HIGH);
+    } else {
+        mcp->digitalWrite(pin,LOW);
+        spi->transferBytes(&regAddress, NULL, 1);
+        spi->transferBytes(&data, NULL, bytesToWrite);
+        mcp->digitalWrite(pin, HIGH);
+    }
 }
 
 uint8_t RTD::readReg8(uint8_t regAddress){
@@ -105,10 +135,18 @@ uint16_t RTD::readReg16(uint8_t regAddress){
 
 void RTD::readRegN(uint8_t regAddress, uint8_t buffer[], uint8_t bytesToRead){
     
-    mcp->digitalWrite(pin, LOW);
-    spi->transfer(regAddress);
-    spi->transfer(&buffer[0], bytesToRead);
-    mcp->digitalWrite(pin, HIGH);
+    if (bank == GPIOBank::NONE)
+    {
+        digitalWrite(pin, LOW);
+        spi->transferBytes(&regAddress, NULL, 1);
+        spi->transferBytes(NULL, &buffer[0], bytesToRead);
+        digitalWrite(pin, HIGH);
+    } else {
+        mcp->digitalWrite(pin, LOW);
+        spi->transferBytes(&regAddress, NULL, 1);
+        spi->transferBytes(NULL ,&buffer[0], bytesToRead);
+        mcp->digitalWrite(pin, HIGH);
+    }
 }
 
 uint8_t RTD::readFault(){
@@ -121,7 +159,7 @@ void RTD::clearFault(){
     uint8_t state = readReg8(MAX31865_CONFIG_REG_READ);
     state &= ~0x2C;
     state |= MAX31865_CONFIG_FAULTSTAT;
-    writeReg(MAX31865_CONFIG_REG_WRITE, state);
+    writeReg(MAX31865_CONFIG_REG_WRITE, state, 1);
 }
 
 void RTD::setWires(RTDWireMode mode){
@@ -136,7 +174,7 @@ void RTD::setWires(RTDWireMode mode){
         config |= MAX31865_CONFIG_3WIRE;
         break;
     }
-    writeReg(MAX31865_CONFIG_REG_WRITE, config);
+    writeReg(MAX31865_CONFIG_REG_WRITE, config, 1);
 }
 
 void RTD::enableBias(bool biasMode){
@@ -147,7 +185,54 @@ void RTD::enableBias(bool biasMode){
         config &= ~MAX31865_CONFIG_BIAS;
     }
     
-    writeReg(MAX31865_CONFIG_REG_WRITE, config);
+    writeReg(MAX31865_CONFIG_REG_WRITE, config, 1);
 }
 
+void RTD::setThresholds(uint16_t lower, uint16_t upper){
+    writeReg(MAX31865_LFAULTLSB_REG, lower & 0xFF, 1);
+    writeReg(MAX31865_LFAULTMSB_REG, lower >> 8, 1);
+    writeReg(MAX31865_HFAULTLSB_REG, upper & 0xFF, 1);
+    writeReg(MAX31865_HFAULTMSB_REG, upper >> 8, 1);
+}
 
+void RTD::autoConvert(bool conversionMode){
+    autoConvertEnabled = conversionMode;
+    if (conversionMode)
+    {
+        config |= MAX31865_CONFIG_MODEAUTO;
+    } else {
+        config &= ~MAX31865_CONFIG_MODEAUTO;
+    }
+    
+    writeReg(MAX31865_CONFIG_REG_WRITE, config, 1);
+}
+
+bool RTD::configWriteSuccess(){
+    uint8_t readConfig = readReg8(MAX31865_CONFIG_REG_READ);
+    Serial.println("Read Config:");
+    Serial.println(readConfig, HEX);
+    Serial.println("Config as it should be:");
+    Serial.println(config, HEX);
+    if (readConfig == config)
+    {   
+        return true;
+    } else {
+        return false;
+    }
+    
+}
+
+void RTD::enable50hz(bool mode){
+    if (mode)
+    {
+        config |= MAX31865_CONFIG_FILT50HZ;
+    } else {
+        config &= ~MAX31865_CONFIG_FILT50HZ;
+    }
+    
+    writeReg(MAX31865_CONFIG_REG_WRITE, config, 1);
+}
+
+void RTD::forceConfig(u_int8_t value){
+    writeReg(0x80, value, 0x1);
+}
