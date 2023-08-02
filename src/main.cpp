@@ -24,13 +24,11 @@ RTD rtd1(0, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd2(1, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd3(2, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd4(3, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
-RTD rtd0(4, portExpander.getMcp(), GPIOBank::NONE, RTDWireMode::TWO_WIRE);
 
 void setup() {
-  pinMode(4, OUTPUT);
-  digitalWrite(4, HIGH);
   Serial.begin(115200);
   Serial.println("Beginning SPI Test");
+  hspi.setDataMode(SPI_MODE3);
   
   portExpander.initPortExpander();
   portExpander.setBank(PortExpanderBank::B, IOType::OUTPUT_IO);
@@ -40,27 +38,32 @@ void setup() {
     portExpander.writePort(PortExpanderBank::B, i, HIGH);
   }
 
-  /*
+  
   rtd1.rtdInit();
   rtd2.rtdInit();
   rtd3.rtdInit();
   rtd4.rtdInit();
-  */
+  
 
-  rtd0.rtdInit();
+  
+  pinMode(misoPin, INPUT_PULLUP);
   start = millis();
 
 }
 
 void loop() {
-  if (millis() - start > 500)
+  if (millis() - start > 1000)
   {
     Serial.printf("Read Number : %i \n", numReads);
-    Serial.println(rtd0.readTempC(nominalResistanceRTD, referenceResistanceRTD));
-    Serial.println(rtd0.readFault());
+    Serial.println(rtd4.readTempC(nominalResistanceRTD, referenceResistanceRTD));
+    Serial.println(rtd4.readFault());
     Serial.println("\n");
     numReads++;
+    
     start = millis();
+  
   }
 }
+
+
 

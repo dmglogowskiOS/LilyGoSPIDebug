@@ -71,18 +71,17 @@ void RTD::rtdInit(){
 uint16_t RTD::readRTD(){
 
     clearFault();
-    /*
+    
     if (!autoConvertEnabled)
     {
         enableBias(true);
         delay(12);
 
         config |= MAX31865_CONFIG_1SHOT;
-        writeReg(MAX31865_CONFIG_REG_WRITE, config, 1); // originally sent config
+        writeReg(MAX31865_CONFIG_REG_WRITE, config, 1);
         delay(65);
     }
-    */
-    forceConfig(0b10100001);
+
     delay(65);
     uint16_t rtd = readReg16(MAX31865_RTDMSB_REG);
 
@@ -93,7 +92,6 @@ uint16_t RTD::readRTD(){
     
     rtd >>= 1;
     
-    Serial.println(rtd);
     return rtd;
 }
 
