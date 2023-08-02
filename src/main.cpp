@@ -11,7 +11,6 @@ constexpr int address = 0;
 
 constexpr uint8_t pin = 7+1; // This is GPIO Bank B Pin 0,
 unsigned long start;
-uint32_t numReads = 0U;
 
 constexpr float nominalResistanceRTD = 1000.0f;
 constexpr float referenceResistanceRTD = 4300.0f;
