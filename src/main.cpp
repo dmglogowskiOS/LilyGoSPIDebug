@@ -19,7 +19,7 @@ constexpr float referenceResistanceRTD = 4300.0f;
 
 SPIClass hspi(2);
 PortExpander portExpander(&hspi, clockPin, misoPin, mosiPin, chipSelect, address);
-RtdManager rtdManager(portExpander);
+RtdManager rtdManager(&portExpander);
 
 RTD rtd1(0, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd2(1, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
@@ -31,21 +31,14 @@ void setup() {
   Serial.println("Beginning SPI Test");
   hspi.setDataMode(SPI_MODE3);
   
-  portExpander.initPortExpander();
-  portExpander.setBank(PortExpanderBank::B, IOType::OUTPUT_IO);
-  
-  for (uint8_t i = 0; i < 8; i++)
-  {
-    portExpander.writePort(PortExpanderBank::B, i, HIGH);
-  }
-
   rtdManager.addRTD(rtd1);
   rtdManager.addRTD(rtd2);
   rtdManager.addRTD(rtd3);
   rtdManager.addRTD(rtd4);
-  
-  rtdManager.setResistances(nominalResistanceRTD, referenceResistanceRTD);
+
   rtdManager.init();
+  rtdManager.setResistances(nominalResistanceRTD, referenceResistanceRTD);
+  
 
   pinMode(misoPin, INPUT_PULLUP);
   start = millis();
@@ -61,7 +54,7 @@ void loop() {
     {
       Serial.printf("RTD Nr %i : %f \n", i, temps[i]);
     }
-    
+
     Serial.println("\n");
     start = millis();
   }

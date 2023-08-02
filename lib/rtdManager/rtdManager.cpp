@@ -1,12 +1,21 @@
 #include <rtdManager.h>
 
-RtdManager::RtdManager(PortExpander portExpander)
+RtdManager::RtdManager(PortExpander *portExpander)
 : m_portEx(portExpander)
 {
-
+    
 }
 
 void RtdManager::init(){
+    m_portEx->initPortExpander();
+    m_portEx->setBank(PortExpanderBank::A, IOType::OUTPUT_IO);
+    m_portEx->setBank(PortExpanderBank::B, IOType::OUTPUT_IO);
+    for (size_t i = 0; i < 8; i++)
+    {
+        m_portEx->writePort(PortExpanderBank::A, i, HIGH);
+        m_portEx->writePort(PortExpanderBank::B, i, HIGH);
+    }
+
     for (size_t i = 0; i < m_rtdList.size(); i++)
     {
         m_rtdList[i].rtdInit();
