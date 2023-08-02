@@ -61,8 +61,7 @@ void loop() {
     {
       Serial.printf("RTD Nr %i : %f \n", i, temps[i]);
     }
-
-    numReads++; 
+ 
     start = millis();
   }
 }
