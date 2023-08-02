@@ -1,8 +1,8 @@
 #ifndef RTDH
 #define RTDH
 #include <Arduino.h>
-#include <MCP23S17.h>
 #include <SPI.h>
+#include <portexpander.h>
 
 // Defining Configs
 
@@ -40,16 +40,6 @@
 #define RTD_B -5.775e-7
 
 /**
- * @brief Represents which GPIO Bank the chip is connected to on the MCP
- * 
- */
-enum class GPIOBank{
-    A,
-    B,
-    NONE,
-};
-
-/**
  * @brief Represents the Wire Mode for the RTD
  * 
  */
@@ -65,6 +55,9 @@ enum class RTDWireMode{
  */
 class RTD{
     public:
+        uint8_t pin;
+        PortExpanderBank bank;
+
         /**
          * @brief Create a new RTD object
          * 
@@ -73,7 +66,7 @@ class RTD{
          * @param bank Memory Bank, be aware, that you can only have 8 RTDs at once as they only have 3 Address Bits
          * @param mode Wire Mode for configuration
          */
-        RTD(u_int8_t pinSet, MCP23S17* mcp, GPIOBank bank, RTDWireMode mode);
+        RTD(u_int8_t pin, PortExpander portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance);
 
         /**
          * @brief Transmits default config to the attached RTD
@@ -82,13 +75,11 @@ class RTD{
         void rtdInit();
 
         /**
-         * @brief 
+         * @brief Returns the current Temperature in °C as a float
          * 
-         * @param RTDnominal Nominal Resistance of the RTD => Usually 100 or 1000 Ohm
-         * @param refResistor Reference Resistance => Usually 430 or 4300 Ohm
          * @return float 
          */
-        float readTempC(float RTDnominal, float refResistor);
+        float readTempC();
 
         /**
          * @brief Readout of the Fault Register
@@ -110,59 +101,6 @@ class RTD{
          */
         void setWires(RTDWireMode mode);
 
-        bool configWriteSuccess();
-        void writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrie);
-    private:
-        uint8_t pin;
-        uint8_t config;
-        uint8_t address;
-        MCP23S17* mcp;
-        SPIClass* spi;
-        GPIOBank bank;
-        RTDWireMode wireMode;
-        bool autoConvertEnabled;
-
-        /**
-         * @brief Private Method to read the RTD Raw Value
-         * 
-         * @return uint16_t - RAW TEMP Value as an unsigned 16bit INT => NOT TEMP
-         */
-        uint16_t readRTD();
-
-        /**
-         * @brief Private Method to write Data to RTD Registers
-         * 
-         * @param regAddress Address of the Register to write to
-         * @param data Data to write at that Register
-         */
-        //void writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrie);
-
-        /**
-         * @brief Reads the given 8bit Register
-         * 
-         * @param regAddress Address of the Register
-         * @return uint8_t Value of the Register
-         */
-        uint8_t readReg8(uint8_t regAddress);
-
-        /**
-         * @brief Reads 16 Bits from the given Register 
-         * 
-         * @param regAddress Register the Read is initialized on, this will overrun if the given Register is only 8 Bits long,
-         * this behaviour is wanted. 
-         * @return uint16_t 
-         */
-        uint16_t readReg16(uint8_t regAddress);
-
-        /**
-         * @brief Reads the Given Number of bytes into the buffer starting at the given Register
-         * 
-         * @param regAddress Starting Register 
-         * @param buffer Buffer to read into
-         * @param bytesToRead The number of Bytes to Read -> multiply by 8 to get the number of Bits you are reading.
-         */
-        void readRegN(uint8_t regAddress, uint8_t buffer[], uint8_t bytesToRead);
-        
         /**
          * @brief Private Method to enable the Bias of the system
          * 
@@ -192,7 +130,62 @@ class RTD{
          */
         void enable50hz(bool mode);
 
-        void forceConfig(u_int8_t value);
+    private:
+        uint8_t config;
+        MCP23S17* mcp;
+        SPIClass* spi;
+        RTDWireMode wireMode;
+        bool autoConvertEnabled;
+        float nominalResistance;
+        float referenceResistance;
+
+        /**
+         * @brief Private Method to read the RTD Raw Value
+         * 
+         * @return uint16_t - RAW TEMP Value as an unsigned 16bit INT => NOT TEMP
+         */
+        uint16_t readRTD();
+
+        /**
+         * @brief Private Method to write Data to RTD Registers
+         * 
+         * @param regAddress Address of the Register to write to
+         * @param data Data to write at that Register
+         */
+        void writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrie);
+
+        /**
+         * @brief Reads the given 8bit Register
+         * 
+         * @param regAddress Address of the Register
+         * @return uint8_t Value of the Register
+         */
+        uint8_t readReg8(uint8_t regAddress);
+
+        /**
+         * @brief Reads 16 Bits from the given Register 
+         * 
+         * @param regAddress Register the Read is initialized on, this will overrun if the given Register is only 8 Bits long,
+         * this behaviour is wanted. 
+         * @return uint16_t 
+         */
+        uint16_t readReg16(uint8_t regAddress);
+
+        /**
+         * @brief Reads the Given Number of bytes into the buffer starting at the given Register
+         * 
+         * @param regAddress Starting Register 
+         * @param buffer Buffer to read into
+         * @param bytesToRead The number of Bytes to Read -> multiply by 8 to get the number of Bits you are reading.
+         */
+        void readRegN(uint8_t regAddress, uint8_t buffer[], uint8_t bytesToRead);
+
+        /**
+         * @brief Allows forcing of a specific config for certain usages
+         * 
+         * @param value uint value of a specific config -> Recommended to write as a binary 0bXXXXXXXX
+         */
+        void forceConfig(uint8_t value);
 };
 
 

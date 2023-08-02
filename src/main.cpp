@@ -21,24 +21,22 @@ SPIClass hspi(2);
 PortExpander portExpander(&hspi, clockPin, misoPin, mosiPin, chipSelect, address);
 RtdManager rtdManager(&portExpander);
 
-RTD rtd1(0, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
-RTD rtd2(1, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
-RTD rtd3(2, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
-RTD rtd4(3, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
+RTD rtd1(0, portExpander, PortExpanderBank::B, RTDWireMode::TWO_WIRE, nominalResistanceRTD, referenceResistanceRTD);
+RTD rtd2(1, portExpander, PortExpanderBank::B, RTDWireMode::TWO_WIRE, nominalResistanceRTD, referenceResistanceRTD);
+RTD rtd3(2, portExpander, PortExpanderBank::B, RTDWireMode::TWO_WIRE, nominalResistanceRTD, referenceResistanceRTD);
+RTD rtd4(3, portExpander, PortExpanderBank::B, RTDWireMode::TWO_WIRE, nominalResistanceRTD, referenceResistanceRTD);
 
 void setup() {
   Serial.begin(115200);
   Serial.println("Beginning SPI Test");
   hspi.setDataMode(SPI_MODE3);
+
+  rtdManager.init();
   
   rtdManager.addRTD(rtd1);
   rtdManager.addRTD(rtd2);
   rtdManager.addRTD(rtd3);
   rtdManager.addRTD(rtd4);
-
-  rtdManager.init();
-  rtdManager.setResistances(nominalResistanceRTD, referenceResistanceRTD);
-  
 
   pinMode(misoPin, INPUT_PULLUP);
   start = millis();

@@ -2,31 +2,24 @@
 #include <MCP23S17.h>
 #include <SPI.h>
 
-RTD::RTD(uint8_t pinSet, MCP23S17* mcp, GPIOBank bank, RTDWireMode mode):
-    bank(bank), wireMode(mode)
+RTD::RTD(uint8_t pin, PortExpander portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance):
+    bank(bank), wireMode(mode), pin(pin), nominalResistance(nominalResistance), referenceResistance(referenceResistance)
 {
-    this->pin = pinSet;
     config = DEFAULT_CONFIG;
-    this->mcp = mcp;
-    spi = mcp->getSPI();
-    address = pin + 64;
-    if  (bank == GPIOBank::B)
-    {
-        pin += 8;
-    }
+    spi = portExpander.getSPI();
     autoConvertEnabled = false;
 }
 
-float RTD::readTempC(float RTDnominal, float refResistor){
+float RTD::readTempC(){
     float Z1, Z2, Z3, Z4, rt, temp;
 
     auto RTDraw = static_cast<float>(readRTD());
     rt = RTDraw / 32768;
-    rt *= refResistor;
+    rt *= referenceResistance;
 
     Z1 = -RTD_A;
     Z2 = RTD_A * RTD_A - (4 * RTD_B);
-    Z3 = (4 * RTD_B) / RTDnominal;
+    Z3 = (4 * RTD_B) / nominalResistance;
     Z4 = 2 * RTD_B;
 
     temp = Z2 + (Z3 * rt);
@@ -36,7 +29,7 @@ float RTD::readTempC(float RTDnominal, float refResistor){
         return temp;
 
     // ugh.
-    rt /= RTDnominal;
+    rt /= nominalResistance;
     rt *= 100; // normalize to 100 ohm
 
     float rpoly = rt;
@@ -60,12 +53,9 @@ void RTD::rtdInit(){
     setWires(wireMode);
     enable50hz(false);
     enableBias(true);
-//    autoConvert(false);
     autoConvert(true);
     setThresholds(0, 0xFFFF);
     clearFault();
-
-    configWriteSuccess();
 }
 
 uint16_t RTD::readRTD(){
@@ -101,18 +91,10 @@ void RTD::writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrite){
         regAddress |= 0b10000000;
     }
 
-    if (bank == GPIOBank::NONE)
-    {
-        digitalWrite(pin, LOW);
-        spi->transferBytes(&regAddress, NULL, 1);
-        spi->transferBytes(&data, NULL, bytesToWrite);
-        digitalWrite(pin, HIGH);
-    } else {
-        mcp->digitalWrite(pin,LOW);
-        spi->transferBytes(&regAddress, NULL, 1);
-        spi->transferBytes(&data, NULL, bytesToWrite);
-        mcp->digitalWrite(pin, HIGH);
-    }
+    mcp->digitalWrite(pin,LOW);
+    spi->transferBytes(&regAddress, NULL, 1);
+    spi->transferBytes(&data, NULL, bytesToWrite);
+    mcp->digitalWrite(pin, HIGH);
 }
 
 uint8_t RTD::readReg8(uint8_t regAddress){
@@ -132,19 +114,10 @@ uint16_t RTD::readReg16(uint8_t regAddress){
 }
 
 void RTD::readRegN(uint8_t regAddress, uint8_t buffer[], uint8_t bytesToRead){
-    
-    if (bank == GPIOBank::NONE)
-    {
-        digitalWrite(pin, LOW);
-        spi->transferBytes(&regAddress, NULL, 1);
-        spi->transferBytes(NULL, &buffer[0], bytesToRead);
-        digitalWrite(pin, HIGH);
-    } else {
-        mcp->digitalWrite(pin, LOW);
-        spi->transferBytes(&regAddress, NULL, 1);
-        spi->transferBytes(NULL ,&buffer[0], bytesToRead);
-        mcp->digitalWrite(pin, HIGH);
-    }
+    mcp->digitalWrite(pin, LOW);
+    spi->transferBytes(&regAddress, NULL, 1);
+    spi->transferBytes(NULL ,&buffer[0], bytesToRead);
+    mcp->digitalWrite(pin, HIGH);
 }
 
 uint8_t RTD::readFault(){
@@ -203,17 +176,6 @@ void RTD::autoConvert(bool conversionMode){
     }
     
     writeReg(MAX31865_CONFIG_REG_WRITE, config, 1);
-}
-
-bool RTD::configWriteSuccess(){
-    uint8_t readConfig = readReg8(MAX31865_CONFIG_REG_READ);
-    if (readConfig == config)
-    {   
-        return true;
-    } else {
-        return false;
-    }
-    
 }
 
 void RTD::enable50hz(bool mode){
