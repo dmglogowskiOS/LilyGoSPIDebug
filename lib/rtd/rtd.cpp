@@ -207,10 +207,6 @@ void RTD::autoConvert(bool conversionMode){
 
 bool RTD::configWriteSuccess(){
     uint8_t readConfig = readReg8(MAX31865_CONFIG_REG_READ);
-    Serial.println("Read Config:");
-    Serial.println(readConfig, HEX);
-    Serial.println("Config as it should be:");
-    Serial.println(config, HEX);
     if (readConfig == config)
     {   
         return true;

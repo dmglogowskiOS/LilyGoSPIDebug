@@ -10,7 +10,8 @@ class RtdManager{
         void init();
         std::vector<float> readAll();
         void setResistances(float nominalRes, float referenceRes);
-
+        void addRTD(RTD rtd);
+        
         std::vector<RTD> m_rtdList;
         PortExpander m_portEx;
         float nominalResistance;

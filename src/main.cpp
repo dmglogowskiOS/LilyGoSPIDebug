@@ -39,10 +39,10 @@ void setup() {
     portExpander.writePort(PortExpanderBank::B, i, HIGH);
   }
 
-  rtdManager.m_rtdList[0] = rtd1;
-  rtdManager.m_rtdList[1] = rtd2;
-  rtdManager.m_rtdList[2] = rtd3;
-  rtdManager.m_rtdList[3] = rtd4;
+  rtdManager.addRTD(rtd1);
+  rtdManager.addRTD(rtd2);
+  rtdManager.addRTD(rtd3);
+  rtdManager.addRTD(rtd4);
   
   rtdManager.setResistances(nominalResistanceRTD, referenceResistanceRTD);
   rtdManager.init();
@@ -61,7 +61,8 @@ void loop() {
     {
       Serial.printf("RTD Nr %i : %f \n", i, temps[i]);
     }
- 
+    
+    Serial.println("\n");
     start = millis();
   }
 }

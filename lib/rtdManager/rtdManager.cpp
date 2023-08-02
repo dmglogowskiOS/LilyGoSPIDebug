@@ -4,7 +4,7 @@ RtdManager::RtdManager(PortExpander portExpander)
 : m_portEx(portExpander)
 {
 
-};
+}
 
 void RtdManager::init(){
     for (size_t i = 0; i < m_rtdList.size(); i++)
@@ -12,9 +12,9 @@ void RtdManager::init(){
         m_rtdList[i].rtdInit();
     }
     
-};
+}
 
-std::vector<float> RtdManager::readAll() {
+std::vector<float> RtdManager::readAll(){
     std::vector<float> temps = std::vector<float>();
     temps.resize(m_rtdList.size());
 
@@ -24,7 +24,7 @@ std::vector<float> RtdManager::readAll() {
     }
     
     return temps;
-};
+}
 
 void RtdManager::setResistances(float nominalRes, float referenceRes){
     if (nominalRes <= 0)
@@ -34,7 +34,7 @@ void RtdManager::setResistances(float nominalRes, float referenceRes){
         nominalResistance = nominalRes;
     }
 
-    if (referenceResistance <= 0)
+    if (referenceRes <= 0)
     {
         Serial.println("Reference Resistance cannot be 0 or less than 0");
     } else if (referenceRes < nominalResistance) {
@@ -42,4 +42,8 @@ void RtdManager::setResistances(float nominalRes, float referenceRes){
     } else {
         referenceResistance = referenceRes;
     }
-};
+}
+
+void RtdManager::addRTD(RTD rtd) {
+    m_rtdList.push_back(rtd);
+}
