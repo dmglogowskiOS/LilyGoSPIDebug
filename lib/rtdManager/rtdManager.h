@@ -4,8 +4,9 @@
 #include <portexpander.h>
 #include <vector>
 
-class rtdManager{
+class RtdManager{
     public:
+        RtdManager(PortExpander portExpander);
         void init();
         std::vector<float> readAll();
         void setResistances(float nominalRes, float referenceRes);

@@ -1,10 +1,20 @@
 #include <rtdManager.h>
 
-void rtdManager::init(){
+RtdManager::RtdManager(PortExpander portExpander)
+: m_portEx(portExpander)
+{
 
 };
 
-std::vector<float> rtdManager::readAll() {
+void RtdManager::init(){
+    for (size_t i = 0; i < m_rtdList.size(); i++)
+    {
+        m_rtdList[i].rtdInit();
+    }
+    
+};
+
+std::vector<float> RtdManager::readAll() {
     std::vector<float> temps = std::vector<float>();
     temps.resize(m_rtdList.size());
 
@@ -14,9 +24,9 @@ std::vector<float> rtdManager::readAll() {
     }
     
     return temps;
-}
+};
 
-void rtdManager::setResistances(float nominalRes, float referenceRes){
+void RtdManager::setResistances(float nominalRes, float referenceRes){
     if (nominalRes <= 0)
     {
         Serial.println("Nominal Resistance cannot be 0 or less than 0");
@@ -32,4 +42,4 @@ void rtdManager::setResistances(float nominalRes, float referenceRes){
     } else {
         referenceResistance = referenceRes;
     }
-}
+};

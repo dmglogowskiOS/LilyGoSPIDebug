@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "rtdManager.h"
 #include "portexpander.h"
 #include "rtd.h"
 
@@ -19,6 +20,7 @@ constexpr float referenceResistanceRTD = 4300.0f;
 
 SPIClass hspi(2);
 PortExpander portExpander(&hspi, clockPin, misoPin, mosiPin, chipSelect, address);
+RtdManager rtdManager(portExpander);
 
 RTD rtd1(0, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
 RTD rtd2(1, portExpander.getMcp(), GPIOBank::B, RTDWireMode::TWO_WIRE);
@@ -38,14 +40,14 @@ void setup() {
     portExpander.writePort(PortExpanderBank::B, i, HIGH);
   }
 
+  rtdManager.m_rtdList[0] = rtd1;
+  rtdManager.m_rtdList[1] = rtd2;
+  rtdManager.m_rtdList[2] = rtd3;
+  rtdManager.m_rtdList[3] = rtd4;
   
-  rtd1.rtdInit();
-  rtd2.rtdInit();
-  rtd3.rtdInit();
-  rtd4.rtdInit();
-  
+  rtdManager.setResistances(nominalResistanceRTD, referenceResistanceRTD);
+  rtdManager.init();
 
-  
   pinMode(misoPin, INPUT_PULLUP);
   start = millis();
 
@@ -54,14 +56,15 @@ void setup() {
 void loop() {
   if (millis() - start > 1000)
   {
-    Serial.printf("Read Number : %i \n", numReads);
-    Serial.println(rtd4.readTempC(nominalResistanceRTD, referenceResistanceRTD));
-    Serial.println(rtd4.readFault());
-    Serial.println("\n");
-    numReads++;
-    
+    std::vector<float> temps = rtdManager.readAll();
+
+    for (size_t i = 0; i < temps.size(); i++)
+    {
+      Serial.printf("RTD Nr %i : %f \n", i, temps[i]);
+    }
+
+    numReads++; 
     start = millis();
-  
   }
 }
 
