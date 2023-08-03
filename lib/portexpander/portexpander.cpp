@@ -4,6 +4,8 @@
 PortExpander::PortExpander(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address):
     mcp(spi, chipSelect, address), spi(spi)
     {
+        pinMode(testPin, OUTPUT);
+        digitalWrite(testPin, HIGH);
         spiValues[0] = clock;
         spiValues[1] = miso;
         spiValues[2] = mosi;
@@ -19,6 +21,8 @@ PortExpander::PortExpander(SPIClass *spi, int clock, int miso, int mosi, int chi
 PortExpander::PortExpander(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address, IOType bankAConfig[], IOType bankBConfig[]):
 mcp(spi, chipSelect, address), spi(spi)
 {
+    pinMode(testPin, OUTPUT);
+    digitalWrite(testPin, HIGH);
     spiValues[0] = clock;
     spiValues[1] = miso;
     spiValues[2] = mosi;
@@ -79,11 +83,15 @@ void PortExpander::setPin(PortExpanderBank bank, int8_t port, IOType type){
 void PortExpander::writePin(PortExpanderBank bank, int8_t port, int8_t value){
             if (bank == PortExpanderBank::A)
             {
+                digitalWrite(testPin, LOW);
                 mcp.digitalWrite(port, value);
+                digitalWrite(testPin, HIGH);
             } else if (bank == PortExpanderBank::B)
             {
                 port += 8;
+                digitalWrite(testPin, LOW);
                 mcp.digitalWrite(port, value);
+                digitalWrite(testPin, HIGH);
             }
         }
 

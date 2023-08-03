@@ -132,7 +132,7 @@ class RTD{
 
     private:
         uint8_t config;
-        MCP23S17* mcp;
+        PortExpander portExpander;
         SPIClass* spi;
         RTDWireMode wireMode;
         bool autoConvertEnabled;

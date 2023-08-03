@@ -5,16 +5,10 @@ IOType allOutPut[] = {IOType::OUTPUT_IO, IOType::OUTPUT_IO, IOType::OUTPUT_IO, I
 RtdManager::RtdManager(PortExpander *portExpander)
 : m_portEx(portExpander)
 {
-    
 }
 
 void RtdManager::init(){
     m_portEx->init();
-
-    for (size_t i = 0; i < 8; i++)
-    {
-        m_portEx->setAllOutputs(HIGH);
-    }
 }
 
 std::vector<float> RtdManager::readAll(){

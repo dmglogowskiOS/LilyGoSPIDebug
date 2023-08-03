@@ -9,7 +9,6 @@ constexpr int mosiPin = 15;
 constexpr int chipSelect = 4;
 constexpr int address = 0;
 
-constexpr uint8_t pin = 7+1; // This is GPIO Bank B Pin 0,
 unsigned long start;
 
 constexpr float nominalResistanceRTD = 1000.0f;

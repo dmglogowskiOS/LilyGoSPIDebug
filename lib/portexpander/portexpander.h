@@ -3,6 +3,8 @@
 #include <Arduino.h>
 #include <MCP23S17.h>
 
+constexpr uint8_t testPin = 12;
+
 enum class IOType{
     OUTPUT_IO = 0x03,
     INPUT_IO = 0x01,

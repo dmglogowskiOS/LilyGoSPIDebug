@@ -3,7 +3,7 @@
 #include <SPI.h>
 
 RTD::RTD(uint8_t pin, PortExpander portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance):
-    bank(bank), wireMode(mode), pin(pin), nominalResistance(nominalResistance), referenceResistance(referenceResistance)
+    bank(bank), wireMode(mode), pin(pin), nominalResistance(nominalResistance), referenceResistance(referenceResistance), portExpander(portExpander)
 {
     config = DEFAULT_CONFIG;
     spi = portExpander.getSPI();
@@ -14,6 +14,7 @@ float RTD::readTempC(){
     float Z1, Z2, Z3, Z4, rt, temp;
 
     auto RTDraw = static_cast<float>(readRTD());
+    Serial.printf("RTD Raw: %.2f\n", RTDraw);
     rt = RTDraw / 32768;
     rt *= referenceResistance;
 
@@ -91,10 +92,10 @@ void RTD::writeReg(uint8_t regAddress, uint8_t data, uint8_t bytesToWrite){
         regAddress |= 0b10000000;
     }
 
-    mcp->digitalWrite(pin,LOW);
+    portExpander.writePin(bank, pin, LOW);
     spi->transferBytes(&regAddress, NULL, 1);
     spi->transferBytes(&data, NULL, bytesToWrite);
-    mcp->digitalWrite(pin, HIGH);
+    portExpander.writePin(bank, pin, HIGH);
 }
 
 uint8_t RTD::readReg8(uint8_t regAddress){
@@ -114,10 +115,10 @@ uint16_t RTD::readReg16(uint8_t regAddress){
 }
 
 void RTD::readRegN(uint8_t regAddress, uint8_t buffer[], uint8_t bytesToRead){
-    mcp->digitalWrite(pin, LOW);
+    portExpander.writePin(bank, pin, LOW);
     spi->transferBytes(&regAddress, NULL, 1);
     spi->transferBytes(NULL ,&buffer[0], bytesToRead);
-    mcp->digitalWrite(pin, HIGH);
+    portExpander.writePin(bank, pin, HIGH);
 }
 
 uint8_t RTD::readFault(){
