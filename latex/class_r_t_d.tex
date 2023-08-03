@@ -1,0 +1,204 @@
+\doxysection{RTD Class Reference}
+\hypertarget{class_r_t_d}{}\label{class_r_t_d}\index{RTD@{RTD}}
+
+
+Models an \doxylink{class_r_t_d}{RTD} interfaced with via an MCP23\+S17.  
+
+
+
+
+{\ttfamily \#include $<$rtd.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_r_t_d_aba97e20aaa7eeb5749b905e524dc8137}{RTD}} (u\+\_\+int8\+\_\+t pin, \mbox{\hyperlink{class_port_expander}{Port\+Expander}} \&port\+Expander, Port\+Expander\+Bank bank, RTDWire\+Mode mode, float nominal\+Resistance, float reference\+Resistance)
+\begin{DoxyCompactList}\small\item\em Create a new \doxylink{class_r_t_d}{RTD} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_a74ae31bc9b81799722ed146c8faf2366}{rtd\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Transmits default config to the attached \doxylink{class_r_t_d}{RTD}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_r_t_d_a5d22dc2830817109ffb07f348b33753c}{read\+TempC}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current Temperature in °C as a float. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_r_t_d_acc2dbee5d8161a06e6e5758d760278d5}{read\+Fault}} ()
+\begin{DoxyCompactList}\small\item\em Readout of the Fault Register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_ae8b658e417629f0bbbf4cb898a54a9c0}{clear\+Fault}} ()
+\begin{DoxyCompactList}\small\item\em Clears the fault register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4}{set\+Wires}} (RTDWire\+Mode mode)
+\begin{DoxyCompactList}\small\item\em Allows to set the Wire\+Mode dynamically. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_af699867944eb2c250d71bdec7ae5f4aa}{enable\+Bias}} (bool bias\+Mode)
+\begin{DoxyCompactList}\small\item\em Private Method to enable the Bias of the system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_a3a3e65cbe73d96cff9dbd86400d5e689}{set\+Thresholds}} (uint16\+\_\+t lower, uint16\+\_\+t upper)
+\begin{DoxyCompactList}\small\item\em Set the Threshold Registers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_a53741255257b934592a2c3d6f0fa6144}{auto\+Convert}} (bool conversion\+Mode)
+\begin{DoxyCompactList}\small\item\em Enables to Auto Conversion Mode if set to true, disables if set to false. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_a890ec874a26c1a222214b62a7151b932}{enable50hz}} (bool mode)
+\begin{DoxyCompactList}\small\item\em Allows to set the Noise mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_r_t_d_a402a7639294ff8b49410775019300ae3}\label{class_r_t_d_a402a7639294ff8b49410775019300ae3} 
+uint8\+\_\+t {\bfseries pin}
+\item 
+\Hypertarget{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8}\label{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8} 
+Port\+Expander\+Bank {\bfseries bank}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Models an \doxylink{class_r_t_d}{RTD} interfaced with via an MCP23\+S17. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_r_t_d_aba97e20aaa7eeb5749b905e524dc8137}\label{class_r_t_d_aba97e20aaa7eeb5749b905e524dc8137} 
+\index{RTD@{RTD}!RTD@{RTD}}
+\index{RTD@{RTD}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{RTD()}{RTD()}}
+{\footnotesize\ttfamily RTD\+::\+RTD (\begin{DoxyParamCaption}\item[{u\+\_\+int8\+\_\+t}]{pin,  }\item[{\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \&}]{port\+Expander,  }\item[{Port\+Expander\+Bank}]{bank,  }\item[{RTDWire\+Mode}]{mode,  }\item[{float}]{nominal\+Resistance,  }\item[{float}]{reference\+Resistance }\end{DoxyParamCaption})}
+
+
+
+Create a new \doxylink{class_r_t_d}{RTD} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+Set} & Sets the pin used on the MCP23\+S17 \\
+\hline
+{\em mcp} & Pointer to an MCP23\+S17 Object \\
+\hline
+{\em bank} & Memory Bank, be aware, that you can only have 8 RTDs at once as they only have 3 Address Bits \\
+\hline
+{\em mode} & Wire Mode for configuration \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_t_d_a53741255257b934592a2c3d6f0fa6144}\label{class_r_t_d_a53741255257b934592a2c3d6f0fa6144} 
+\index{RTD@{RTD}!autoConvert@{autoConvert}}
+\index{autoConvert@{autoConvert}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{autoConvert()}{autoConvert()}}
+{\footnotesize\ttfamily void RTD\+::auto\+Convert (\begin{DoxyParamCaption}\item[{bool}]{conversion\+Mode }\end{DoxyParamCaption})}
+
+
+
+Enables to Auto Conversion Mode if set to true, disables if set to false. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em conversion\+Mode} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_r_t_d_ae8b658e417629f0bbbf4cb898a54a9c0}\label{class_r_t_d_ae8b658e417629f0bbbf4cb898a54a9c0} 
+\index{RTD@{RTD}!clearFault@{clearFault}}
+\index{clearFault@{clearFault}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{clearFault()}{clearFault()}}
+{\footnotesize\ttfamily void RTD\+::clear\+Fault (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the fault register. 
+
+\Hypertarget{class_r_t_d_a890ec874a26c1a222214b62a7151b932}\label{class_r_t_d_a890ec874a26c1a222214b62a7151b932} 
+\index{RTD@{RTD}!enable50hz@{enable50hz}}
+\index{enable50hz@{enable50hz}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{enable50hz()}{enable50hz()}}
+{\footnotesize\ttfamily void RTD\+::enable50hz (\begin{DoxyParamCaption}\item[{bool}]{mode }\end{DoxyParamCaption})}
+
+
+
+Allows to set the Noise mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & true 50hz filtering, false, 60hz \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_r_t_d_af699867944eb2c250d71bdec7ae5f4aa}\label{class_r_t_d_af699867944eb2c250d71bdec7ae5f4aa} 
+\index{RTD@{RTD}!enableBias@{enableBias}}
+\index{enableBias@{enableBias}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{enableBias()}{enableBias()}}
+{\footnotesize\ttfamily void RTD\+::enable\+Bias (\begin{DoxyParamCaption}\item[{bool}]{bias\+Mode }\end{DoxyParamCaption})}
+
+
+
+Private Method to enable the Bias of the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bias\+Mode} & true to Enable the bias, false to disable. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_r_t_d_acc2dbee5d8161a06e6e5758d760278d5}\label{class_r_t_d_acc2dbee5d8161a06e6e5758d760278d5} 
+\index{RTD@{RTD}!readFault@{readFault}}
+\index{readFault@{readFault}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{readFault()}{readFault()}}
+{\footnotesize\ttfamily uint8\+\_\+t RTD\+::read\+Fault (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Readout of the Fault Register. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}
+\Hypertarget{class_r_t_d_a5d22dc2830817109ffb07f348b33753c}\label{class_r_t_d_a5d22dc2830817109ffb07f348b33753c} 
+\index{RTD@{RTD}!readTempC@{readTempC}}
+\index{readTempC@{readTempC}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{readTempC()}{readTempC()}}
+{\footnotesize\ttfamily float RTD\+::read\+TempC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current Temperature in °C as a float. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\Hypertarget{class_r_t_d_a74ae31bc9b81799722ed146c8faf2366}\label{class_r_t_d_a74ae31bc9b81799722ed146c8faf2366} 
+\index{RTD@{RTD}!rtdInit@{rtdInit}}
+\index{rtdInit@{rtdInit}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{rtdInit()}{rtdInit()}}
+{\footnotesize\ttfamily void RTD\+::rtd\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Transmits default config to the attached \doxylink{class_r_t_d}{RTD}. 
+
+\Hypertarget{class_r_t_d_a3a3e65cbe73d96cff9dbd86400d5e689}\label{class_r_t_d_a3a3e65cbe73d96cff9dbd86400d5e689} 
+\index{RTD@{RTD}!setThresholds@{setThresholds}}
+\index{setThresholds@{setThresholds}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{setThresholds()}{setThresholds()}}
+{\footnotesize\ttfamily void RTD\+::set\+Thresholds (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{lower,  }\item[{uint16\+\_\+t}]{upper }\end{DoxyParamCaption})}
+
+
+
+Set the Threshold Registers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & Raw Lower Threshhold Data \\
+\hline
+{\em upper} & Raw Upper Threshold Data \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4}\label{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4} 
+\index{RTD@{RTD}!setWires@{setWires}}
+\index{setWires@{setWires}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{setWires()}{setWires()}}
+{\footnotesize\ttfamily void RTD\+::set\+Wires (\begin{DoxyParamCaption}\item[{RTDWire\+Mode}]{mode }\end{DoxyParamCaption})}
+
+
+
+Allows to set the Wire\+Mode dynamically. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & RTDWire\+Mode Enum Member -\/\texorpdfstring{$>$}{>} See RTDWire\+Mode enum class \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/rtd/rtd.\+h\item 
+lib/rtd/rtd.\+cpp\end{DoxyCompactItemize}

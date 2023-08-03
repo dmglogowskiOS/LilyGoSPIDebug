@@ -1,0 +1,74 @@
+\doxysection{Rtd\+Manager Class Reference}
+\hypertarget{class_rtd_manager}{}\label{class_rtd_manager}\index{RtdManager@{RtdManager}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_rtd_manager_a56c28cd1c92b552cf1141837416e2f4d}{Rtd\+Manager}} (\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \texorpdfstring{$\ast$}{*}port\+Expander)
+\begin{DoxyCompactList}\small\item\em Default Constructor for \doxylink{class_rtd_manager}{Rtd\+Manager}. \end{DoxyCompactList}\item 
+\Hypertarget{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0}\label{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0} 
+void {\bfseries init} ()
+\begin{DoxyCompactList}\small\item\em initializes both the \doxylink{class_port_expander}{Port\+Expander} and all attached RTDs correctly \end{DoxyCompactList}\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{class_rtd_manager_a3b720812c48512a058041f92dab3418f}{read\+All}} ()
+\begin{DoxyCompactList}\small\item\em Reads all attached RTDs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rtd_manager_a5810c802e73b3b1df488b4c6f59bc79d}{add\+RTD}} (\mbox{\hyperlink{class_r_t_d}{RTD}} rtd)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rtd_manager_a49fd5b16d4ef1a7c97a7f246fbc93b5b}\label{class_rtd_manager_a49fd5b16d4ef1a7c97a7f246fbc93b5b} 
+std\+::vector$<$ \mbox{\hyperlink{class_r_t_d}{RTD}} $>$ {\bfseries m\+\_\+rtd\+List}
+\item 
+\Hypertarget{class_rtd_manager_abf778bab6d228db4c4b749a6cca50daf}\label{class_rtd_manager_abf778bab6d228db4c4b749a6cca50daf} 
+\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+port\+Ex}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rtd_manager_a56c28cd1c92b552cf1141837416e2f4d}\label{class_rtd_manager_a56c28cd1c92b552cf1141837416e2f4d} 
+\index{RtdManager@{RtdManager}!RtdManager@{RtdManager}}
+\index{RtdManager@{RtdManager}!RtdManager@{RtdManager}}
+\doxysubsubsection{\texorpdfstring{RtdManager()}{RtdManager()}}
+{\footnotesize\ttfamily Rtd\+Manager\+::\+Rtd\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \texorpdfstring{$\ast$}{*}}]{port\+Expander }\end{DoxyParamCaption})}
+
+
+
+Default Constructor for \doxylink{class_rtd_manager}{Rtd\+Manager}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+Expander} & Pointer to a \doxylink{class_port_expander}{Port\+Expander} Object \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rtd_manager_a5810c802e73b3b1df488b4c6f59bc79d}\label{class_rtd_manager_a5810c802e73b3b1df488b4c6f59bc79d} 
+\index{RtdManager@{RtdManager}!addRTD@{addRTD}}
+\index{addRTD@{addRTD}!RtdManager@{RtdManager}}
+\doxysubsubsection{\texorpdfstring{addRTD()}{addRTD()}}
+{\footnotesize\ttfamily void Rtd\+Manager\+::add\+RTD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_r_t_d}{RTD}}}]{rtd }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rtd} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_rtd_manager_a3b720812c48512a058041f92dab3418f}\label{class_rtd_manager_a3b720812c48512a058041f92dab3418f} 
+\index{RtdManager@{RtdManager}!readAll@{readAll}}
+\index{readAll@{readAll}!RtdManager@{RtdManager}}
+\doxysubsubsection{\texorpdfstring{readAll()}{readAll()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ Rtd\+Manager\+::read\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads all attached RTDs. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$ of all read Temperatures in °C 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/rtd\+Manager/rtd\+Manager.\+h\item 
+lib/rtd\+Manager/rtd\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,102 @@
+\doxysection{rtd.\+h}
+\hypertarget{rtd_8h_source}{}\label{rtd_8h_source}\index{lib/rtd/rtd.h@{lib/rtd/rtd.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RTDH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RTDH}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SPI.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <portexpander.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Defining\ Configs}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_REG\_READ\ 0x00}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_REG\_WRITE\ 0x80}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_BIAS\ 0x80}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_MODEAUTO\ 0x40}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_MODEOFF\ 0x00}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_1SHOT\ 0x20}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_3WIRE\ 0x10}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_24WIRE\ 0x00}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_FAULTSTAT\ 0x02}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_FILT50HZ\ 0x01}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ MAX31865\_CONFIG\_FILT60HZ\ 0x00}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ DEFAULT\_CONFIG\ 0b00000001}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Defining\ Registers}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ MAX31865\_RTDMSB\_REG\ 0x01}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ MAX31865\_RTDLSB\_REG\ 0x02}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MAX31865\_HFAULTMSB\_REG\ 0x03}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ MAX31865\_HFAULTLSB\_REG\ 0x04}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ MAX31865\_LFAULTMSB\_REG\ 0x05}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ MAX31865\_LFAULTLSB\_REG\ 0x06}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ MAX31865\_FAULTSTAT\_REG\ 0x07}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ MAX31865\_FAULT\_HIGHTHRESH\ 0x80}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ MAX31865\_FAULT\_LOWTHRESH\ 0x40}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MAX31865\_FAULT\_REFINLOW\ 0x20}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ MAX31865\_FAULT\_REFINHIGH\ 0x10}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ MAX31865\_FAULT\_RTDINLOW\ 0x08}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MAX31865\_FAULT\_OVUV\ 0x04}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ RTD\_A\ 3.9083e-\/3}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ RTD\_B\ -\/5.775e-\/7}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{enum\ class}\ RTDWireMode\{}
+\DoxyCodeLine{00047\ \ \ \ \ TWO\_WIRE,}
+\DoxyCodeLine{00048\ \ \ \ \ THREE\_WIRE,}
+\DoxyCodeLine{00049\ \ \ \ \ FOUR\_WIRE}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_r_t_d}{RTD}}\{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ uint8\_t\ pin;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ PortExpanderBank\ bank;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_r_t_d}{RTD}}(u\_int8\_t\ pin,\ \mbox{\hyperlink{class_port_expander}{PortExpander}}\ \&portExpander,\ PortExpanderBank\ bank,\ RTDWireMode\ mode,\ \textcolor{keywordtype}{float}\ nominalResistance,\ \textcolor{keywordtype}{float}\ referenceResistance);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a74ae31bc9b81799722ed146c8faf2366}{rtdInit}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_r_t_d_a5d22dc2830817109ffb07f348b33753c}{readTempC}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_r_t_d_acc2dbee5d8161a06e6e5758d760278d5}{readFault}}();}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_ae8b658e417629f0bbbf4cb898a54a9c0}{clearFault}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4}{setWires}}(RTDWireMode\ mode);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_af699867944eb2c250d71bdec7ae5f4aa}{enableBias}}(\textcolor{keywordtype}{bool}\ biasMode);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a3a3e65cbe73d96cff9dbd86400d5e689}{setThresholds}}(uint16\_t\ lower,\ uint16\_t\ upper);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a53741255257b934592a2c3d6f0fa6144}{autoConvert}}(\textcolor{keywordtype}{bool}\ conversionMode);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a890ec874a26c1a222214b62a7151b932}{enable50hz}}(\textcolor{keywordtype}{bool}\ mode);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ uint8\_t\ config;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}\ \&portExpander;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ SPIClass*\ spi;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ RTDWireMode\ wireMode;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ autoConvertEnabled;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ nominalResistance;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ referenceResistance;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ uint16\_t\ readRTD();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeReg(uint8\_t\ regAddress,\ uint8\_t\ data,\ uint8\_t\ bytesToWrie);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ uint8\_t\ readReg8(uint8\_t\ regAddress);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ uint16\_t\ readReg16(uint8\_t\ regAddress);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ readRegN(uint8\_t\ regAddress,\ uint8\_t\ buffer[],\ uint8\_t\ bytesToRead);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ forceConfig(uint8\_t\ value);}
+\DoxyCodeLine{00189\ \};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

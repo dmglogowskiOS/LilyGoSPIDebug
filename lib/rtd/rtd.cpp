@@ -2,7 +2,7 @@
 #include <MCP23S17.h>
 #include <SPI.h>
 
-RTD::RTD(uint8_t pin, PortExpander portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance):
+RTD::RTD(uint8_t pin, PortExpander &portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance):
     bank(bank), wireMode(mode), pin(pin), nominalResistance(nominalResistance), referenceResistance(referenceResistance), portExpander(portExpander)
 {
     config = DEFAULT_CONFIG;
@@ -14,7 +14,6 @@ float RTD::readTempC(){
     float Z1, Z2, Z3, Z4, rt, temp;
 
     auto RTDraw = static_cast<float>(readRTD());
-    Serial.printf("RTD Raw: %.2f\n", RTDraw);
     rt = RTDraw / 32768;
     rt *= referenceResistance;
 

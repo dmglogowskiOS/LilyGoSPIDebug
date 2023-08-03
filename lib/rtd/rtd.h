@@ -66,7 +66,7 @@ class RTD{
          * @param bank Memory Bank, be aware, that you can only have 8 RTDs at once as they only have 3 Address Bits
          * @param mode Wire Mode for configuration
          */
-        RTD(u_int8_t pin, PortExpander portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance);
+        RTD(u_int8_t pin, PortExpander &portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance);
 
         /**
          * @brief Transmits default config to the attached RTD
@@ -132,7 +132,7 @@ class RTD{
 
     private:
         uint8_t config;
-        PortExpander portExpander;
+        PortExpander &portExpander;
         SPIClass* spi;
         RTDWireMode wireMode;
         bool autoConvertEnabled;

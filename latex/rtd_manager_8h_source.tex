@@ -1,0 +1,27 @@
+\doxysection{rtd\+Manager.\+h}
+\hypertarget{rtd_manager_8h_source}{}\label{rtd_manager_8h_source}\index{lib/rtdManager/rtdManager.h@{lib/rtdManager/rtdManager.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RTDMANAGERH}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RTDMANAGERH}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <rtd.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <portexpander.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rtd_manager}{RtdManager}}\{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_rtd_manager}{RtdManager}}(\mbox{\hyperlink{class_port_expander}{PortExpander}}\ *portExpander);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0}{init}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{class_rtd_manager_a3b720812c48512a058041f92dab3418f}{readAll}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_rtd_manager_a5810c802e73b3b1df488b4c6f59bc79d}{addRTD}}(\mbox{\hyperlink{class_r_t_d}{RTD}}\ rtd);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::vector<RTD>\ m\_rtdList;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}\ *m\_portEx;}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
