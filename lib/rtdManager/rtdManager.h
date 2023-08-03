@@ -4,6 +4,9 @@
 #include <portexpander.h>
 #include <vector>
 
+/**
+ * @brief Class encapsulating multiple RTDs
+ */
 class RtdManager{
     public:
         /**

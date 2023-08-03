@@ -9,43 +9,43 @@
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \textcolor{keyword}{constexpr}\ uint8\_t\ testPin\ =\ 12;}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{enum\ class}\ IOType\{}
-\DoxyCodeLine{00009\ \ \ \ \ OUTPUT\_IO\ =\ 0x03,}
-\DoxyCodeLine{00010\ \ \ \ \ INPUT\_IO\ =\ 0x01,}
-\DoxyCodeLine{00011\ \ \ \ \ INPUT\_PULLUP\_IO\ =\ 0x05,}
-\DoxyCodeLine{00012\ \};}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{enum\ class}\ PortExpanderBank\{}
-\DoxyCodeLine{00015\ \ \ \ \ A,}
-\DoxyCodeLine{00016\ \ \ \ \ B}
-\DoxyCodeLine{00017\ \};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_port_expander}{PortExpander}}\{}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *spi,\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ chipSelect,\ uint8\_t\ address);}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *spi,\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ chipSelect,\ uint8\_t\ address,\ IOType\ bankAConfig[],\ IOType\ bankBConfig[]);}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_aad5fe3831686d98459302081ca7089f7}{init}}();}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a9864eb9c53c2c97675b972cef3120607}{setPin}}(PortExpanderBank\ bank,\ int8\_t\ port,\ IOType\ type);}
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum\ class}\ IOType\{}
+\DoxyCodeLine{00012\ \ \ \ \ OUTPUT\_IO\ =\ 0x03,}
+\DoxyCodeLine{00013\ \ \ \ \ INPUT\_IO\ =\ 0x01,}
+\DoxyCodeLine{00014\ \ \ \ \ INPUT\_PULLUP\_IO\ =\ 0x05,}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{enum\ class}\ PortExpanderBank\{}
+\DoxyCodeLine{00021\ \ \ \ \ A,}
+\DoxyCodeLine{00022\ \ \ \ \ B}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_port_expander}{PortExpander}}\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *spi,\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ chipSelect,\ uint8\_t\ address);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *spi,\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ chipSelect,\ uint8\_t\ address,\ IOType\ bankAConfig[],\ IOType\ bankBConfig[]);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_aad5fe3831686d98459302081ca7089f7}{init}}();}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4869ab53ba7c8af38a7e0ed4717a3137}{writePin}}(PortExpanderBank\ bank,\ int8\_t\ port,\ int8\_t\ value);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a9864eb9c53c2c97675b972cef3120607}{setPin}}(PortExpanderBank\ bank,\ int8\_t\ port,\ IOType\ type);}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4dabc741af496ce535563a9ba2c91483}{setIOConfigs}}(IOType\ bankAConfig[],\ IOType\ bankBConfig[]);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a2fb6d727ce760d53a0b450adc44f9d90}{setAllOutputs}}(\textcolor{keywordtype}{int}\ value);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ SPIClass*\ getSPI();}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ SPIClass\ *spi;}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ MCP23S17\ mcp;}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ IOType\ bankA[8];}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ IOType\ bankB[8];}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ spiValues[4];}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \};}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4869ab53ba7c8af38a7e0ed4717a3137}{writePin}}(PortExpanderBank\ bank,\ int8\_t\ port,\ int8\_t\ value);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4dabc741af496ce535563a9ba2c91483}{setIOConfigs}}(IOType\ bankAConfig[],\ IOType\ bankBConfig[]);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a2fb6d727ce760d53a0b450adc44f9d90}{setAllOutputs}}(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ SPIClass*\ getSPI();}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ SPIClass\ *spi;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ MCP23S17\ mcp;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ IOType\ bankA[8];}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ IOType\ bankB[8];}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ spiValues[4];}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

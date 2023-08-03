@@ -5,17 +5,26 @@
 
 constexpr uint8_t testPin = 12;
 
+/**
+ * @brief Models the operating mode of the various Pin
+ */
 enum class IOType{
     OUTPUT_IO = 0x03,
     INPUT_IO = 0x01,
     INPUT_PULLUP_IO = 0x05,
 };
 
+/**
+ * @brief Models the two GPIO Banks the pins are on
+ */
 enum class PortExpanderBank{
     A,
     B
 };
 
+/**
+ * @brief Encapsulates the MCP23S17 library in a more readable manner
+ */
 class PortExpander{
     public:
         /**

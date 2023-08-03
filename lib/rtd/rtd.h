@@ -50,7 +50,7 @@ enum class RTDWireMode{
 };
 
 /**
- * @brief Models an RTD interfaced with via an MCP23S17
+ * @brief Models an RTD MAX31865 interfaced with using chip generation from an MCP23S17
  * 
  */
 class RTD{
