@@ -3,8 +3,6 @@
 #include <Arduino.h>
 #include <MCP23S17.h>
 
-constexpr uint8_t testPin = 12;
-
 /**
  * @brief Models the operating mode of the various Pin
  */
