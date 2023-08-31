@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['portexpander_0',['PortExpander',['../class_port_expander.html',1,'PortExpander'],['../class_port_expander.html#a405fdc634ff3fe94cb9d9d673758c49c',1,'PortExpander::PortExpander(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address)'],['../class_port_expander.html#a548524d5ac0a7cf2cecab8b181d464a1',1,'PortExpander::PortExpander(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address, IOType bankAConfig[], IOType bankBConfig[])']]]
+  ['enable50hz_0',['enable50hz',['../class_r_t_d.html#a890ec874a26c1a222214b62a7151b932',1,'RTD']]],
+  ['enablebias_1',['enableBias',['../class_r_t_d.html#af699867944eb2c250d71bdec7ae5f4aa',1,'RTD']]]
 ];

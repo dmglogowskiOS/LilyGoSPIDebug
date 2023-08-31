@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('portexpander_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,70 +88,82 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_22860ef819aa623e013316c0d014c6ce.html">portexpander</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">portexpander.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PORTEXPANDER</span></div>
+<a href="portexpander_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PORTEXPANDER</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PORTEXPANDER</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;MCP23S17.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">constexpr</span> uint8_t testPin = 12;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">enum class</span> IOType{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    OUTPUT_IO = 0x03,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    INPUT_IO = 0x01,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    INPUT_PULLUP_IO = 0x05,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">enum class</span> PortExpanderBank{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    A,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    B</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_port_expander.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="class_port_expander.html">PortExpander</a>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_class" href="class_port_expander.html">PortExpander</a>(SPIClass *spi, <span class="keywordtype">int</span> clock, <span class="keywordtype">int</span> miso, <span class="keywordtype">int</span> mosi, <span class="keywordtype">int</span> chipSelect, uint8_t address);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_class" href="class_port_expander.html">PortExpander</a>(SPIClass *spi, <span class="keywordtype">int</span> clock, <span class="keywordtype">int</span> miso, <span class="keywordtype">int</span> mosi, <span class="keywordtype">int</span> chipSelect, uint8_t address, IOType bankAConfig[], IOType bankBConfig[]);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#aad5fe3831686d98459302081ca7089f7">init</a>();</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">setPin</a>(PortExpanderBank bank, int8_t port, IOType type);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">writePin</a>(PortExpanderBank bank, int8_t port, int8_t value);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">setIOConfigs</a>(IOType bankAConfig[], IOType bankBConfig[]);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">setAllOutputs</a>(<span class="keywordtype">int</span> value);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        SPIClass* getSPI();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        SPIClass *spi;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        MCP23S17 mcp;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        IOType bankA[8];</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        IOType bankB[8];</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordtype">int</span> spiValues[4];</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">    9</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_enumvalue" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507acccb792a49813a09ba8bad95684c874a">OUTPUT_IO</a> = 0x03,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_enumvalue" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507a055392966e27e66d3410d56dcb88cf4e">INPUT_IO</a> = 0x01,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_enumvalue" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507a3164eaaf5bc567825e63c182cb86ee42">INPUT_PULLUP_IO</a> = 0x05,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>};</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">   18</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2aa7fc56270e7a70fa81a5935b72eacbe29">A</a>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571">B</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_port_expander.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="class_port_expander.html">PortExpander</a>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_class" href="class_port_expander.html">PortExpander</a>(SPIClass *<a class="code hl_variable" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">spi</a>, <span class="keywordtype">int</span> clock, <span class="keywordtype">int</span> miso, <span class="keywordtype">int</span> mosi, <span class="keywordtype">int</span> <a class="code hl_variable" href="main_8cpp.html#a805f5b4df17a8d894318a694528eab73">chipSelect</a>, uint8_t <a class="code hl_variable" href="main_8cpp.html#a7a17dd063f1ac798af20139028a0d816">address</a>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_class" href="class_port_expander.html">PortExpander</a>(SPIClass *<a class="code hl_variable" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">spi</a>, <span class="keywordtype">int</span> clock, <span class="keywordtype">int</span> miso, <span class="keywordtype">int</span> mosi, <span class="keywordtype">int</span> <a class="code hl_variable" href="main_8cpp.html#a805f5b4df17a8d894318a694528eab73">chipSelect</a>, uint8_t <a class="code hl_variable" href="main_8cpp.html#a7a17dd063f1ac798af20139028a0d816">address</a>, <a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankAConfig[], <a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankBConfig[]);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#aad5fe3831686d98459302081ca7089f7">init</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">setPin</a>(<a class="code hl_enumeration" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a> bank, int8_t port, <a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> type);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">writePin</a>(<a class="code hl_enumeration" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a> bank, int8_t port, int8_t value);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">setIOConfigs</a>(<a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankAConfig[], <a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankBConfig[]);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">setAllOutputs</a>(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        SPIClass* <a class="code hl_function" href="class_port_expander.html#afc25eeb856f8565cd8147baa310193c9">getSPI</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">   96</a></span>        SPIClass *<a class="code hl_variable" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">spi</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_port_expander.html#a3fa041ca20136065ad06e2d45ef49f3f">   97</a></span>        MCP23S17 <a class="code hl_variable" href="class_port_expander.html#a3fa041ca20136065ad06e2d45ef49f3f">mcp</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="class_port_expander.html#a54640ae8c5c207d10e4070cecb3e1e95">   98</a></span>        <a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> <a class="code hl_variable" href="class_port_expander.html#a54640ae8c5c207d10e4070cecb3e1e95">bankA</a>[8];</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="class_port_expander.html#afeeeea74d1aaa9b8278d5e6c10f23e03">   99</a></span>        <a class="code hl_enumeration" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> <a class="code hl_variable" href="class_port_expander.html#afeeeea74d1aaa9b8278d5e6c10f23e03">bankB</a>[8];</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="class_port_expander.html#a7c25220ce8a29023a07f5bcd3edbbcd6">  100</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="class_port_expander.html#a7c25220ce8a29023a07f5bcd3edbbcd6">spiValues</a>[4];</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>};</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>};</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_port_expander_html"><div class="ttname"><a href="class_port_expander.html">PortExpander</a></div><div class="ttdoc">Encapsulates the MCP23S17 library in a more readable manner.</div><div class="ttdef"><b>Definition</b> portexpander.h:28</div></div>
-<div class="ttc" id="aclass_port_expander_html_a2fb6d727ce760d53a0b450adc44f9d90"><div class="ttname"><a href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">PortExpander::setAllOutputs</a></div><div class="ttdeci">void setAllOutputs(int value)</div><div class="ttdoc">Set all Output Pins to the given Value.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:98</div></div>
-<div class="ttc" id="aclass_port_expander_html_a4869ab53ba7c8af38a7e0ed4717a3137"><div class="ttname"><a href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">PortExpander::writePin</a></div><div class="ttdeci">void writePin(PortExpanderBank bank, int8_t port, int8_t value)</div><div class="ttdoc">Writes a given value to a given Port on a bank.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:83</div></div>
-<div class="ttc" id="aclass_port_expander_html_a4dabc741af496ce535563a9ba2c91483"><div class="ttname"><a href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">PortExpander::setIOConfigs</a></div><div class="ttdeci">void setIOConfigs(IOType bankAConfig[], IOType bankBConfig[])</div><div class="ttdoc">allows to set both GPIOBanks via the given Arrays</div><div class="ttdef"><b>Definition</b> portexpander.cpp:112</div></div>
-<div class="ttc" id="aclass_port_expander_html_a9864eb9c53c2c97675b972cef3120607"><div class="ttname"><a href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">PortExpander::setPin</a></div><div class="ttdeci">void setPin(PortExpanderBank bank, int8_t port, IOType type)</div><div class="ttdoc">Set the Given port on a bank to a given type.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:49</div></div>
-<div class="ttc" id="aclass_port_expander_html_aad5fe3831686d98459302081ca7089f7"><div class="ttname"><a href="class_port_expander.html#aad5fe3831686d98459302081ca7089f7">PortExpander::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initialization Method for the PortExpander.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:39</div></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_port_expander_html"><div class="ttname"><a href="class_port_expander.html">PortExpander</a></div><div class="ttdoc">Encapsulates the MCP23S17 library in a more readable manner.</div><div class="ttdef"><b>Definition</b> portexpander.h:26</div></div>
+<div class="ttc" id="aclass_port_expander_html_a2fb6d727ce760d53a0b450adc44f9d90"><div class="ttname"><a href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">PortExpander::setAllOutputs</a></div><div class="ttdeci">void setAllOutputs(int value)</div><div class="ttdoc">Set all Output Pins to the given Value.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:90</div></div>
+<div class="ttc" id="aclass_port_expander_html_a3fa041ca20136065ad06e2d45ef49f3f"><div class="ttname"><a href="class_port_expander.html#a3fa041ca20136065ad06e2d45ef49f3f">PortExpander::mcp</a></div><div class="ttdeci">MCP23S17 mcp</div><div class="ttdef"><b>Definition</b> portexpander.h:97</div></div>
+<div class="ttc" id="aclass_port_expander_html_a4869ab53ba7c8af38a7e0ed4717a3137"><div class="ttname"><a href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">PortExpander::writePin</a></div><div class="ttdeci">void writePin(PortExpanderBank bank, int8_t port, int8_t value)</div><div class="ttdoc">Writes a given value to a given Port on a bank.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:79</div></div>
+<div class="ttc" id="aclass_port_expander_html_a4dabc741af496ce535563a9ba2c91483"><div class="ttname"><a href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">PortExpander::setIOConfigs</a></div><div class="ttdeci">void setIOConfigs(IOType bankAConfig[], IOType bankBConfig[])</div><div class="ttdoc">allows to set both GPIOBanks via the given Arrays</div><div class="ttdef"><b>Definition</b> portexpander.cpp:104</div></div>
+<div class="ttc" id="aclass_port_expander_html_a54640ae8c5c207d10e4070cecb3e1e95"><div class="ttname"><a href="class_port_expander.html#a54640ae8c5c207d10e4070cecb3e1e95">PortExpander::bankA</a></div><div class="ttdeci">IOType bankA[8]</div><div class="ttdef"><b>Definition</b> portexpander.h:98</div></div>
+<div class="ttc" id="aclass_port_expander_html_a7c25220ce8a29023a07f5bcd3edbbcd6"><div class="ttname"><a href="class_port_expander.html#a7c25220ce8a29023a07f5bcd3edbbcd6">PortExpander::spiValues</a></div><div class="ttdeci">int spiValues[4]</div><div class="ttdef"><b>Definition</b> portexpander.h:100</div></div>
+<div class="ttc" id="aclass_port_expander_html_a9864eb9c53c2c97675b972cef3120607"><div class="ttname"><a href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">PortExpander::setPin</a></div><div class="ttdeci">void setPin(PortExpanderBank bank, int8_t port, IOType type)</div><div class="ttdoc">Set the Given port on a bank to a given type.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:45</div></div>
+<div class="ttc" id="aclass_port_expander_html_aad5fe3831686d98459302081ca7089f7"><div class="ttname"><a href="class_port_expander.html#aad5fe3831686d98459302081ca7089f7">PortExpander::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initialization Method for the PortExpander.</div><div class="ttdef"><b>Definition</b> portexpander.cpp:35</div></div>
+<div class="ttc" id="aclass_port_expander_html_ae87497a611b7ae0b83d75da5478c2a1b"><div class="ttname"><a href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">PortExpander::spi</a></div><div class="ttdeci">SPIClass * spi</div><div class="ttdef"><b>Definition</b> portexpander.h:96</div></div>
+<div class="ttc" id="aclass_port_expander_html_afc25eeb856f8565cd8147baa310193c9"><div class="ttname"><a href="class_port_expander.html#afc25eeb856f8565cd8147baa310193c9">PortExpander::getSPI</a></div><div class="ttdeci">SPIClass * getSPI()</div><div class="ttdef"><b>Definition</b> portexpander.cpp:115</div></div>
+<div class="ttc" id="aclass_port_expander_html_afeeeea74d1aaa9b8278d5e6c10f23e03"><div class="ttname"><a href="class_port_expander.html#afeeeea74d1aaa9b8278d5e6c10f23e03">PortExpander::bankB</a></div><div class="ttdeci">IOType bankB[8]</div><div class="ttdef"><b>Definition</b> portexpander.h:99</div></div>
+<div class="ttc" id="amain_8cpp_html_a7a17dd063f1ac798af20139028a0d816"><div class="ttname"><a href="main_8cpp.html#a7a17dd063f1ac798af20139028a0d816">address</a></div><div class="ttdeci">constexpr int address</div><div class="ttdef"><b>Definition</b> main.cpp:10</div></div>
+<div class="ttc" id="amain_8cpp_html_a805f5b4df17a8d894318a694528eab73"><div class="ttname"><a href="main_8cpp.html#a805f5b4df17a8d894318a694528eab73">chipSelect</a></div><div class="ttdeci">constexpr int chipSelect</div><div class="ttdef"><b>Definition</b> main.cpp:9</div></div>
+<div class="ttc" id="aportexpander_8h_html_a2634dc8f796d724e921dc6a0edb43507"><div class="ttname"><a href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a></div><div class="ttdeci">IOType</div><div class="ttdoc">Models the operating mode of the various Pin.</div><div class="ttdef"><b>Definition</b> portexpander.h:9</div></div>
+<div class="ttc" id="aportexpander_8h_html_a2634dc8f796d724e921dc6a0edb43507a055392966e27e66d3410d56dcb88cf4e"><div class="ttname"><a href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507a055392966e27e66d3410d56dcb88cf4e">IOType::INPUT_IO</a></div><div class="ttdeci">@ INPUT_IO</div></div>
+<div class="ttc" id="aportexpander_8h_html_a2634dc8f796d724e921dc6a0edb43507a3164eaaf5bc567825e63c182cb86ee42"><div class="ttname"><a href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507a3164eaaf5bc567825e63c182cb86ee42">IOType::INPUT_PULLUP_IO</a></div><div class="ttdeci">@ INPUT_PULLUP_IO</div></div>
+<div class="ttc" id="aportexpander_8h_html_a2634dc8f796d724e921dc6a0edb43507acccb792a49813a09ba8bad95684c874a"><div class="ttname"><a href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507acccb792a49813a09ba8bad95684c874a">IOType::OUTPUT_IO</a></div><div class="ttdeci">@ OUTPUT_IO</div></div>
+<div class="ttc" id="aportexpander_8h_html_a9791be02a0b167469bc72bfffe202f2a"><div class="ttname"><a href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a></div><div class="ttdeci">PortExpanderBank</div><div class="ttdoc">Models the two GPIO Banks the pins are on.</div><div class="ttdef"><b>Definition</b> portexpander.h:18</div></div>
+<div class="ttc" id="aportexpander_8h_html_a9791be02a0b167469bc72bfffe202f2aa7fc56270e7a70fa81a5935b72eacbe29"><div class="ttname"><a href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2aa7fc56270e7a70fa81a5935b72eacbe29">PortExpanderBank::A</a></div><div class="ttdeci">@ A</div></div>
+<div class="ttc" id="aportexpander_8h_html_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571"><div class="ttname"><a href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571">PortExpanderBank::B</a></div><div class="ttdeci">@ B</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_22860ef819aa623e013316c0d014c6ce.html">portexpander</a></li><li class="navelem"><a class="el" href="portexpander_8h.html">portexpander.h</a></li>
+    <li class="footer">Generated on Thu Aug 31 2023 08:29:58 for LilyGo RTD Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
 </body>
 </html>

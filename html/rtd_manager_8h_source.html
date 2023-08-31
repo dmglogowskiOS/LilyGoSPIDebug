@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('rtd_manager_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,24 +88,19 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_48b357b5a337b26eb8db694265bd1aa7.html">rtdManager</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">rtdManager.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RTDMANAGERH</span></div>
+<a href="rtd_manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef RTDMANAGERH</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define RTDMANAGERH</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;rtd.h&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;portexpander.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;<a class="code" href="rtd_8h.html">rtd.h</a>&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="portexpander_8h.html">portexpander.h</a>&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_rtd_manager.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_rtd_manager.html">RtdManager</a>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_class" href="class_rtd_manager.html">RtdManager</a>(<a class="code hl_class" href="class_port_expander.html">PortExpander</a> *portExpander);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <a class="code hl_class" href="class_rtd_manager.html">RtdManager</a>(<a class="code hl_class" href="class_port_expander.html">PortExpander</a> *<a class="code hl_variable" href="main_8cpp.html#a697ef55e1c566e6d10b953d0bc8b997e">portExpander</a>);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_rtd_manager.html#ac625ea87d8fc7c1c332f36a9e7a905f0">init</a>();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
@@ -92,21 +108,30 @@ $(function() {
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_rtd_manager.html#a5810c802e73b3b1df488b4c6f59bc79d">addRTD</a>(<a class="code hl_class" href="class_r_t_d.html">RTD</a> rtd);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        std::vector&lt;RTD&gt; m_rtdList;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <a class="code hl_class" href="class_port_expander.html">PortExpander</a> *m_portEx;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_rtd_manager.html#a49fd5b16d4ef1a7c97a7f246fbc93b5b">   38</a></span>        std::vector&lt;RTD&gt; <a class="code hl_variable" href="class_rtd_manager.html#a49fd5b16d4ef1a7c97a7f246fbc93b5b">m_rtdList</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_rtd_manager.html#abf778bab6d228db4c4b749a6cca50daf">   39</a></span>        <a class="code hl_class" href="class_port_expander.html">PortExpander</a> *<a class="code hl_variable" href="class_rtd_manager.html#abf778bab6d228db4c4b749a6cca50daf">m_portEx</a>;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_port_expander_html"><div class="ttname"><a href="class_port_expander.html">PortExpander</a></div><div class="ttdoc">Encapsulates the MCP23S17 library in a more readable manner.</div><div class="ttdef"><b>Definition</b> portexpander.h:28</div></div>
+<div class="ttc" id="aclass_port_expander_html"><div class="ttname"><a href="class_port_expander.html">PortExpander</a></div><div class="ttdoc">Encapsulates the MCP23S17 library in a more readable manner.</div><div class="ttdef"><b>Definition</b> portexpander.h:26</div></div>
 <div class="ttc" id="aclass_r_t_d_html"><div class="ttname"><a href="class_r_t_d.html">RTD</a></div><div class="ttdoc">Models an RTD MAX31865 interfaced with using chip generation from an MCP23S17.</div><div class="ttdef"><b>Definition</b> rtd.h:56</div></div>
 <div class="ttc" id="aclass_rtd_manager_html"><div class="ttname"><a href="class_rtd_manager.html">RtdManager</a></div><div class="ttdoc">Class encapsulating multiple RTDs.</div><div class="ttdef"><b>Definition</b> rtdManager.h:10</div></div>
 <div class="ttc" id="aclass_rtd_manager_html_a3b720812c48512a058041f92dab3418f"><div class="ttname"><a href="class_rtd_manager.html#a3b720812c48512a058041f92dab3418f">RtdManager::readAll</a></div><div class="ttdeci">std::vector&lt; float &gt; readAll()</div><div class="ttdoc">Reads all attached RTDs.</div><div class="ttdef"><b>Definition</b> rtdManager.cpp:14</div></div>
+<div class="ttc" id="aclass_rtd_manager_html_a49fd5b16d4ef1a7c97a7f246fbc93b5b"><div class="ttname"><a href="class_rtd_manager.html#a49fd5b16d4ef1a7c97a7f246fbc93b5b">RtdManager::m_rtdList</a></div><div class="ttdeci">std::vector&lt; RTD &gt; m_rtdList</div><div class="ttdef"><b>Definition</b> rtdManager.h:38</div></div>
 <div class="ttc" id="aclass_rtd_manager_html_a5810c802e73b3b1df488b4c6f59bc79d"><div class="ttname"><a href="class_rtd_manager.html#a5810c802e73b3b1df488b4c6f59bc79d">RtdManager::addRTD</a></div><div class="ttdeci">void addRTD(RTD rtd)</div><div class="ttdef"><b>Definition</b> rtdManager.cpp:26</div></div>
+<div class="ttc" id="aclass_rtd_manager_html_abf778bab6d228db4c4b749a6cca50daf"><div class="ttname"><a href="class_rtd_manager.html#abf778bab6d228db4c4b749a6cca50daf">RtdManager::m_portEx</a></div><div class="ttdeci">PortExpander * m_portEx</div><div class="ttdef"><b>Definition</b> rtdManager.h:39</div></div>
 <div class="ttc" id="aclass_rtd_manager_html_ac625ea87d8fc7c1c332f36a9e7a905f0"><div class="ttname"><a href="class_rtd_manager.html#ac625ea87d8fc7c1c332f36a9e7a905f0">RtdManager::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">initializes both the PortExpander and all attached RTDs correctly</div><div class="ttdef"><b>Definition</b> rtdManager.cpp:10</div></div>
+<div class="ttc" id="amain_8cpp_html_a697ef55e1c566e6d10b953d0bc8b997e"><div class="ttname"><a href="main_8cpp.html#a697ef55e1c566e6d10b953d0bc8b997e">portExpander</a></div><div class="ttdeci">RtdManager rtdManager &amp; portExpander</div><div class="ttdef"><b>Definition</b> main.cpp:21</div></div>
+<div class="ttc" id="aportexpander_8h_html"><div class="ttname"><a href="portexpander_8h.html">portexpander.h</a></div></div>
+<div class="ttc" id="artd_8h_html"><div class="ttname"><a href="rtd_8h.html">rtd.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html">lib</a></li><li class="navelem"><a class="el" href="dir_48b357b5a337b26eb8db694265bd1aa7.html">rtdManager</a></li><li class="navelem"><a class="el" href="rtd_manager_8h.html">rtdManager.h</a></li>
+    <li class="footer">Generated on Thu Aug 31 2023 08:29:58 for LilyGo RTD Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
 </body>
 </html>

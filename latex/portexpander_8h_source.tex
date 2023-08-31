@@ -1,51 +1,49 @@
 \doxysection{portexpander.\+h}
 \hypertarget{portexpander_8h_source}{}\label{portexpander_8h_source}\index{lib/portexpander/portexpander.h@{lib/portexpander/portexpander.h}}
-
+\mbox{\hyperlink{portexpander_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PORTEXPANDER}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PORTEXPANDER}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <MCP23S17.h>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{constexpr}\ uint8\_t\ testPin\ =\ 12;}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{enum\ class}\ IOType\{}
-\DoxyCodeLine{00012\ \ \ \ \ OUTPUT\_IO\ =\ 0x03,}
-\DoxyCodeLine{00013\ \ \ \ \ INPUT\_IO\ =\ 0x01,}
-\DoxyCodeLine{00014\ \ \ \ \ INPUT\_PULLUP\_IO\ =\ 0x05,}
-\DoxyCodeLine{00015\ \};}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{enum\ class}\ PortExpanderBank\{}
-\DoxyCodeLine{00021\ \ \ \ \ A,}
-\DoxyCodeLine{00022\ \ \ \ \ B}
-\DoxyCodeLine{00023\ \};}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_port_expander}{PortExpander}}\{}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *spi,\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ chipSelect,\ uint8\_t\ address);}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *spi,\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ chipSelect,\ uint8\_t\ address,\ IOType\ bankAConfig[],\ IOType\ bankBConfig[]);}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_aad5fe3831686d98459302081ca7089f7}{init}}();}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a9864eb9c53c2c97675b972cef3120607}{setPin}}(PortExpanderBank\ bank,\ int8\_t\ port,\ IOType\ type);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4869ab53ba7c8af38a7e0ed4717a3137}{writePin}}(PortExpanderBank\ bank,\ int8\_t\ port,\ int8\_t\ value);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4dabc741af496ce535563a9ba2c91483}{setIOConfigs}}(IOType\ bankAConfig[],\ IOType\ bankBConfig[]);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a2fb6d727ce760d53a0b450adc44f9d90}{setAllOutputs}}(\textcolor{keywordtype}{int}\ value);}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ SPIClass*\ getSPI();}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ SPIClass\ *spi;}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ MCP23S17\ mcp;}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ IOType\ bankA[8];}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ IOType\ bankB[8];}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ spiValues[4];}
+\DoxyCodeLine{00009\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\{}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507acccb792a49813a09ba8bad95684c874a}{OUTPUT\_IO}}\ =\ 0x03,}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a055392966e27e66d3410d56dcb88cf4e}{INPUT\_IO}}\ =\ 0x01,}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a3164eaaf5bc567825e63c182cb86ee42}{INPUT\_PULLUP\_IO}}\ =\ 0x05,}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{PortExpanderBank}}\{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa7fc56270e7a70fa81a5935b72eacbe29}{A}},}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{B}}}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_port_expander}{PortExpander}}\{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *\mbox{\hyperlink{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b}{spi}},\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_a805f5b4df17a8d894318a694528eab73}{chipSelect}},\ uint8\_t\ \mbox{\hyperlink{main_8cpp_a7a17dd063f1ac798af20139028a0d816}{address}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}(SPIClass\ *\mbox{\hyperlink{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b}{spi}},\ \textcolor{keywordtype}{int}\ clock,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_a805f5b4df17a8d894318a694528eab73}{chipSelect}},\ uint8\_t\ \mbox{\hyperlink{main_8cpp_a7a17dd063f1ac798af20139028a0d816}{address}},\ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ bankAConfig[],\ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ bankBConfig[]);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_aad5fe3831686d98459302081ca7089f7}{init}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a9864eb9c53c2c97675b972cef3120607}{setPin}}(\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{PortExpanderBank}}\ bank,\ int8\_t\ port,\ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ type);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4869ab53ba7c8af38a7e0ed4717a3137}{writePin}}(\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{PortExpanderBank}}\ bank,\ int8\_t\ port,\ int8\_t\ value);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a4dabc741af496ce535563a9ba2c91483}{setIOConfigs}}(\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ bankAConfig[],\ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ bankBConfig[]);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_port_expander_a2fb6d727ce760d53a0b450adc44f9d90}{setAllOutputs}}(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ SPIClass*\ \mbox{\hyperlink{class_port_expander_afc25eeb856f8565cd8147baa310193c9}{getSPI}}();}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ SPIClass\ *\mbox{\hyperlink{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b}{spi}};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ MCP23S17\ \mbox{\hyperlink{class_port_expander_a3fa041ca20136065ad06e2d45ef49f3f}{mcp}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ \mbox{\hyperlink{class_port_expander_a54640ae8c5c207d10e4070cecb3e1e95}{bankA}}[8];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ \mbox{\hyperlink{class_port_expander_afeeeea74d1aaa9b8278d5e6c10f23e03}{bankB}}[8];}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_port_expander_a7c25220ce8a29023a07f5bcd3edbbcd6}{spiValues}}[4];}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \};}
 \DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \};}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

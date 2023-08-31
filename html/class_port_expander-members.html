@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_port_expander.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,7 +88,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">PortExpander Member List</div></div>
 </div><!--header-->
@@ -75,18 +95,26 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="class_port_expander.html">PortExpander</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getSPI</b>() (defined in <a class="el" href="class_port_expander.html">PortExpander</a>)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a54640ae8c5c207d10e4070cecb3e1e95">bankA</a></td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#afeeeea74d1aaa9b8278d5e6c10f23e03">bankB</a></td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#afc25eeb856f8565cd8147baa310193c9">getSPI</a>()</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#aad5fe3831686d98459302081ca7089f7">init</a>()</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a405fdc634ff3fe94cb9d9d673758c49c">PortExpander</a>(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#a548524d5ac0a7cf2cecab8b181d464a1">PortExpander</a>(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address, IOType bankAConfig[], IOType bankBConfig[])</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">setAllOutputs</a>(int value)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">setIOConfigs</a>(IOType bankAConfig[], IOType bankBConfig[])</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">setPin</a>(PortExpanderBank bank, int8_t port, IOType type)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">writePin</a>(PortExpanderBank bank, int8_t port, int8_t value)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a3fa041ca20136065ad06e2d45ef49f3f">mcp</a></td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#a405fdc634ff3fe94cb9d9d673758c49c">PortExpander</a>(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a548524d5ac0a7cf2cecab8b181d464a1">PortExpander</a>(SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address, IOType bankAConfig[], IOType bankBConfig[])</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">setAllOutputs</a>(int value)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">setIOConfigs</a>(IOType bankAConfig[], IOType bankBConfig[])</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">setPin</a>(PortExpanderBank bank, int8_t port, IOType type)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">spi</a></td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_port_expander.html#a7c25220ce8a29023a07f5bcd3edbbcd6">spiValues</a></td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">writePin</a>(PortExpanderBank bank, int8_t port, int8_t value)</td><td class="entry"><a class="el" href="class_port_expander.html">PortExpander</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Aug 31 2023 08:29:58 for LilyGo RTD Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
 </body>
 </html>

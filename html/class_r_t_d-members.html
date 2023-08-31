@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_r_t_d.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,7 +88,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">RTD Member List</div></div>
 </div><!--header-->
@@ -76,21 +96,37 @@ $(function() {
 <p>This is the complete list of members for <a class="el" href="class_r_t_d.html">RTD</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a53741255257b934592a2c3d6f0fa6144">autoConvert</a>(bool conversionMode)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>bank</b> (defined in <a class="el" href="class_r_t_d.html">RTD</a>)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#ae8b658e417629f0bbbf4cb898a54a9c0">clearFault</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#ab3d4f325acf7a6eb6a351b6608cd2caa">autoConvertEnabled</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a4bf1c58919b20d4eab7db3a518f5bdf8">bank</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#ae8b658e417629f0bbbf4cb898a54a9c0">clearFault</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a2c3099c724096946d666207c482e7ced">config</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a890ec874a26c1a222214b62a7151b932">enable50hz</a>(bool mode)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#af699867944eb2c250d71bdec7ae5f4aa">enableBias</a>(bool biasMode)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>pin</b> (defined in <a class="el" href="class_r_t_d.html">RTD</a>)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#acc2dbee5d8161a06e6e5758d760278d5">readFault</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a5d22dc2830817109ffb07f348b33753c">readTempC</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#ab999e45dfa88f29aa0a96ebfa9552cbe">forceConfig</a>(uint8_t value)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a69f85b8e1e00cbb9bb165c497bdca7d4">nominalResistance</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a402a7639294ff8b49410775019300ae3">pin</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a1314342d006c21cda2d0bd50cc42bcfe">portExpander</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#acc2dbee5d8161a06e6e5758d760278d5">readFault</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a50db824817d1d18d77df45dd2875e2a1">readReg16</a>(uint8_t regAddress)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a1a8d933a1b549def00156bcf7c5ea3eb">readReg8</a>(uint8_t regAddress)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a0d2193197c1acdcd3e98c06bfc8d9840">readRegN</a>(uint8_t regAddress, uint8_t buffer[], uint8_t bytesToRead)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a245411ed3e008ed23a3e522993cd0b5f">readRTD</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a5d22dc2830817109ffb07f348b33753c">readTempC</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#adc9aa6b613275197cb32a2da06cab41e">referenceResistance</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#aba97e20aaa7eeb5749b905e524dc8137">RTD</a>(u_int8_t pin, PortExpander &amp;portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a74ae31bc9b81799722ed146c8faf2366">rtdInit</a>()</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a3a3e65cbe73d96cff9dbd86400d5e689">setThresholds</a>(uint16_t lower, uint16_t upper)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a64c237ec8341a044e7a16d64948b7af4">setWires</a>(RTDWireMode mode)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a5811613b5e0d072d4f42d182ac6b28d2">spi</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_r_t_d.html#a83e138e6f49083d3d1588cad452fdd88">wireMode</a></td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_r_t_d.html#a848ec69b38dc2f994f41dc1141f4cb4e">writeReg</a>(uint8_t regAddress, uint8_t data, uint8_t bytesToWrie)</td><td class="entry"><a class="el" href="class_r_t_d.html">RTD</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Aug 31 2023 08:29:58 for LilyGo RTD Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
 </body>
 </html>

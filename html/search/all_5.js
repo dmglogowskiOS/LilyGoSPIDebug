@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['readall_0',['readAll',['../class_rtd_manager.html#a3b720812c48512a058041f92dab3418f',1,'RtdManager']]],
-  ['readfault_1',['readFault',['../class_r_t_d.html#acc2dbee5d8161a06e6e5758d760278d5',1,'RTD']]],
-  ['readtempc_2',['readTempC',['../class_r_t_d.html#a5d22dc2830817109ffb07f348b33753c',1,'RTD']]],
-  ['rtd_3',['RTD',['../class_r_t_d.html',1,'RTD'],['../class_r_t_d.html#aba97e20aaa7eeb5749b905e524dc8137',1,'RTD::RTD(u_int8_t pin, PortExpander &amp;portExpander, PortExpanderBank bank, RTDWireMode mode, float nominalResistance, float referenceResistance)']]],
-  ['rtdinit_4',['rtdInit',['../class_r_t_d.html#a74ae31bc9b81799722ed146c8faf2366',1,'RTD']]],
-  ['rtdmanager_5',['RtdManager',['../class_rtd_manager.html',1,'RtdManager'],['../class_rtd_manager.html#a56c28cd1c92b552cf1141837416e2f4d',1,'RtdManager::RtdManager()']]]
+  ['forceconfig_0',['forceConfig',['../class_r_t_d.html#ab999e45dfa88f29aa0a96ebfa9552cbe',1,'RTD']]],
+  ['four_5fwire_1',['FOUR_WIRE',['../rtd_8h.html#a48743fc80570f18a35153cfdd8e2441aa7e58e9e3e3d935d41ec0b3be14c691a8',1,'rtd.h']]]
 ];

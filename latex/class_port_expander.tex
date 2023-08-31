@@ -12,22 +12,34 @@ Encapsulates the MCP23\+S17 library in a more readable manner.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_port_expander_a405fdc634ff3fe94cb9d9d673758c49c}{Port\+Expander}} (SPIClass \texorpdfstring{$\ast$}{*}spi, int clock, int miso, int mosi, int chip\+Select, uint8\+\_\+t address)
+\mbox{\hyperlink{class_port_expander_a405fdc634ff3fe94cb9d9d673758c49c}{Port\+Expander}} (SPIClass \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b}{spi}}, int clock, int miso, int mosi, int \mbox{\hyperlink{main_8cpp_a805f5b4df17a8d894318a694528eab73}{chip\+Select}}, uint8\+\_\+t \mbox{\hyperlink{main_8cpp_a7a17dd063f1ac798af20139028a0d816}{address}})
 \begin{DoxyCompactList}\small\item\em CTOR without defining the inital Configuration of the two banks IO Default Config is all INPUT. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_port_expander_a548524d5ac0a7cf2cecab8b181d464a1}{Port\+Expander}} (SPIClass \texorpdfstring{$\ast$}{*}spi, int clock, int miso, int mosi, int chip\+Select, uint8\+\_\+t address, IOType bank\+AConfig\mbox{[}$\,$\mbox{]}, IOType bank\+BConfig\mbox{[}$\,$\mbox{]})
+\mbox{\hyperlink{class_port_expander_a548524d5ac0a7cf2cecab8b181d464a1}{Port\+Expander}} (SPIClass \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b}{spi}}, int clock, int miso, int mosi, int \mbox{\hyperlink{main_8cpp_a805f5b4df17a8d894318a694528eab73}{chip\+Select}}, uint8\+\_\+t \mbox{\hyperlink{main_8cpp_a7a17dd063f1ac798af20139028a0d816}{address}}, \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} bank\+AConfig\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} bank\+BConfig\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em CTOR for configuring the GPIOBanks during Initialization. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_port_expander_aad5fe3831686d98459302081ca7089f7}{init}} ()
 \begin{DoxyCompactList}\small\item\em Initialization Method for the \doxylink{class_port_expander}{Port\+Expander}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_port_expander_a9864eb9c53c2c97675b972cef3120607}{set\+Pin}} (Port\+Expander\+Bank bank, int8\+\_\+t port, IOType type)
+void \mbox{\hyperlink{class_port_expander_a9864eb9c53c2c97675b972cef3120607}{set\+Pin}} (\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}} bank, int8\+\_\+t port, \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} type)
 \begin{DoxyCompactList}\small\item\em Set the Given port on a bank to a given type. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_port_expander_a4869ab53ba7c8af38a7e0ed4717a3137}{write\+Pin}} (Port\+Expander\+Bank bank, int8\+\_\+t port, int8\+\_\+t value)
+void \mbox{\hyperlink{class_port_expander_a4869ab53ba7c8af38a7e0ed4717a3137}{write\+Pin}} (\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}} bank, int8\+\_\+t port, int8\+\_\+t value)
 \begin{DoxyCompactList}\small\item\em Writes a given value to a given Port on a bank. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_port_expander_a4dabc741af496ce535563a9ba2c91483}{set\+IOConfigs}} (IOType bank\+AConfig\mbox{[}$\,$\mbox{]}, IOType bank\+BConfig\mbox{[}$\,$\mbox{]})
+void \mbox{\hyperlink{class_port_expander_a4dabc741af496ce535563a9ba2c91483}{set\+IOConfigs}} (\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} bank\+AConfig\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} bank\+BConfig\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em allows to set both GPIOBanks via the given Arrays \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_port_expander_a2fb6d727ce760d53a0b450adc44f9d90}{set\+All\+Outputs}} (int value)
 \begin{DoxyCompactList}\small\item\em Set all Output Pins to the given Value. \end{DoxyCompactList}\item 
-\Hypertarget{class_port_expander_afc25eeb856f8565cd8147baa310193c9}\label{class_port_expander_afc25eeb856f8565cd8147baa310193c9} 
-SPIClass \texorpdfstring{$\ast$}{*} {\bfseries get\+SPI} ()
+SPIClass \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_port_expander_afc25eeb856f8565cd8147baa310193c9}{get\+SPI}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+SPIClass \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b}{spi}}
+\item 
+MCP23\+S17 \mbox{\hyperlink{class_port_expander_a3fa041ca20136065ad06e2d45ef49f3f}{mcp}}
+\item 
+\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} \mbox{\hyperlink{class_port_expander_a54640ae8c5c207d10e4070cecb3e1e95}{bankA}} \mbox{[}8\mbox{]}
+\item 
+\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} \mbox{\hyperlink{class_port_expander_afeeeea74d1aaa9b8278d5e6c10f23e03}{bankB}} \mbox{[}8\mbox{]}
+\item 
+int \mbox{\hyperlink{class_port_expander_a7c25220ce8a29023a07f5bcd3edbbcd6}{spi\+Values}} \mbox{[}4\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -64,7 +76,7 @@ CTOR without defining the inital Configuration of the two banks IO Default Confi
 \index{PortExpander@{PortExpander}!PortExpander@{PortExpander}}
 \index{PortExpander@{PortExpander}!PortExpander@{PortExpander}}
 \doxysubsubsection{\texorpdfstring{PortExpander()}{PortExpander()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Port\+Expander\+::\+Port\+Expander (\begin{DoxyParamCaption}\item[{SPIClass \texorpdfstring{$\ast$}{*}}]{spi,  }\item[{int}]{clock,  }\item[{int}]{miso,  }\item[{int}]{mosi,  }\item[{int}]{chip\+Select,  }\item[{uint8\+\_\+t}]{address,  }\item[{IOType}]{bank\+AConfig\mbox{[}$\,$\mbox{]},  }\item[{IOType}]{bank\+BConfig\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Port\+Expander\+::\+Port\+Expander (\begin{DoxyParamCaption}\item[{SPIClass \texorpdfstring{$\ast$}{*}}]{spi,  }\item[{int}]{clock,  }\item[{int}]{miso,  }\item[{int}]{mosi,  }\item[{int}]{chip\+Select,  }\item[{uint8\+\_\+t}]{address,  }\item[{\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}}]{bank\+AConfig\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}}]{bank\+BConfig\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -92,6 +104,12 @@ CTOR for configuring the GPIOBanks during Initialization.
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_port_expander_afc25eeb856f8565cd8147baa310193c9}\label{class_port_expander_afc25eeb856f8565cd8147baa310193c9} 
+\index{PortExpander@{PortExpander}!getSPI@{getSPI}}
+\index{getSPI@{getSPI}!PortExpander@{PortExpander}}
+\doxysubsubsection{\texorpdfstring{getSPI()}{getSPI()}}
+{\footnotesize\ttfamily SPIClass \texorpdfstring{$\ast$}{*} Port\+Expander\+::get\+SPI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \Hypertarget{class_port_expander_aad5fe3831686d98459302081ca7089f7}\label{class_port_expander_aad5fe3831686d98459302081ca7089f7} 
 \index{PortExpander@{PortExpander}!init@{init}}
 \index{init@{init}!PortExpander@{PortExpander}}
@@ -121,7 +139,7 @@ Set all Output Pins to the given Value.
 \index{PortExpander@{PortExpander}!setIOConfigs@{setIOConfigs}}
 \index{setIOConfigs@{setIOConfigs}!PortExpander@{PortExpander}}
 \doxysubsubsection{\texorpdfstring{setIOConfigs()}{setIOConfigs()}}
-{\footnotesize\ttfamily void Port\+Expander\+::set\+IOConfigs (\begin{DoxyParamCaption}\item[{IOType}]{bank\+AConfig\mbox{[}$\,$\mbox{]},  }\item[{IOType}]{bank\+BConfig\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Port\+Expander\+::set\+IOConfigs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}}]{bank\+AConfig\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}}]{bank\+BConfig\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -138,7 +156,7 @@ allows to set both GPIOBanks via the given Arrays
 \index{PortExpander@{PortExpander}!setPin@{setPin}}
 \index{setPin@{setPin}!PortExpander@{PortExpander}}
 \doxysubsubsection{\texorpdfstring{setPin()}{setPin()}}
-{\footnotesize\ttfamily void Port\+Expander\+::set\+Pin (\begin{DoxyParamCaption}\item[{Port\+Expander\+Bank}]{bank,  }\item[{int8\+\_\+t}]{port,  }\item[{IOType}]{type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Port\+Expander\+::set\+Pin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}}}]{bank,  }\item[{int8\+\_\+t}]{port,  }\item[{\mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}}]{type }\end{DoxyParamCaption})}
 
 
 
@@ -157,7 +175,7 @@ Set the Given port on a bank to a given type.
 \index{PortExpander@{PortExpander}!writePin@{writePin}}
 \index{writePin@{writePin}!PortExpander@{PortExpander}}
 \doxysubsubsection{\texorpdfstring{writePin()}{writePin()}}
-{\footnotesize\ttfamily void Port\+Expander\+::write\+Pin (\begin{DoxyParamCaption}\item[{Port\+Expander\+Bank}]{bank,  }\item[{int8\+\_\+t}]{port,  }\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Port\+Expander\+::write\+Pin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}}}]{bank,  }\item[{int8\+\_\+t}]{port,  }\item[{int8\+\_\+t}]{value }\end{DoxyParamCaption})}
 
 
 
@@ -174,7 +192,40 @@ Writes a given value to a given Port on a bank.
 \end{DoxyParams}
 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_port_expander_a54640ae8c5c207d10e4070cecb3e1e95}\label{class_port_expander_a54640ae8c5c207d10e4070cecb3e1e95} 
+\index{PortExpander@{PortExpander}!bankA@{bankA}}
+\index{bankA@{bankA}!PortExpander@{PortExpander}}
+\doxysubsubsection{\texorpdfstring{bankA}{bankA}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} Port\+Expander\+::bankA\mbox{[}8\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_port_expander_afeeeea74d1aaa9b8278d5e6c10f23e03}\label{class_port_expander_afeeeea74d1aaa9b8278d5e6c10f23e03} 
+\index{PortExpander@{PortExpander}!bankB@{bankB}}
+\index{bankB@{bankB}!PortExpander@{PortExpander}}
+\doxysubsubsection{\texorpdfstring{bankB}{bankB}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} Port\+Expander\+::bankB\mbox{[}8\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_port_expander_a3fa041ca20136065ad06e2d45ef49f3f}\label{class_port_expander_a3fa041ca20136065ad06e2d45ef49f3f} 
+\index{PortExpander@{PortExpander}!mcp@{mcp}}
+\index{mcp@{mcp}!PortExpander@{PortExpander}}
+\doxysubsubsection{\texorpdfstring{mcp}{mcp}}
+{\footnotesize\ttfamily MCP23\+S17 Port\+Expander\+::mcp\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b}\label{class_port_expander_ae87497a611b7ae0b83d75da5478c2a1b} 
+\index{PortExpander@{PortExpander}!spi@{spi}}
+\index{spi@{spi}!PortExpander@{PortExpander}}
+\doxysubsubsection{\texorpdfstring{spi}{spi}}
+{\footnotesize\ttfamily SPIClass\texorpdfstring{$\ast$}{*} Port\+Expander\+::spi\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_port_expander_a7c25220ce8a29023a07f5bcd3edbbcd6}\label{class_port_expander_a7c25220ce8a29023a07f5bcd3edbbcd6} 
+\index{PortExpander@{PortExpander}!spiValues@{spiValues}}
+\index{spiValues@{spiValues}!PortExpander@{PortExpander}}
+\doxysubsubsection{\texorpdfstring{spiValues}{spiValues}}
+{\footnotesize\ttfamily int Port\+Expander\+::spi\+Values\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-lib/portexpander/portexpander.\+h\item 
-lib/portexpander/portexpander.\+cpp\end{DoxyCompactItemize}
+lib/portexpander/\mbox{\hyperlink{portexpander_8h}{portexpander.\+h}}\item 
+lib/portexpander/\mbox{\hyperlink{portexpander_8cpp}{portexpander.\+cpp}}\end{DoxyCompactItemize}
