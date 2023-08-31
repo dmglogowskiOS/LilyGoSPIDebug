@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -69,31 +89,106 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div><ul>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
+
+<h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
 <li>addRTD()&#160;:&#160;<a class="el" href="class_rtd_manager.html#a5810c802e73b3b1df488b4c6f59bc79d">RtdManager</a></li>
 <li>autoConvert()&#160;:&#160;<a class="el" href="class_r_t_d.html#a53741255257b934592a2c3d6f0fa6144">RTD</a></li>
+<li>autoConvertEnabled&#160;:&#160;<a class="el" href="class_r_t_d.html#ab3d4f325acf7a6eb6a351b6608cd2caa">RTD</a></li>
+</ul>
+
+
+<h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
+<li>bank&#160;:&#160;<a class="el" href="class_r_t_d.html#a4bf1c58919b20d4eab7db3a518f5bdf8">RTD</a></li>
+<li>bankA&#160;:&#160;<a class="el" href="class_port_expander.html#a54640ae8c5c207d10e4070cecb3e1e95">PortExpander</a></li>
+<li>bankB&#160;:&#160;<a class="el" href="class_port_expander.html#afeeeea74d1aaa9b8278d5e6c10f23e03">PortExpander</a></li>
+</ul>
+
+
+<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>clearFault()&#160;:&#160;<a class="el" href="class_r_t_d.html#ae8b658e417629f0bbbf4cb898a54a9c0">RTD</a></li>
+<li>config&#160;:&#160;<a class="el" href="class_r_t_d.html#a2c3099c724096946d666207c482e7ced">RTD</a></li>
+</ul>
+
+
+<h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
 <li>enable50hz()&#160;:&#160;<a class="el" href="class_r_t_d.html#a890ec874a26c1a222214b62a7151b932">RTD</a></li>
 <li>enableBias()&#160;:&#160;<a class="el" href="class_r_t_d.html#af699867944eb2c250d71bdec7ae5f4aa">RTD</a></li>
+</ul>
+
+
+<h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>forceConfig()&#160;:&#160;<a class="el" href="class_r_t_d.html#ab999e45dfa88f29aa0a96ebfa9552cbe">RTD</a></li>
+</ul>
+
+
+<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>getSPI()&#160;:&#160;<a class="el" href="class_port_expander.html#afc25eeb856f8565cd8147baa310193c9">PortExpander</a></li>
+</ul>
+
+
+<h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>init()&#160;:&#160;<a class="el" href="class_port_expander.html#aad5fe3831686d98459302081ca7089f7">PortExpander</a>, <a class="el" href="class_rtd_manager.html#ac625ea87d8fc7c1c332f36a9e7a905f0">RtdManager</a></li>
+</ul>
+
+
+<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>m_portEx&#160;:&#160;<a class="el" href="class_rtd_manager.html#abf778bab6d228db4c4b749a6cca50daf">RtdManager</a></li>
+<li>m_rtdList&#160;:&#160;<a class="el" href="class_rtd_manager.html#a49fd5b16d4ef1a7c97a7f246fbc93b5b">RtdManager</a></li>
+<li>mcp&#160;:&#160;<a class="el" href="class_port_expander.html#a3fa041ca20136065ad06e2d45ef49f3f">PortExpander</a></li>
+</ul>
+
+
+<h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
+<li>nominalResistance&#160;:&#160;<a class="el" href="class_r_t_d.html#a69f85b8e1e00cbb9bb165c497bdca7d4">RTD</a></li>
+</ul>
+
+
+<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
+<li>pin&#160;:&#160;<a class="el" href="class_r_t_d.html#a402a7639294ff8b49410775019300ae3">RTD</a></li>
 <li>PortExpander()&#160;:&#160;<a class="el" href="class_port_expander.html#a405fdc634ff3fe94cb9d9d673758c49c">PortExpander</a></li>
+<li>portExpander&#160;:&#160;<a class="el" href="class_r_t_d.html#a1314342d006c21cda2d0bd50cc42bcfe">RTD</a></li>
+</ul>
+
+
+<h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
 <li>readAll()&#160;:&#160;<a class="el" href="class_rtd_manager.html#a3b720812c48512a058041f92dab3418f">RtdManager</a></li>
 <li>readFault()&#160;:&#160;<a class="el" href="class_r_t_d.html#acc2dbee5d8161a06e6e5758d760278d5">RTD</a></li>
+<li>readReg16()&#160;:&#160;<a class="el" href="class_r_t_d.html#a50db824817d1d18d77df45dd2875e2a1">RTD</a></li>
+<li>readReg8()&#160;:&#160;<a class="el" href="class_r_t_d.html#a1a8d933a1b549def00156bcf7c5ea3eb">RTD</a></li>
+<li>readRegN()&#160;:&#160;<a class="el" href="class_r_t_d.html#a0d2193197c1acdcd3e98c06bfc8d9840">RTD</a></li>
+<li>readRTD()&#160;:&#160;<a class="el" href="class_r_t_d.html#a245411ed3e008ed23a3e522993cd0b5f">RTD</a></li>
 <li>readTempC()&#160;:&#160;<a class="el" href="class_r_t_d.html#a5d22dc2830817109ffb07f348b33753c">RTD</a></li>
+<li>referenceResistance&#160;:&#160;<a class="el" href="class_r_t_d.html#adc9aa6b613275197cb32a2da06cab41e">RTD</a></li>
 <li>RTD()&#160;:&#160;<a class="el" href="class_r_t_d.html#aba97e20aaa7eeb5749b905e524dc8137">RTD</a></li>
 <li>rtdInit()&#160;:&#160;<a class="el" href="class_r_t_d.html#a74ae31bc9b81799722ed146c8faf2366">RTD</a></li>
 <li>RtdManager()&#160;:&#160;<a class="el" href="class_rtd_manager.html#a56c28cd1c92b552cf1141837416e2f4d">RtdManager</a></li>
+</ul>
+
+
+<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>setAllOutputs()&#160;:&#160;<a class="el" href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">PortExpander</a></li>
 <li>setIOConfigs()&#160;:&#160;<a class="el" href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">PortExpander</a></li>
 <li>setPin()&#160;:&#160;<a class="el" href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">PortExpander</a></li>
 <li>setThresholds()&#160;:&#160;<a class="el" href="class_r_t_d.html#a3a3e65cbe73d96cff9dbd86400d5e689">RTD</a></li>
 <li>setWires()&#160;:&#160;<a class="el" href="class_r_t_d.html#a64c237ec8341a044e7a16d64948b7af4">RTD</a></li>
+<li>spi&#160;:&#160;<a class="el" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">PortExpander</a>, <a class="el" href="class_r_t_d.html#a5811613b5e0d072d4f42d182ac6b28d2">RTD</a></li>
+<li>spiValues&#160;:&#160;<a class="el" href="class_port_expander.html#a7c25220ce8a29023a07f5bcd3edbbcd6">PortExpander</a></li>
+</ul>
+
+
+<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
+<li>wireMode&#160;:&#160;<a class="el" href="class_r_t_d.html#a83e138e6f49083d3d1588cad452fdd88">RTD</a></li>
 <li>writePin()&#160;:&#160;<a class="el" href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">PortExpander</a></li>
+<li>writeReg()&#160;:&#160;<a class="el" href="class_r_t_d.html#a848ec69b38dc2f994f41dc1141f4cb4e">RTD</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated on Thu Aug 31 2023 08:29:59 for LilyGo RTD Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
 </body>
 </html>

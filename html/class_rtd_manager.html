@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_rtd_manager.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,7 +88,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -84,12 +104,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a56c28cd1c92b552cf1141837416e2f4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rtd_manager.html#a56c28cd1c92b552cf1141837416e2f4d">RtdManager</a> (<a class="el" href="class_port_expander.html">PortExpander</a> *portExpander)</td></tr>
+<tr class="memitem:a56c28cd1c92b552cf1141837416e2f4d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rtd_manager.html#a56c28cd1c92b552cf1141837416e2f4d">RtdManager</a> (<a class="el" href="class_port_expander.html">PortExpander</a> *<a class="el" href="main_8cpp.html#a697ef55e1c566e6d10b953d0bc8b997e">portExpander</a>)</td></tr>
 <tr class="memdesc:a56c28cd1c92b552cf1141837416e2f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor for <a class="el" href="class_rtd_manager.html" title="Class encapsulating multiple RTDs.">RtdManager</a>.  <br /></td></tr>
 <tr class="separator:a56c28cd1c92b552cf1141837416e2f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac625ea87d8fc7c1c332f36a9e7a905f0"><td class="memItemLeft" align="right" valign="top"><a id="ac625ea87d8fc7c1c332f36a9e7a905f0" name="ac625ea87d8fc7c1c332f36a9e7a905f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
-<tr class="memdesc:ac625ea87d8fc7c1c332f36a9e7a905f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">initializes both the <a class="el" href="class_port_expander.html" title="Encapsulates the MCP23S17 library in a more readable manner.">PortExpander</a> and all attached RTDs correctly <br /></td></tr>
+<tr class="memitem:ac625ea87d8fc7c1c332f36a9e7a905f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rtd_manager.html#ac625ea87d8fc7c1c332f36a9e7a905f0">init</a> ()</td></tr>
+<tr class="memdesc:ac625ea87d8fc7c1c332f36a9e7a905f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">initializes both the <a class="el" href="class_port_expander.html" title="Encapsulates the MCP23S17 library in a more readable manner.">PortExpander</a> and all attached RTDs correctly  <br /></td></tr>
 <tr class="separator:ac625ea87d8fc7c1c332f36a9e7a905f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b720812c48512a058041f92dab3418f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rtd_manager.html#a3b720812c48512a058041f92dab3418f">readAll</a> ()</td></tr>
 <tr class="memdesc:a3b720812c48512a058041f92dab3418f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads all attached RTDs.  <br /></td></tr>
@@ -99,11 +118,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a49fd5b16d4ef1a7c97a7f246fbc93b5b"><td class="memItemLeft" align="right" valign="top"><a id="a49fd5b16d4ef1a7c97a7f246fbc93b5b" name="a49fd5b16d4ef1a7c97a7f246fbc93b5b"></a>
-std::vector&lt; <a class="el" href="class_r_t_d.html">RTD</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_rtdList</b></td></tr>
+<tr class="memitem:a49fd5b16d4ef1a7c97a7f246fbc93b5b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_r_t_d.html">RTD</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rtd_manager.html#a49fd5b16d4ef1a7c97a7f246fbc93b5b">m_rtdList</a></td></tr>
 <tr class="separator:a49fd5b16d4ef1a7c97a7f246fbc93b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf778bab6d228db4c4b749a6cca50daf"><td class="memItemLeft" align="right" valign="top"><a id="abf778bab6d228db4c4b749a6cca50daf" name="abf778bab6d228db4c4b749a6cca50daf"></a>
-<a class="el" href="class_port_expander.html">PortExpander</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_portEx</b></td></tr>
+<tr class="memitem:abf778bab6d228db4c4b749a6cca50daf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_port_expander.html">PortExpander</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_rtd_manager.html#abf778bab6d228db4c4b749a6cca50daf">m_portEx</a></td></tr>
 <tr class="separator:abf778bab6d228db4c4b749a6cca50daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -160,6 +177,25 @@ std::vector&lt; <a class="el" href="class_r_t_d.html">RTD</a> &gt;&#160;</td><td
 
 </div>
 </div>
+<a id="ac625ea87d8fc7c1c332f36a9e7a905f0" name="ac625ea87d8fc7c1c332f36a9e7a905f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac625ea87d8fc7c1c332f36a9e7a905f0">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RtdManager::init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>initializes both the <a class="el" href="class_port_expander.html" title="Encapsulates the MCP23S17 library in a more readable manner.">PortExpander</a> and all attached RTDs correctly </p>
+
+</div>
+</div>
 <a id="a3b720812c48512a058041f92dab3418f" name="a3b720812c48512a058041f92dab3418f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b720812c48512a058041f92dab3418f">&#9670;&#160;</a></span>readAll()</h2>
 
@@ -180,14 +216,47 @@ std::vector&lt; <a class="el" href="class_r_t_d.html">RTD</a> &gt;&#160;</td><td
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="abf778bab6d228db4c4b749a6cca50daf" name="abf778bab6d228db4c4b749a6cca50daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf778bab6d228db4c4b749a6cca50daf">&#9670;&#160;</a></span>m_portEx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_port_expander.html">PortExpander</a>* RtdManager::m_portEx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49fd5b16d4ef1a7c97a7f246fbc93b5b" name="a49fd5b16d4ef1a7c97a7f246fbc93b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49fd5b16d4ef1a7c97a7f246fbc93b5b">&#9670;&#160;</a></span>m_rtdList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_r_t_d.html">RTD</a>&gt; RtdManager::m_rtdList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>lib/rtdManager/<a class="el" href="rtd_manager_8h_source.html">rtdManager.h</a></li>
-<li>lib/rtdManager/rtdManager.cpp</li>
+<li>lib/rtdManager/<a class="el" href="rtd_manager_8cpp.html">rtdManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_rtd_manager.html">RtdManager</a></li>
+    <li class="footer">Generated on Thu Aug 31 2023 08:29:58 for LilyGo RTD Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,12 +1,12 @@
 \doxysection{rtd.\+h}
 \hypertarget{rtd_8h_source}{}\label{rtd_8h_source}\index{lib/rtd/rtd.h@{lib/rtd/rtd.h}}
-
+\mbox{\hyperlink{rtd_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RTDH}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RTDH}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <SPI.h>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <portexpander.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{portexpander_8h}{portexpander.h}}>}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{comment}{//\ Defining\ Configs}}
 \DoxyCodeLine{00008\ }
@@ -43,18 +43,18 @@
 \DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ RTD\_A\ 3.9083e-\/3}}
 \DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ RTD\_B\ -\/5.775e-\/7}}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{enum\ class}\ RTDWireMode\{}
-\DoxyCodeLine{00047\ \ \ \ \ TWO\_WIRE,}
-\DoxyCodeLine{00048\ \ \ \ \ THREE\_WIRE,}
-\DoxyCodeLine{00049\ \ \ \ \ FOUR\_WIRE}
+\DoxyCodeLine{00046\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWireMode}}\{}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{TWO\_WIRE}},}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa11669aabf4fc899adf6bf15ea687391d}{THREE\_WIRE}},}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa7e58e9e3e3d935d41ec0b3be14c691a8}{FOUR\_WIRE}}}
 \DoxyCodeLine{00050\ \};}
 \DoxyCodeLine{00051\ }
 \DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_r_t_d}{RTD}}\{}
 \DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ uint8\_t\ pin;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ PortExpanderBank\ bank;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_r_t_d_a402a7639294ff8b49410775019300ae3}{pin}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{PortExpanderBank}}\ \mbox{\hyperlink{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8}{bank}};}
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_r_t_d}{RTD}}(u\_int8\_t\ pin,\ \mbox{\hyperlink{class_port_expander}{PortExpander}}\ \&portExpander,\ PortExpanderBank\ bank,\ RTDWireMode\ mode,\ \textcolor{keywordtype}{float}\ nominalResistance,\ \textcolor{keywordtype}{float}\ referenceResistance);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_r_t_d}{RTD}}(u\_int8\_t\ \mbox{\hyperlink{class_r_t_d_a402a7639294ff8b49410775019300ae3}{pin}},\ \mbox{\hyperlink{class_port_expander}{PortExpander}}\ \&\mbox{\hyperlink{class_r_t_d_a1314342d006c21cda2d0bd50cc42bcfe}{portExpander}},\ \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{PortExpanderBank}}\ \mbox{\hyperlink{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8}{bank}},\ \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWireMode}}\ mode,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_r_t_d_a69f85b8e1e00cbb9bb165c497bdca7d4}{nominalResistance}},\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_r_t_d_adc9aa6b613275197cb32a2da06cab41e}{referenceResistance}});}
 \DoxyCodeLine{00070\ }
 \DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a74ae31bc9b81799722ed146c8faf2366}{rtdInit}}();}
 \DoxyCodeLine{00076\ }
@@ -64,7 +64,7 @@
 \DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_ae8b658e417629f0bbbf4cb898a54a9c0}{clearFault}}();}
 \DoxyCodeLine{00096\ }
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4}{setWires}}(RTDWireMode\ mode);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4}{setWires}}(\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWireMode}}\ mode);}
 \DoxyCodeLine{00103\ }
 \DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_af699867944eb2c250d71bdec7ae5f4aa}{enableBias}}(\textcolor{keywordtype}{bool}\ biasMode);}
 \DoxyCodeLine{00110\ }
@@ -75,25 +75,25 @@
 \DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a890ec874a26c1a222214b62a7151b932}{enable50hz}}(\textcolor{keywordtype}{bool}\ mode);}
 \DoxyCodeLine{00132\ }
 \DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ uint8\_t\ config;}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}\ \&portExpander;}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ SPIClass*\ spi;}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ RTDWireMode\ wireMode;}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ autoConvertEnabled;}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ nominalResistance;}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ referenceResistance;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_r_t_d_a2c3099c724096946d666207c482e7ced}{config}};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_port_expander}{PortExpander}}\ \&\mbox{\hyperlink{class_r_t_d_a1314342d006c21cda2d0bd50cc42bcfe}{portExpander}};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ SPIClass*\ \mbox{\hyperlink{class_r_t_d_a5811613b5e0d072d4f42d182ac6b28d2}{spi}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWireMode}}\ \mbox{\hyperlink{class_r_t_d_a83e138e6f49083d3d1588cad452fdd88}{wireMode}};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_r_t_d_ab3d4f325acf7a6eb6a351b6608cd2caa}{autoConvertEnabled}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_r_t_d_a69f85b8e1e00cbb9bb165c497bdca7d4}{nominalResistance}};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_r_t_d_adc9aa6b613275197cb32a2da06cab41e}{referenceResistance}};}
 \DoxyCodeLine{00141\ }
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ uint16\_t\ readRTD();}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_r_t_d_a245411ed3e008ed23a3e522993cd0b5f}{readRTD}}();}
 \DoxyCodeLine{00148\ }
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeReg(uint8\_t\ regAddress,\ uint8\_t\ data,\ uint8\_t\ bytesToWrie);}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a848ec69b38dc2f994f41dc1141f4cb4e}{writeReg}}(uint8\_t\ regAddress,\ uint8\_t\ data,\ uint8\_t\ bytesToWrie);}
 \DoxyCodeLine{00156\ }
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ uint8\_t\ readReg8(uint8\_t\ regAddress);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_r_t_d_a1a8d933a1b549def00156bcf7c5ea3eb}{readReg8}}(uint8\_t\ regAddress);}
 \DoxyCodeLine{00164\ }
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ uint16\_t\ readReg16(uint8\_t\ regAddress);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{class_r_t_d_a50db824817d1d18d77df45dd2875e2a1}{readReg16}}(uint8\_t\ regAddress);}
 \DoxyCodeLine{00173\ }
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ readRegN(uint8\_t\ regAddress,\ uint8\_t\ buffer[],\ uint8\_t\ bytesToRead);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_a0d2193197c1acdcd3e98c06bfc8d9840}{readRegN}}(uint8\_t\ regAddress,\ uint8\_t\ buffer[],\ uint8\_t\ bytesToRead);}
 \DoxyCodeLine{00182\ }
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ forceConfig(uint8\_t\ value);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_r_t_d_ab999e45dfa88f29aa0a96ebfa9552cbe}{forceConfig}}(uint8\_t\ value);}
 \DoxyCodeLine{00189\ \};}
 \DoxyCodeLine{00190\ }
 \DoxyCodeLine{00191\ }

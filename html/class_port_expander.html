@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_port_expander.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,10 +88,10 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_port_expander-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">PortExpander Class Reference</div></div>
 </div><!--header-->
@@ -83,30 +104,42 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a405fdc634ff3fe94cb9d9d673758c49c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a405fdc634ff3fe94cb9d9d673758c49c">PortExpander</a> (SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address)</td></tr>
+<tr class="memitem:a405fdc634ff3fe94cb9d9d673758c49c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a405fdc634ff3fe94cb9d9d673758c49c">PortExpander</a> (SPIClass *<a class="el" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">spi</a>, int clock, int miso, int mosi, int <a class="el" href="main_8cpp.html#a805f5b4df17a8d894318a694528eab73">chipSelect</a>, uint8_t <a class="el" href="main_8cpp.html#a7a17dd063f1ac798af20139028a0d816">address</a>)</td></tr>
 <tr class="memdesc:a405fdc634ff3fe94cb9d9d673758c49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">CTOR without defining the inital Configuration of the two banks IO Default Config is all INPUT.  <br /></td></tr>
 <tr class="separator:a405fdc634ff3fe94cb9d9d673758c49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a548524d5ac0a7cf2cecab8b181d464a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a548524d5ac0a7cf2cecab8b181d464a1">PortExpander</a> (SPIClass *spi, int clock, int miso, int mosi, int chipSelect, uint8_t address, IOType bankAConfig[], IOType bankBConfig[])</td></tr>
+<tr class="memitem:a548524d5ac0a7cf2cecab8b181d464a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a548524d5ac0a7cf2cecab8b181d464a1">PortExpander</a> (SPIClass *<a class="el" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">spi</a>, int clock, int miso, int mosi, int <a class="el" href="main_8cpp.html#a805f5b4df17a8d894318a694528eab73">chipSelect</a>, uint8_t <a class="el" href="main_8cpp.html#a7a17dd063f1ac798af20139028a0d816">address</a>, <a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankAConfig[], <a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankBConfig[])</td></tr>
 <tr class="memdesc:a548524d5ac0a7cf2cecab8b181d464a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">CTOR for configuring the GPIOBanks during Initialization.  <br /></td></tr>
 <tr class="separator:a548524d5ac0a7cf2cecab8b181d464a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad5fe3831686d98459302081ca7089f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#aad5fe3831686d98459302081ca7089f7">init</a> ()</td></tr>
 <tr class="memdesc:aad5fe3831686d98459302081ca7089f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization Method for the <a class="el" href="class_port_expander.html" title="Encapsulates the MCP23S17 library in a more readable manner.">PortExpander</a>.  <br /></td></tr>
 <tr class="separator:aad5fe3831686d98459302081ca7089f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9864eb9c53c2c97675b972cef3120607"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">setPin</a> (PortExpanderBank bank, int8_t port, IOType type)</td></tr>
+<tr class="memitem:a9864eb9c53c2c97675b972cef3120607"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a9864eb9c53c2c97675b972cef3120607">setPin</a> (<a class="el" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a> bank, int8_t port, <a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> type)</td></tr>
 <tr class="memdesc:a9864eb9c53c2c97675b972cef3120607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Given port on a bank to a given type.  <br /></td></tr>
 <tr class="separator:a9864eb9c53c2c97675b972cef3120607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4869ab53ba7c8af38a7e0ed4717a3137"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">writePin</a> (PortExpanderBank bank, int8_t port, int8_t value)</td></tr>
+<tr class="memitem:a4869ab53ba7c8af38a7e0ed4717a3137"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a4869ab53ba7c8af38a7e0ed4717a3137">writePin</a> (<a class="el" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a> bank, int8_t port, int8_t value)</td></tr>
 <tr class="memdesc:a4869ab53ba7c8af38a7e0ed4717a3137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a given value to a given Port on a bank.  <br /></td></tr>
 <tr class="separator:a4869ab53ba7c8af38a7e0ed4717a3137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dabc741af496ce535563a9ba2c91483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">setIOConfigs</a> (IOType bankAConfig[], IOType bankBConfig[])</td></tr>
+<tr class="memitem:a4dabc741af496ce535563a9ba2c91483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a4dabc741af496ce535563a9ba2c91483">setIOConfigs</a> (<a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankAConfig[], <a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> bankBConfig[])</td></tr>
 <tr class="memdesc:a4dabc741af496ce535563a9ba2c91483"><td class="mdescLeft">&#160;</td><td class="mdescRight">allows to set both GPIOBanks via the given Arrays  <br /></td></tr>
 <tr class="separator:a4dabc741af496ce535563a9ba2c91483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fb6d727ce760d53a0b450adc44f9d90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a2fb6d727ce760d53a0b450adc44f9d90">setAllOutputs</a> (int value)</td></tr>
 <tr class="memdesc:a2fb6d727ce760d53a0b450adc44f9d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set all Output Pins to the given Value.  <br /></td></tr>
 <tr class="separator:a2fb6d727ce760d53a0b450adc44f9d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc25eeb856f8565cd8147baa310193c9"><td class="memItemLeft" align="right" valign="top"><a id="afc25eeb856f8565cd8147baa310193c9" name="afc25eeb856f8565cd8147baa310193c9"></a>
-SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</td></tr>
+<tr class="memitem:afc25eeb856f8565cd8147baa310193c9"><td class="memItemLeft" align="right" valign="top">SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#afc25eeb856f8565cd8147baa310193c9">getSPI</a> ()</td></tr>
 <tr class="separator:afc25eeb856f8565cd8147baa310193c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae87497a611b7ae0b83d75da5478c2a1b"><td class="memItemLeft" align="right" valign="top">SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#ae87497a611b7ae0b83d75da5478c2a1b">spi</a></td></tr>
+<tr class="separator:ae87497a611b7ae0b83d75da5478c2a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa041ca20136065ad06e2d45ef49f3f"><td class="memItemLeft" align="right" valign="top">MCP23S17&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a3fa041ca20136065ad06e2d45ef49f3f">mcp</a></td></tr>
+<tr class="separator:a3fa041ca20136065ad06e2d45ef49f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54640ae8c5c207d10e4070cecb3e1e95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a54640ae8c5c207d10e4070cecb3e1e95">bankA</a> [8]</td></tr>
+<tr class="separator:a54640ae8c5c207d10e4070cecb3e1e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeeeea74d1aaa9b8278d5e6c10f23e03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#afeeeea74d1aaa9b8278d5e6c10f23e03">bankB</a> [8]</td></tr>
+<tr class="separator:afeeeea74d1aaa9b8278d5e6c10f23e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c25220ce8a29023a07f5bcd3edbbcd6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_port_expander.html#a7c25220ce8a29023a07f5bcd3edbbcd6">spiValues</a> [4]</td></tr>
+<tr class="separator:a7c25220ce8a29023a07f5bcd3edbbcd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Encapsulates the MCP23S17 library in a more readable manner. </p>
@@ -221,13 +254,13 @@ SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">IOType&#160;</td>
+          <td class="paramtype"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>&#160;</td>
           <td class="paramname"><em>bankAConfig</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">IOType&#160;</td>
+          <td class="paramtype"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>&#160;</td>
           <td class="paramname"><em>bankBConfig</em>[]&#160;</td>
         </tr>
         <tr>
@@ -256,6 +289,23 @@ SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="afc25eeb856f8565cd8147baa310193c9" name="afc25eeb856f8565cd8147baa310193c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc25eeb856f8565cd8147baa310193c9">&#9670;&#160;</a></span>getSPI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SPIClass * PortExpander::getSPI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aad5fe3831686d98459302081ca7089f7" name="aad5fe3831686d98459302081ca7089f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad5fe3831686d98459302081ca7089f7">&#9670;&#160;</a></span>init()</h2>
 
@@ -310,13 +360,13 @@ SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</
         <tr>
           <td class="memname">void PortExpander::setIOConfigs </td>
           <td>(</td>
-          <td class="paramtype">IOType&#160;</td>
+          <td class="paramtype"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>&#160;</td>
           <td class="paramname"><em>bankAConfig</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">IOType&#160;</td>
+          <td class="paramtype"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>&#160;</td>
           <td class="paramname"><em>bankBConfig</em>[]&#160;</td>
         </tr>
         <tr>
@@ -347,7 +397,7 @@ SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</
         <tr>
           <td class="memname">void PortExpander::setPin </td>
           <td>(</td>
-          <td class="paramtype">PortExpanderBank&#160;</td>
+          <td class="paramtype"><a class="el" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a>&#160;</td>
           <td class="paramname"><em>bank</em>, </td>
         </tr>
         <tr>
@@ -359,7 +409,7 @@ SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">IOType&#160;</td>
+          <td class="paramtype"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a>&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
@@ -391,7 +441,7 @@ SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</
         <tr>
           <td class="memname">void PortExpander::writePin </td>
           <td>(</td>
-          <td class="paramtype">PortExpanderBank&#160;</td>
+          <td class="paramtype"><a class="el" href="portexpander_8h.html#a9791be02a0b167469bc72bfffe202f2a">PortExpanderBank</a>&#160;</td>
           <td class="paramname"><em>bank</em>, </td>
         </tr>
         <tr>
@@ -426,14 +476,129 @@ SPIClass *&#160;</td><td class="memItemRight" valign="bottom"><b>getSPI</b> ()</
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a54640ae8c5c207d10e4070cecb3e1e95" name="a54640ae8c5c207d10e4070cecb3e1e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54640ae8c5c207d10e4070cecb3e1e95">&#9670;&#160;</a></span>bankA</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> PortExpander::bankA[8]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afeeeea74d1aaa9b8278d5e6c10f23e03" name="afeeeea74d1aaa9b8278d5e6c10f23e03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeeeea74d1aaa9b8278d5e6c10f23e03">&#9670;&#160;</a></span>bankB</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="portexpander_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> PortExpander::bankB[8]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fa041ca20136065ad06e2d45ef49f3f" name="a3fa041ca20136065ad06e2d45ef49f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa041ca20136065ad06e2d45ef49f3f">&#9670;&#160;</a></span>mcp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MCP23S17 PortExpander::mcp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae87497a611b7ae0b83d75da5478c2a1b" name="ae87497a611b7ae0b83d75da5478c2a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae87497a611b7ae0b83d75da5478c2a1b">&#9670;&#160;</a></span>spi</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SPIClass* PortExpander::spi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c25220ce8a29023a07f5bcd3edbbcd6" name="a7c25220ce8a29023a07f5bcd3edbbcd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c25220ce8a29023a07f5bcd3edbbcd6">&#9670;&#160;</a></span>spiValues</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PortExpander::spiValues[4]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>lib/portexpander/<a class="el" href="portexpander_8h_source.html">portexpander.h</a></li>
-<li>lib/portexpander/portexpander.cpp</li>
+<li>lib/portexpander/<a class="el" href="portexpander_8cpp.html">portexpander.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_port_expander.html">PortExpander</a></li>
+    <li class="footer">Generated on Thu Aug 31 2023 08:29:58 for LilyGo RTD Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
 </body>
 </html>

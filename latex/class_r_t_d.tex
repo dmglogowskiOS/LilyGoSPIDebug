@@ -12,7 +12,7 @@ Models an \doxylink{class_r_t_d}{RTD} MAX31865 interfaced with using chip genera
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_r_t_d_aba97e20aaa7eeb5749b905e524dc8137}{RTD}} (u\+\_\+int8\+\_\+t pin, \mbox{\hyperlink{class_port_expander}{Port\+Expander}} \&port\+Expander, Port\+Expander\+Bank bank, RTDWire\+Mode mode, float nominal\+Resistance, float reference\+Resistance)
+\mbox{\hyperlink{class_r_t_d_aba97e20aaa7eeb5749b905e524dc8137}{RTD}} (u\+\_\+int8\+\_\+t \mbox{\hyperlink{class_r_t_d_a402a7639294ff8b49410775019300ae3}{pin}}, \mbox{\hyperlink{class_port_expander}{Port\+Expander}} \&\mbox{\hyperlink{class_r_t_d_a1314342d006c21cda2d0bd50cc42bcfe}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}} \mbox{\hyperlink{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8}{bank}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}} mode, float \mbox{\hyperlink{class_r_t_d_a69f85b8e1e00cbb9bb165c497bdca7d4}{nominal\+Resistance}}, float \mbox{\hyperlink{class_r_t_d_adc9aa6b613275197cb32a2da06cab41e}{reference\+Resistance}})
 \begin{DoxyCompactList}\small\item\em Create a new \doxylink{class_r_t_d}{RTD} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_r_t_d_a74ae31bc9b81799722ed146c8faf2366}{rtd\+Init}} ()
 \begin{DoxyCompactList}\small\item\em Transmits default config to the attached \doxylink{class_r_t_d}{RTD}. \end{DoxyCompactList}\item 
@@ -22,7 +22,7 @@ uint8\+\_\+t \mbox{\hyperlink{class_r_t_d_acc2dbee5d8161a06e6e5758d760278d5}{rea
 \begin{DoxyCompactList}\small\item\em Readout of the Fault Register. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_r_t_d_ae8b658e417629f0bbbf4cb898a54a9c0}{clear\+Fault}} ()
 \begin{DoxyCompactList}\small\item\em Clears the fault register. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4}{set\+Wires}} (RTDWire\+Mode mode)
+void \mbox{\hyperlink{class_r_t_d_a64c237ec8341a044e7a16d64948b7af4}{set\+Wires}} (\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}} mode)
 \begin{DoxyCompactList}\small\item\em Allows to set the Wire\+Mode dynamically. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_r_t_d_af699867944eb2c250d71bdec7ae5f4aa}{enable\+Bias}} (bool bias\+Mode)
 \begin{DoxyCompactList}\small\item\em Private Method to enable the Bias of the system. \end{DoxyCompactList}\item 
@@ -35,11 +35,41 @@ void \mbox{\hyperlink{class_r_t_d_a890ec874a26c1a222214b62a7151b932}{enable50hz}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_r_t_d_a402a7639294ff8b49410775019300ae3}\label{class_r_t_d_a402a7639294ff8b49410775019300ae3} 
-uint8\+\_\+t {\bfseries pin}
+uint8\+\_\+t \mbox{\hyperlink{class_r_t_d_a402a7639294ff8b49410775019300ae3}{pin}}
 \item 
-\Hypertarget{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8}\label{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8} 
-Port\+Expander\+Bank {\bfseries bank}
+\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}} \mbox{\hyperlink{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8}{bank}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_r_t_d_a245411ed3e008ed23a3e522993cd0b5f}{read\+RTD}} ()
+\begin{DoxyCompactList}\small\item\em Private Method to read the \doxylink{class_r_t_d}{RTD} Raw Value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_a848ec69b38dc2f994f41dc1141f4cb4e}{write\+Reg}} (uint8\+\_\+t reg\+Address, uint8\+\_\+t data, uint8\+\_\+t bytes\+To\+Wrie)
+\begin{DoxyCompactList}\small\item\em Private Method to write Data to \doxylink{class_r_t_d}{RTD} Registers. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_r_t_d_a1a8d933a1b549def00156bcf7c5ea3eb}{read\+Reg8}} (uint8\+\_\+t reg\+Address)
+\begin{DoxyCompactList}\small\item\em Reads the given 8bit Register. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_r_t_d_a50db824817d1d18d77df45dd2875e2a1}{read\+Reg16}} (uint8\+\_\+t reg\+Address)
+\begin{DoxyCompactList}\small\item\em Reads 16 Bits from the given Register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_a0d2193197c1acdcd3e98c06bfc8d9840}{read\+RegN}} (uint8\+\_\+t reg\+Address, uint8\+\_\+t buffer\mbox{[}$\,$\mbox{]}, uint8\+\_\+t bytes\+To\+Read)
+\begin{DoxyCompactList}\small\item\em Reads the Given Number of bytes into the buffer starting at the given Register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_t_d_ab999e45dfa88f29aa0a96ebfa9552cbe}{force\+Config}} (uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Allows forcing of a specific config for certain usages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_r_t_d_a2c3099c724096946d666207c482e7ced}{config}}
+\item 
+\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \& \mbox{\hyperlink{class_r_t_d_a1314342d006c21cda2d0bd50cc42bcfe}{port\+Expander}}
+\item 
+SPIClass \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_r_t_d_a5811613b5e0d072d4f42d182ac6b28d2}{spi}}
+\item 
+\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}} \mbox{\hyperlink{class_r_t_d_a83e138e6f49083d3d1588cad452fdd88}{wire\+Mode}}
+\item 
+bool \mbox{\hyperlink{class_r_t_d_ab3d4f325acf7a6eb6a351b6608cd2caa}{auto\+Convert\+Enabled}}
+\item 
+float \mbox{\hyperlink{class_r_t_d_a69f85b8e1e00cbb9bb165c497bdca7d4}{nominal\+Resistance}}
+\item 
+float \mbox{\hyperlink{class_r_t_d_adc9aa6b613275197cb32a2da06cab41e}{reference\+Resistance}}
 \end{DoxyCompactItemize}
 
 
@@ -53,7 +83,7 @@ Models an \doxylink{class_r_t_d}{RTD} MAX31865 interfaced with using chip genera
 \index{RTD@{RTD}!RTD@{RTD}}
 \index{RTD@{RTD}!RTD@{RTD}}
 \doxysubsubsection{\texorpdfstring{RTD()}{RTD()}}
-{\footnotesize\ttfamily RTD\+::\+RTD (\begin{DoxyParamCaption}\item[{u\+\_\+int8\+\_\+t}]{pin,  }\item[{\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \&}]{port\+Expander,  }\item[{Port\+Expander\+Bank}]{bank,  }\item[{RTDWire\+Mode}]{mode,  }\item[{float}]{nominal\+Resistance,  }\item[{float}]{reference\+Resistance }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily RTD\+::\+RTD (\begin{DoxyParamCaption}\item[{u\+\_\+int8\+\_\+t}]{pin,  }\item[{\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \&}]{port\+Expander,  }\item[{\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}}}]{bank,  }\item[{\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}}}]{mode,  }\item[{float}]{nominal\+Resistance,  }\item[{float}]{reference\+Resistance }\end{DoxyParamCaption})}
 
 
 
@@ -128,6 +158,21 @@ Private Method to enable the Bias of the system.
 {\em bias\+Mode} & true to Enable the bias, false to disable. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_r_t_d_ab999e45dfa88f29aa0a96ebfa9552cbe}\label{class_r_t_d_ab999e45dfa88f29aa0a96ebfa9552cbe} 
+\index{RTD@{RTD}!forceConfig@{forceConfig}}
+\index{forceConfig@{forceConfig}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{forceConfig()}{forceConfig()}}
+{\footnotesize\ttfamily void RTD\+::force\+Config (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Allows forcing of a specific config for certain usages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & uint value of a specific config -\/\texorpdfstring{$>$}{>} Recommended to write as a binary 0b\+XXXXXXXX \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_r_t_d_acc2dbee5d8161a06e6e5758d760278d5}\label{class_r_t_d_acc2dbee5d8161a06e6e5758d760278d5} 
 \index{RTD@{RTD}!readFault@{readFault}}
 \index{readFault@{readFault}!RTD@{RTD}}
@@ -140,6 +185,74 @@ Readout of the Fault Register.
 
 \begin{DoxyReturn}{Returns}
 uint8\+\_\+t 
+\end{DoxyReturn}
+\Hypertarget{class_r_t_d_a50db824817d1d18d77df45dd2875e2a1}\label{class_r_t_d_a50db824817d1d18d77df45dd2875e2a1} 
+\index{RTD@{RTD}!readReg16@{readReg16}}
+\index{readReg16@{readReg16}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{readReg16()}{readReg16()}}
+{\footnotesize\ttfamily uint16\+\_\+t RTD\+::read\+Reg16 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+Address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads 16 Bits from the given Register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Address} & Register the Read is initialized on, this will overrun if the given Register is only 8 Bits long, this behaviour is wanted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t 
+\end{DoxyReturn}
+\Hypertarget{class_r_t_d_a1a8d933a1b549def00156bcf7c5ea3eb}\label{class_r_t_d_a1a8d933a1b549def00156bcf7c5ea3eb} 
+\index{RTD@{RTD}!readReg8@{readReg8}}
+\index{readReg8@{readReg8}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{readReg8()}{readReg8()}}
+{\footnotesize\ttfamily uint8\+\_\+t RTD\+::read\+Reg8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+Address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads the given 8bit Register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Address} & Address of the Register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t Value of the Register 
+\end{DoxyReturn}
+\Hypertarget{class_r_t_d_a0d2193197c1acdcd3e98c06bfc8d9840}\label{class_r_t_d_a0d2193197c1acdcd3e98c06bfc8d9840} 
+\index{RTD@{RTD}!readRegN@{readRegN}}
+\index{readRegN@{readRegN}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{readRegN()}{readRegN()}}
+{\footnotesize\ttfamily void RTD\+::read\+RegN (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+Address,  }\item[{uint8\+\_\+t}]{buffer\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t}]{bytes\+To\+Read }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads the Given Number of bytes into the buffer starting at the given Register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Address} & Starting Register \\
+\hline
+{\em buffer} & Buffer to read into \\
+\hline
+{\em bytes\+To\+Read} & The number of Bytes to Read -\/\texorpdfstring{$>$}{>} multiply by 8 to get the number of Bits you are reading. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_r_t_d_a245411ed3e008ed23a3e522993cd0b5f}\label{class_r_t_d_a245411ed3e008ed23a3e522993cd0b5f} 
+\index{RTD@{RTD}!readRTD@{readRTD}}
+\index{readRTD@{readRTD}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{readRTD()}{readRTD()}}
+{\footnotesize\ttfamily uint16\+\_\+t RTD\+::read\+RTD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private Method to read the \doxylink{class_r_t_d}{RTD} Raw Value. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t -\/ RAW TEMP Value as an unsigned 16bit INT =\texorpdfstring{$>$}{>} NOT TEMP 
 \end{DoxyReturn}
 \Hypertarget{class_r_t_d_a5d22dc2830817109ffb07f348b33753c}\label{class_r_t_d_a5d22dc2830817109ffb07f348b33753c} 
 \index{RTD@{RTD}!readTempC@{readTempC}}
@@ -185,7 +298,7 @@ Set the Threshold Registers.
 \index{RTD@{RTD}!setWires@{setWires}}
 \index{setWires@{setWires}!RTD@{RTD}}
 \doxysubsubsection{\texorpdfstring{setWires()}{setWires()}}
-{\footnotesize\ttfamily void RTD\+::set\+Wires (\begin{DoxyParamCaption}\item[{RTDWire\+Mode}]{mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void RTD\+::set\+Wires (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}}}]{mode }\end{DoxyParamCaption})}
 
 
 
@@ -196,9 +309,83 @@ Allows to set the Wire\+Mode dynamically.
 {\em mode} & RTDWire\+Mode Enum Member -\/\texorpdfstring{$>$}{>} See RTDWire\+Mode enum class \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_r_t_d_a848ec69b38dc2f994f41dc1141f4cb4e}\label{class_r_t_d_a848ec69b38dc2f994f41dc1141f4cb4e} 
+\index{RTD@{RTD}!writeReg@{writeReg}}
+\index{writeReg@{writeReg}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{writeReg()}{writeReg()}}
+{\footnotesize\ttfamily void RTD\+::write\+Reg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{reg\+Address,  }\item[{uint8\+\_\+t}]{data,  }\item[{uint8\+\_\+t}]{bytes\+To\+Wrie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private Method to write Data to \doxylink{class_r_t_d}{RTD} Registers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Address} & Address of the Register to write to \\
+\hline
+{\em data} & Data to write at that Register \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_r_t_d_ab3d4f325acf7a6eb6a351b6608cd2caa}\label{class_r_t_d_ab3d4f325acf7a6eb6a351b6608cd2caa} 
+\index{RTD@{RTD}!autoConvertEnabled@{autoConvertEnabled}}
+\index{autoConvertEnabled@{autoConvertEnabled}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{autoConvertEnabled}{autoConvertEnabled}}
+{\footnotesize\ttfamily bool RTD\+::auto\+Convert\+Enabled\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8}\label{class_r_t_d_a4bf1c58919b20d4eab7db3a518f5bdf8} 
+\index{RTD@{RTD}!bank@{bank}}
+\index{bank@{bank}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{bank}{bank}}
+{\footnotesize\ttfamily \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}} RTD\+::bank}
+
+\Hypertarget{class_r_t_d_a2c3099c724096946d666207c482e7ced}\label{class_r_t_d_a2c3099c724096946d666207c482e7ced} 
+\index{RTD@{RTD}!config@{config}}
+\index{config@{config}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily uint8\+\_\+t RTD\+::config\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_r_t_d_a69f85b8e1e00cbb9bb165c497bdca7d4}\label{class_r_t_d_a69f85b8e1e00cbb9bb165c497bdca7d4} 
+\index{RTD@{RTD}!nominalResistance@{nominalResistance}}
+\index{nominalResistance@{nominalResistance}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{nominalResistance}{nominalResistance}}
+{\footnotesize\ttfamily float RTD\+::nominal\+Resistance\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_r_t_d_a402a7639294ff8b49410775019300ae3}\label{class_r_t_d_a402a7639294ff8b49410775019300ae3} 
+\index{RTD@{RTD}!pin@{pin}}
+\index{pin@{pin}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{pin}{pin}}
+{\footnotesize\ttfamily uint8\+\_\+t RTD\+::pin}
+
+\Hypertarget{class_r_t_d_a1314342d006c21cda2d0bd50cc42bcfe}\label{class_r_t_d_a1314342d006c21cda2d0bd50cc42bcfe} 
+\index{RTD@{RTD}!portExpander@{portExpander}}
+\index{portExpander@{portExpander}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{portExpander}{portExpander}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_port_expander}{Port\+Expander}}\& RTD\+::port\+Expander\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_r_t_d_adc9aa6b613275197cb32a2da06cab41e}\label{class_r_t_d_adc9aa6b613275197cb32a2da06cab41e} 
+\index{RTD@{RTD}!referenceResistance@{referenceResistance}}
+\index{referenceResistance@{referenceResistance}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{referenceResistance}{referenceResistance}}
+{\footnotesize\ttfamily float RTD\+::reference\+Resistance\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_r_t_d_a5811613b5e0d072d4f42d182ac6b28d2}\label{class_r_t_d_a5811613b5e0d072d4f42d182ac6b28d2} 
+\index{RTD@{RTD}!spi@{spi}}
+\index{spi@{spi}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{spi}{spi}}
+{\footnotesize\ttfamily SPIClass\texorpdfstring{$\ast$}{*} RTD\+::spi\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_r_t_d_a83e138e6f49083d3d1588cad452fdd88}\label{class_r_t_d_a83e138e6f49083d3d1588cad452fdd88} 
+\index{RTD@{RTD}!wireMode@{wireMode}}
+\index{wireMode@{wireMode}!RTD@{RTD}}
+\doxysubsubsection{\texorpdfstring{wireMode}{wireMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}} RTD\+::wire\+Mode\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-lib/rtd/rtd.\+h\item 
-lib/rtd/rtd.\+cpp\end{DoxyCompactItemize}
+lib/rtd/\mbox{\hyperlink{rtd_8h}{rtd.\+h}}\item 
+lib/rtd/\mbox{\hyperlink{rtd_8cpp}{rtd.\+cpp}}\end{DoxyCompactItemize}

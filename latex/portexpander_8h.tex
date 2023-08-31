@@ -1,0 +1,68 @@
+\doxysection{lib/portexpander/portexpander.h File Reference}
+\hypertarget{portexpander_8h}{}\label{portexpander_8h}\index{lib/portexpander/portexpander.h@{lib/portexpander/portexpander.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$MCP23\+S17.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_port_expander}{Port\+Expander}}
+\begin{DoxyCompactList}\small\item\em Encapsulates the MCP23\+S17 library in a more readable manner. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} \{ \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507acccb792a49813a09ba8bad95684c874a}{OUTPUT\+\_\+\+IO}} = 0x03
+, \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a055392966e27e66d3410d56dcb88cf4e}{INPUT\+\_\+\+IO}} = 0x01
+, \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a3164eaaf5bc567825e63c182cb86ee42}{INPUT\+\_\+\+PULLUP\+\_\+\+IO}} = 0x05
+ \}
+\begin{DoxyCompactList}\small\item\em Models the operating mode of the various Pin. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}} \{ \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa7fc56270e7a70fa81a5935b72eacbe29}{A}}
+, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{B}}
+ \}
+\begin{DoxyCompactList}\small\item\em Models the two GPIO Banks the pins are on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}\label{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507} 
+\index{portexpander.h@{portexpander.h}!IOType@{IOType}}
+\index{IOType@{IOType}!portexpander.h@{portexpander.h}}
+\doxysubsubsection{\texorpdfstring{IOType}{IOType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Models the operating mode of the various Pin. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_IO@{OUTPUT\_IO}!portexpander.h@{portexpander.h}}\index{portexpander.h@{portexpander.h}!OUTPUT\_IO@{OUTPUT\_IO}}}\Hypertarget{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507acccb792a49813a09ba8bad95684c874a}\label{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507acccb792a49813a09ba8bad95684c874a} 
+OUTPUT\+\_\+\+IO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INPUT\_IO@{INPUT\_IO}!portexpander.h@{portexpander.h}}\index{portexpander.h@{portexpander.h}!INPUT\_IO@{INPUT\_IO}}}\Hypertarget{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a055392966e27e66d3410d56dcb88cf4e}\label{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a055392966e27e66d3410d56dcb88cf4e} 
+INPUT\+\_\+\+IO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INPUT\_PULLUP\_IO@{INPUT\_PULLUP\_IO}!portexpander.h@{portexpander.h}}\index{portexpander.h@{portexpander.h}!INPUT\_PULLUP\_IO@{INPUT\_PULLUP\_IO}}}\Hypertarget{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a3164eaaf5bc567825e63c182cb86ee42}\label{portexpander_8h_a2634dc8f796d724e921dc6a0edb43507a3164eaaf5bc567825e63c182cb86ee42} 
+INPUT\+\_\+\+PULLUP\+\_\+\+IO&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}\label{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a} 
+\index{portexpander.h@{portexpander.h}!PortExpanderBank@{PortExpanderBank}}
+\index{PortExpanderBank@{PortExpanderBank}!portexpander.h@{portexpander.h}}
+\doxysubsubsection{\texorpdfstring{PortExpanderBank}{PortExpanderBank}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2a}{Port\+Expander\+Bank}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Models the two GPIO Banks the pins are on. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A@{A}!portexpander.h@{portexpander.h}}\index{portexpander.h@{portexpander.h}!A@{A}}}\Hypertarget{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa7fc56270e7a70fa81a5935b72eacbe29}\label{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa7fc56270e7a70fa81a5935b72eacbe29} 
+A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B@{B}!portexpander.h@{portexpander.h}}\index{portexpander.h@{portexpander.h}!B@{B}}}\Hypertarget{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}\label{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571} 
+B&\\
+\hline
+
+\end{DoxyEnumFields}

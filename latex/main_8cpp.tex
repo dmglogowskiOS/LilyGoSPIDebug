@@ -1,0 +1,154 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \"{}rtd\+Manager.\+h\"{}}\newline
+{\ttfamily \#include \"{}portexpander.\+h\"{}}\newline
+{\ttfamily \#include \"{}rtd.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+SPIClass \mbox{\hyperlink{main_8cpp_a5b15a8021248e29e2b7625a29dc22e0a}{hspi}} (2)
+\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{main_8cpp_a01563dbe2054d475417b67cd9a7ed1eb}{clock\+Pin}} = 14
+\item 
+constexpr int \mbox{\hyperlink{main_8cpp_a67b107165352e5fc1d425e4351246fa3}{miso\+Pin}} = 2
+\item 
+constexpr int \mbox{\hyperlink{main_8cpp_a69245650725aa8d73d67989ee995486b}{mosi\+Pin}} = 15
+\item 
+constexpr int \mbox{\hyperlink{main_8cpp_a805f5b4df17a8d894318a694528eab73}{chip\+Select}} = 4
+\item 
+constexpr int \mbox{\hyperlink{main_8cpp_a7a17dd063f1ac798af20139028a0d816}{address}} = 0
+\item 
+unsigned long \mbox{\hyperlink{main_8cpp_a594d3ab930e67c421040d8301bf78328}{start}}
+\item 
+constexpr float \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}} = 1000.\+0f
+\item 
+constexpr float \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}} = 4300.\+0f
+\item 
+\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}} \& \mbox{\hyperlink{main_8cpp_ad197331fdd352bc2d5afcbf2d24c36f3}{hspi}}
+\item 
+\mbox{\hyperlink{class_rtd_manager}{Rtd\+Manager}} rtd\+Manager \& \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}
+\item 
+\mbox{\hyperlink{class_r_t_d}{RTD}} \mbox{\hyperlink{main_8cpp_a8d9708a2ed0d9e61971c3d3605682665}{rtd1}} (0, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}})
+\item 
+\mbox{\hyperlink{class_r_t_d}{RTD}} \mbox{\hyperlink{main_8cpp_afc899a7ab712f0376bc0169d81cf6c18}{rtd2}} (1, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}})
+\item 
+\mbox{\hyperlink{class_r_t_d}{RTD}} \mbox{\hyperlink{main_8cpp_ac4a238eb9085332d49d990240a7eab76}{rtd3}} (2, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}})
+\item 
+\mbox{\hyperlink{class_r_t_d}{RTD}} \mbox{\hyperlink{main_8cpp_a1baab8c698226f5422a055476f719775}{rtd4}} (3, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a5b15a8021248e29e2b7625a29dc22e0a}\label{main_8cpp_a5b15a8021248e29e2b7625a29dc22e0a} 
+\index{main.cpp@{main.cpp}!hspi@{hspi}}
+\index{hspi@{hspi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{hspi()}{hspi()}}
+{\footnotesize\ttfamily SPIClass hspi (\begin{DoxyParamCaption}\item[{2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f} 
+\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d} 
+\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cpp_a7a17dd063f1ac798af20139028a0d816}\label{main_8cpp_a7a17dd063f1ac798af20139028a0d816} 
+\index{main.cpp@{main.cpp}!address@{address}}
+\index{address@{address}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily constexpr int address = 0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cpp_a805f5b4df17a8d894318a694528eab73}\label{main_8cpp_a805f5b4df17a8d894318a694528eab73} 
+\index{main.cpp@{main.cpp}!chipSelect@{chipSelect}}
+\index{chipSelect@{chipSelect}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{chipSelect}{chipSelect}}
+{\footnotesize\ttfamily constexpr int chip\+Select = 4\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cpp_a01563dbe2054d475417b67cd9a7ed1eb}\label{main_8cpp_a01563dbe2054d475417b67cd9a7ed1eb} 
+\index{main.cpp@{main.cpp}!clockPin@{clockPin}}
+\index{clockPin@{clockPin}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{clockPin}{clockPin}}
+{\footnotesize\ttfamily constexpr int clock\+Pin = 14\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cpp_ad197331fdd352bc2d5afcbf2d24c36f3}\label{main_8cpp_ad197331fdd352bc2d5afcbf2d24c36f3} 
+\index{main.cpp@{main.cpp}!hspi@{hspi}}
+\index{hspi@{hspi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{hspi}{hspi}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_port_expander}{Port\+Expander}} \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}\& hspi}
+
+\Hypertarget{main_8cpp_a67b107165352e5fc1d425e4351246fa3}\label{main_8cpp_a67b107165352e5fc1d425e4351246fa3} 
+\index{main.cpp@{main.cpp}!misoPin@{misoPin}}
+\index{misoPin@{misoPin}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{misoPin}{misoPin}}
+{\footnotesize\ttfamily constexpr int miso\+Pin = 2\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cpp_a69245650725aa8d73d67989ee995486b}\label{main_8cpp_a69245650725aa8d73d67989ee995486b} 
+\index{main.cpp@{main.cpp}!mosiPin@{mosiPin}}
+\index{mosiPin@{mosiPin}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mosiPin}{mosiPin}}
+{\footnotesize\ttfamily constexpr int mosi\+Pin = 15\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}\label{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96} 
+\index{main.cpp@{main.cpp}!nominalResistanceRTD@{nominalResistanceRTD}}
+\index{nominalResistanceRTD@{nominalResistanceRTD}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{nominalResistanceRTD}{nominalResistanceRTD}}
+{\footnotesize\ttfamily constexpr float nominal\+Resistance\+RTD = 1000.\+0f\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}\label{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e} 
+\index{main.cpp@{main.cpp}!portExpander@{portExpander}}
+\index{portExpander@{portExpander}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{portExpander}{portExpander}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_rtd_manager}{Rtd\+Manager}} rtd\+Manager\& port\+Expander}
+
+\Hypertarget{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}\label{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e} 
+\index{main.cpp@{main.cpp}!referenceResistanceRTD@{referenceResistanceRTD}}
+\index{referenceResistanceRTD@{referenceResistanceRTD}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{referenceResistanceRTD}{referenceResistanceRTD}}
+{\footnotesize\ttfamily constexpr float reference\+Resistance\+RTD = 4300.\+0f\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cpp_a8d9708a2ed0d9e61971c3d3605682665}\label{main_8cpp_a8d9708a2ed0d9e61971c3d3605682665} 
+\index{main.cpp@{main.cpp}!rtd1@{rtd1}}
+\index{rtd1@{rtd1}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{rtd1}{rtd1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_t_d}{RTD}} rtd1(0, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}) (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}}]{,  }\item[{\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}}]{,  }\item[{\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_afc899a7ab712f0376bc0169d81cf6c18}\label{main_8cpp_afc899a7ab712f0376bc0169d81cf6c18} 
+\index{main.cpp@{main.cpp}!rtd2@{rtd2}}
+\index{rtd2@{rtd2}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{rtd2}{rtd2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_t_d}{RTD}} rtd2(1, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}) (\begin{DoxyParamCaption}\item[{1}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}}]{,  }\item[{\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}}]{,  }\item[{\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_ac4a238eb9085332d49d990240a7eab76}\label{main_8cpp_ac4a238eb9085332d49d990240a7eab76} 
+\index{main.cpp@{main.cpp}!rtd3@{rtd3}}
+\index{rtd3@{rtd3}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{rtd3}{rtd3}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_t_d}{RTD}} rtd3(2, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}) (\begin{DoxyParamCaption}\item[{2}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}}]{,  }\item[{\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}}]{,  }\item[{\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a1baab8c698226f5422a055476f719775}\label{main_8cpp_a1baab8c698226f5422a055476f719775} 
+\index{main.cpp@{main.cpp}!rtd4@{rtd4}}
+\index{rtd4@{rtd4}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{rtd4}{rtd4}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_r_t_d}{RTD}} rtd4(3, \mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}, \mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}, \mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}, \mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}) (\begin{DoxyParamCaption}\item[{3}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}}}]{,  }\item[{\mbox{\hyperlink{portexpander_8h_a9791be02a0b167469bc72bfffe202f2aa9d5ed678fe57bcca610140957afab571}{Port\+Expander\+Bank\+::B}}}]{,  }\item[{\mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{RTDWire\+Mode\+::\+TWO\+\_\+\+WIRE}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_ab123e063ae330ad412b2b27d3d5ebd96}{nominal\+Resistance\+RTD}}}]{,  }\item[{\mbox{\hyperlink{main_8cpp_a43a1e9f7029ca7088d874cd7bd4c1b8e}{reference\+Resistance\+RTD}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cpp_a594d3ab930e67c421040d8301bf78328}\label{main_8cpp_a594d3ab930e67c421040d8301bf78328} 
+\index{main.cpp@{main.cpp}!start@{start}}
+\index{start@{start}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily unsigned long start}
+

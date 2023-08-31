@@ -12,10 +12,9 @@ Class encapsulating multiple RTDs.
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_rtd_manager_a56c28cd1c92b552cf1141837416e2f4d}{Rtd\+Manager}} (\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \texorpdfstring{$\ast$}{*}port\+Expander)
+\mbox{\hyperlink{class_rtd_manager_a56c28cd1c92b552cf1141837416e2f4d}{Rtd\+Manager}} (\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{main_8cpp_a697ef55e1c566e6d10b953d0bc8b997e}{port\+Expander}})
 \begin{DoxyCompactList}\small\item\em Default Constructor for \doxylink{class_rtd_manager}{Rtd\+Manager}. \end{DoxyCompactList}\item 
-\Hypertarget{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0}\label{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0} 
-void {\bfseries init} ()
+void \mbox{\hyperlink{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0}{init}} ()
 \begin{DoxyCompactList}\small\item\em initializes both the \doxylink{class_port_expander}{Port\+Expander} and all attached RTDs correctly \end{DoxyCompactList}\item 
 std\+::vector$<$ float $>$ \mbox{\hyperlink{class_rtd_manager_a3b720812c48512a058041f92dab3418f}{read\+All}} ()
 \begin{DoxyCompactList}\small\item\em Reads all attached RTDs. \end{DoxyCompactList}\item 
@@ -24,11 +23,9 @@ void \mbox{\hyperlink{class_rtd_manager_a5810c802e73b3b1df488b4c6f59bc79d}{add\+
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_rtd_manager_a49fd5b16d4ef1a7c97a7f246fbc93b5b}\label{class_rtd_manager_a49fd5b16d4ef1a7c97a7f246fbc93b5b} 
-std\+::vector$<$ \mbox{\hyperlink{class_r_t_d}{RTD}} $>$ {\bfseries m\+\_\+rtd\+List}
+std\+::vector$<$ \mbox{\hyperlink{class_r_t_d}{RTD}} $>$ \mbox{\hyperlink{class_rtd_manager_a49fd5b16d4ef1a7c97a7f246fbc93b5b}{m\+\_\+rtd\+List}}
 \item 
-\Hypertarget{class_rtd_manager_abf778bab6d228db4c4b749a6cca50daf}\label{class_rtd_manager_abf778bab6d228db4c4b749a6cca50daf} 
-\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+port\+Ex}
+\mbox{\hyperlink{class_port_expander}{Port\+Expander}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_rtd_manager_abf778bab6d228db4c4b749a6cca50daf}{m\+\_\+port\+Ex}}
 \end{DoxyCompactItemize}
 
 
@@ -65,6 +62,16 @@ Default Constructor for \doxylink{class_rtd_manager}{Rtd\+Manager}.
 {\em rtd} & \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0}\label{class_rtd_manager_ac625ea87d8fc7c1c332f36a9e7a905f0} 
+\index{RtdManager@{RtdManager}!init@{init}}
+\index{init@{init}!RtdManager@{RtdManager}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Rtd\+Manager\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+initializes both the \doxylink{class_port_expander}{Port\+Expander} and all attached RTDs correctly 
+
 \Hypertarget{class_rtd_manager_a3b720812c48512a058041f92dab3418f}\label{class_rtd_manager_a3b720812c48512a058041f92dab3418f} 
 \index{RtdManager@{RtdManager}!readAll@{readAll}}
 \index{readAll@{readAll}!RtdManager@{RtdManager}}
@@ -80,7 +87,22 @@ std\+::vector$<$float$>$ of all read Temperatures in °C
 \end{DoxyReturn}
 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_rtd_manager_abf778bab6d228db4c4b749a6cca50daf}\label{class_rtd_manager_abf778bab6d228db4c4b749a6cca50daf} 
+\index{RtdManager@{RtdManager}!m\_portEx@{m\_portEx}}
+\index{m\_portEx@{m\_portEx}!RtdManager@{RtdManager}}
+\doxysubsubsection{\texorpdfstring{m\_portEx}{m\_portEx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_port_expander}{Port\+Expander}}\texorpdfstring{$\ast$}{*} Rtd\+Manager\+::m\+\_\+port\+Ex}
+
+\Hypertarget{class_rtd_manager_a49fd5b16d4ef1a7c97a7f246fbc93b5b}\label{class_rtd_manager_a49fd5b16d4ef1a7c97a7f246fbc93b5b} 
+\index{RtdManager@{RtdManager}!m\_rtdList@{m\_rtdList}}
+\index{m\_rtdList@{m\_rtdList}!RtdManager@{RtdManager}}
+\doxysubsubsection{\texorpdfstring{m\_rtdList}{m\_rtdList}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_r_t_d}{RTD}}$>$ Rtd\+Manager\+::m\+\_\+rtd\+List}
+
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-lib/rtd\+Manager/rtd\+Manager.\+h\item 
-lib/rtd\+Manager/rtd\+Manager.\+cpp\end{DoxyCompactItemize}
+lib/rtd\+Manager/\mbox{\hyperlink{rtd_manager_8h}{rtd\+Manager.\+h}}\item 
+lib/rtd\+Manager/\mbox{\hyperlink{rtd_manager_8cpp}{rtd\+Manager.\+cpp}}\end{DoxyCompactItemize}

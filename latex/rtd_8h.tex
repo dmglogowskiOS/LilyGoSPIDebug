@@ -1,0 +1,267 @@
+\doxysection{lib/rtd/rtd.h File Reference}
+\hypertarget{rtd_8h}{}\label{rtd_8h}\index{lib/rtd/rtd.h@{lib/rtd/rtd.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$portexpander.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_r_t_d}{RTD}}
+\begin{DoxyCompactList}\small\item\em Models an \doxylink{class_r_t_d}{RTD} MAX31865 interfaced with using chip generation from an MCP23\+S17. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a0ad53c6319b6bb211d154a53317a1c88}{MAX31865\+\_\+\+CONFIG\+\_\+\+REG\+\_\+\+READ}}~0x00
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a9c00ae297f9b2ce1d5b4aab2e50dccd1}{MAX31865\+\_\+\+CONFIG\+\_\+\+REG\+\_\+\+WRITE}}~0x80
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a3ed44262a110a69172d7a54469a347ad}{MAX31865\+\_\+\+CONFIG\+\_\+\+BIAS}}~0x80
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a6c8532ba14d938ca8221afc5f50b78c8}{MAX31865\+\_\+\+CONFIG\+\_\+\+MODEAUTO}}~0x40
+\item 
+\#define \mbox{\hyperlink{rtd_8h_ae1bf3404f6b783b1ae12ff1cb4053db2}{MAX31865\+\_\+\+CONFIG\+\_\+\+MODEOFF}}~0x00
+\item 
+\#define \mbox{\hyperlink{rtd_8h_ab5adce7b50bc48c7db15c1e098ac0b34}{MAX31865\+\_\+\+CONFIG\+\_\+1\+SHOT}}~0x20
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a9c357034fbe8a0ac0b07a72e2764093f}{MAX31865\+\_\+\+CONFIG\+\_\+3\+WIRE}}~0x10
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a1240a31a6dc903e91b286b6ca7d775ca}{MAX31865\+\_\+\+CONFIG\+\_\+24\+WIRE}}~0x00
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a58ca31c3f65d61498f1ce04cd7f59995}{MAX31865\+\_\+\+CONFIG\+\_\+\+FAULTSTAT}}~0x02
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a46c1159884f90a3360ec8fa65cef6da3}{MAX31865\+\_\+\+CONFIG\+\_\+\+FILT50\+HZ}}~0x01
+\item 
+\#define \mbox{\hyperlink{rtd_8h_abbbd55d0a3abe2f764a6716431368ffd}{MAX31865\+\_\+\+CONFIG\+\_\+\+FILT60\+HZ}}~0x00
+\item 
+\#define \mbox{\hyperlink{rtd_8h_ab642d6a3ab8577dc9bb6373f5a3823b9}{DEFAULT\+\_\+\+CONFIG}}~0b00000001
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a248d7397eeb1df3cce0d7d7ba5afa011}{MAX31865\+\_\+\+RTDMSB\+\_\+\+REG}}~0x01
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a7415843be3635e92651f05c2bcaa515a}{MAX31865\+\_\+\+RTDLSB\+\_\+\+REG}}~0x02
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a36d651729c70d642683c7fdd77f119d8}{MAX31865\+\_\+\+HFAULTMSB\+\_\+\+REG}}~0x03
+\item 
+\#define \mbox{\hyperlink{rtd_8h_ab3b09078e2beb23500a16222fe080168}{MAX31865\+\_\+\+HFAULTLSB\+\_\+\+REG}}~0x04
+\item 
+\#define \mbox{\hyperlink{rtd_8h_adf4084b316d396281b0692f73a44f03f}{MAX31865\+\_\+\+LFAULTMSB\+\_\+\+REG}}~0x05
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a39abdc6476e5ff73214a72a848d87337}{MAX31865\+\_\+\+LFAULTLSB\+\_\+\+REG}}~0x06
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a77ba554dd0ca934397f4093139cdd3d0}{MAX31865\+\_\+\+FAULTSTAT\+\_\+\+REG}}~0x07
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a869cec7d243fbbc2e3c5236efe1147c5}{MAX31865\+\_\+\+FAULT\+\_\+\+HIGHTHRESH}}~0x80
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a9a7538398d0bef4c13a50b5945d75aa9}{MAX31865\+\_\+\+FAULT\+\_\+\+LOWTHRESH}}~0x40
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a2b2e19ed31e813869e2bc8ed6226c87d}{MAX31865\+\_\+\+FAULT\+\_\+\+REFINLOW}}~0x20
+\item 
+\#define \mbox{\hyperlink{rtd_8h_addaed1ea33f541805430a826310e23a8}{MAX31865\+\_\+\+FAULT\+\_\+\+REFINHIGH}}~0x10
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a969a3697c38b63e57c66c0ac3b4462e7}{MAX31865\+\_\+\+FAULT\+\_\+\+RTDINLOW}}~0x08
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a1d01b072876657cfafb3b359be869623}{MAX31865\+\_\+\+FAULT\+\_\+\+OVUV}}~0x04
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a67b098bcecf7d326638c621d3de7d3a4}{RTD\+\_\+A}}~3.\+9083e-\/3
+\item 
+\#define \mbox{\hyperlink{rtd_8h_a1a4ebeac22bba6b479c6d968e49ae884}{RTD\+\_\+B}}~-\/5.\+775e-\/7
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}} \{ \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}{TWO\+\_\+\+WIRE}}
+, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa11669aabf4fc899adf6bf15ea687391d}{THREE\+\_\+\+WIRE}}
+, \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa7e58e9e3e3d935d41ec0b3be14c691a8}{FOUR\+\_\+\+WIRE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the Wire Mode for the \doxylink{class_r_t_d}{RTD}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{rtd_8h_ab642d6a3ab8577dc9bb6373f5a3823b9}\label{rtd_8h_ab642d6a3ab8577dc9bb6373f5a3823b9} 
+\index{rtd.h@{rtd.h}!DEFAULT\_CONFIG@{DEFAULT\_CONFIG}}
+\index{DEFAULT\_CONFIG@{DEFAULT\_CONFIG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_CONFIG}{DEFAULT\_CONFIG}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+CONFIG~0b00000001}
+
+\Hypertarget{rtd_8h_ab5adce7b50bc48c7db15c1e098ac0b34}\label{rtd_8h_ab5adce7b50bc48c7db15c1e098ac0b34} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_1SHOT@{MAX31865\_CONFIG\_1SHOT}}
+\index{MAX31865\_CONFIG\_1SHOT@{MAX31865\_CONFIG\_1SHOT}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_1SHOT}{MAX31865\_CONFIG\_1SHOT}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+1\+SHOT~0x20}
+
+\Hypertarget{rtd_8h_a1240a31a6dc903e91b286b6ca7d775ca}\label{rtd_8h_a1240a31a6dc903e91b286b6ca7d775ca} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_24WIRE@{MAX31865\_CONFIG\_24WIRE}}
+\index{MAX31865\_CONFIG\_24WIRE@{MAX31865\_CONFIG\_24WIRE}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_24WIRE}{MAX31865\_CONFIG\_24WIRE}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+24\+WIRE~0x00}
+
+\Hypertarget{rtd_8h_a9c357034fbe8a0ac0b07a72e2764093f}\label{rtd_8h_a9c357034fbe8a0ac0b07a72e2764093f} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_3WIRE@{MAX31865\_CONFIG\_3WIRE}}
+\index{MAX31865\_CONFIG\_3WIRE@{MAX31865\_CONFIG\_3WIRE}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_3WIRE}{MAX31865\_CONFIG\_3WIRE}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+3\+WIRE~0x10}
+
+\Hypertarget{rtd_8h_a3ed44262a110a69172d7a54469a347ad}\label{rtd_8h_a3ed44262a110a69172d7a54469a347ad} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_BIAS@{MAX31865\_CONFIG\_BIAS}}
+\index{MAX31865\_CONFIG\_BIAS@{MAX31865\_CONFIG\_BIAS}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_BIAS}{MAX31865\_CONFIG\_BIAS}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+BIAS~0x80}
+
+\Hypertarget{rtd_8h_a58ca31c3f65d61498f1ce04cd7f59995}\label{rtd_8h_a58ca31c3f65d61498f1ce04cd7f59995} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_FAULTSTAT@{MAX31865\_CONFIG\_FAULTSTAT}}
+\index{MAX31865\_CONFIG\_FAULTSTAT@{MAX31865\_CONFIG\_FAULTSTAT}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_FAULTSTAT}{MAX31865\_CONFIG\_FAULTSTAT}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+FAULTSTAT~0x02}
+
+\Hypertarget{rtd_8h_a46c1159884f90a3360ec8fa65cef6da3}\label{rtd_8h_a46c1159884f90a3360ec8fa65cef6da3} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_FILT50HZ@{MAX31865\_CONFIG\_FILT50HZ}}
+\index{MAX31865\_CONFIG\_FILT50HZ@{MAX31865\_CONFIG\_FILT50HZ}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_FILT50HZ}{MAX31865\_CONFIG\_FILT50HZ}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+FILT50\+HZ~0x01}
+
+\Hypertarget{rtd_8h_abbbd55d0a3abe2f764a6716431368ffd}\label{rtd_8h_abbbd55d0a3abe2f764a6716431368ffd} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_FILT60HZ@{MAX31865\_CONFIG\_FILT60HZ}}
+\index{MAX31865\_CONFIG\_FILT60HZ@{MAX31865\_CONFIG\_FILT60HZ}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_FILT60HZ}{MAX31865\_CONFIG\_FILT60HZ}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+FILT60\+HZ~0x00}
+
+\Hypertarget{rtd_8h_a6c8532ba14d938ca8221afc5f50b78c8}\label{rtd_8h_a6c8532ba14d938ca8221afc5f50b78c8} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_MODEAUTO@{MAX31865\_CONFIG\_MODEAUTO}}
+\index{MAX31865\_CONFIG\_MODEAUTO@{MAX31865\_CONFIG\_MODEAUTO}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_MODEAUTO}{MAX31865\_CONFIG\_MODEAUTO}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+MODEAUTO~0x40}
+
+\Hypertarget{rtd_8h_ae1bf3404f6b783b1ae12ff1cb4053db2}\label{rtd_8h_ae1bf3404f6b783b1ae12ff1cb4053db2} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_MODEOFF@{MAX31865\_CONFIG\_MODEOFF}}
+\index{MAX31865\_CONFIG\_MODEOFF@{MAX31865\_CONFIG\_MODEOFF}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_MODEOFF}{MAX31865\_CONFIG\_MODEOFF}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+MODEOFF~0x00}
+
+\Hypertarget{rtd_8h_a0ad53c6319b6bb211d154a53317a1c88}\label{rtd_8h_a0ad53c6319b6bb211d154a53317a1c88} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_REG\_READ@{MAX31865\_CONFIG\_REG\_READ}}
+\index{MAX31865\_CONFIG\_REG\_READ@{MAX31865\_CONFIG\_REG\_READ}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_REG\_READ}{MAX31865\_CONFIG\_REG\_READ}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+REG\+\_\+\+READ~0x00}
+
+\Hypertarget{rtd_8h_a9c00ae297f9b2ce1d5b4aab2e50dccd1}\label{rtd_8h_a9c00ae297f9b2ce1d5b4aab2e50dccd1} 
+\index{rtd.h@{rtd.h}!MAX31865\_CONFIG\_REG\_WRITE@{MAX31865\_CONFIG\_REG\_WRITE}}
+\index{MAX31865\_CONFIG\_REG\_WRITE@{MAX31865\_CONFIG\_REG\_WRITE}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_CONFIG\_REG\_WRITE}{MAX31865\_CONFIG\_REG\_WRITE}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+CONFIG\+\_\+\+REG\+\_\+\+WRITE~0x80}
+
+\Hypertarget{rtd_8h_a869cec7d243fbbc2e3c5236efe1147c5}\label{rtd_8h_a869cec7d243fbbc2e3c5236efe1147c5} 
+\index{rtd.h@{rtd.h}!MAX31865\_FAULT\_HIGHTHRESH@{MAX31865\_FAULT\_HIGHTHRESH}}
+\index{MAX31865\_FAULT\_HIGHTHRESH@{MAX31865\_FAULT\_HIGHTHRESH}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_FAULT\_HIGHTHRESH}{MAX31865\_FAULT\_HIGHTHRESH}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+FAULT\+\_\+\+HIGHTHRESH~0x80}
+
+\Hypertarget{rtd_8h_a9a7538398d0bef4c13a50b5945d75aa9}\label{rtd_8h_a9a7538398d0bef4c13a50b5945d75aa9} 
+\index{rtd.h@{rtd.h}!MAX31865\_FAULT\_LOWTHRESH@{MAX31865\_FAULT\_LOWTHRESH}}
+\index{MAX31865\_FAULT\_LOWTHRESH@{MAX31865\_FAULT\_LOWTHRESH}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_FAULT\_LOWTHRESH}{MAX31865\_FAULT\_LOWTHRESH}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+FAULT\+\_\+\+LOWTHRESH~0x40}
+
+\Hypertarget{rtd_8h_a1d01b072876657cfafb3b359be869623}\label{rtd_8h_a1d01b072876657cfafb3b359be869623} 
+\index{rtd.h@{rtd.h}!MAX31865\_FAULT\_OVUV@{MAX31865\_FAULT\_OVUV}}
+\index{MAX31865\_FAULT\_OVUV@{MAX31865\_FAULT\_OVUV}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_FAULT\_OVUV}{MAX31865\_FAULT\_OVUV}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+FAULT\+\_\+\+OVUV~0x04}
+
+\Hypertarget{rtd_8h_addaed1ea33f541805430a826310e23a8}\label{rtd_8h_addaed1ea33f541805430a826310e23a8} 
+\index{rtd.h@{rtd.h}!MAX31865\_FAULT\_REFINHIGH@{MAX31865\_FAULT\_REFINHIGH}}
+\index{MAX31865\_FAULT\_REFINHIGH@{MAX31865\_FAULT\_REFINHIGH}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_FAULT\_REFINHIGH}{MAX31865\_FAULT\_REFINHIGH}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+FAULT\+\_\+\+REFINHIGH~0x10}
+
+\Hypertarget{rtd_8h_a2b2e19ed31e813869e2bc8ed6226c87d}\label{rtd_8h_a2b2e19ed31e813869e2bc8ed6226c87d} 
+\index{rtd.h@{rtd.h}!MAX31865\_FAULT\_REFINLOW@{MAX31865\_FAULT\_REFINLOW}}
+\index{MAX31865\_FAULT\_REFINLOW@{MAX31865\_FAULT\_REFINLOW}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_FAULT\_REFINLOW}{MAX31865\_FAULT\_REFINLOW}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+FAULT\+\_\+\+REFINLOW~0x20}
+
+\Hypertarget{rtd_8h_a969a3697c38b63e57c66c0ac3b4462e7}\label{rtd_8h_a969a3697c38b63e57c66c0ac3b4462e7} 
+\index{rtd.h@{rtd.h}!MAX31865\_FAULT\_RTDINLOW@{MAX31865\_FAULT\_RTDINLOW}}
+\index{MAX31865\_FAULT\_RTDINLOW@{MAX31865\_FAULT\_RTDINLOW}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_FAULT\_RTDINLOW}{MAX31865\_FAULT\_RTDINLOW}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+FAULT\+\_\+\+RTDINLOW~0x08}
+
+\Hypertarget{rtd_8h_a77ba554dd0ca934397f4093139cdd3d0}\label{rtd_8h_a77ba554dd0ca934397f4093139cdd3d0} 
+\index{rtd.h@{rtd.h}!MAX31865\_FAULTSTAT\_REG@{MAX31865\_FAULTSTAT\_REG}}
+\index{MAX31865\_FAULTSTAT\_REG@{MAX31865\_FAULTSTAT\_REG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_FAULTSTAT\_REG}{MAX31865\_FAULTSTAT\_REG}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+FAULTSTAT\+\_\+\+REG~0x07}
+
+\Hypertarget{rtd_8h_ab3b09078e2beb23500a16222fe080168}\label{rtd_8h_ab3b09078e2beb23500a16222fe080168} 
+\index{rtd.h@{rtd.h}!MAX31865\_HFAULTLSB\_REG@{MAX31865\_HFAULTLSB\_REG}}
+\index{MAX31865\_HFAULTLSB\_REG@{MAX31865\_HFAULTLSB\_REG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_HFAULTLSB\_REG}{MAX31865\_HFAULTLSB\_REG}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+HFAULTLSB\+\_\+\+REG~0x04}
+
+\Hypertarget{rtd_8h_a36d651729c70d642683c7fdd77f119d8}\label{rtd_8h_a36d651729c70d642683c7fdd77f119d8} 
+\index{rtd.h@{rtd.h}!MAX31865\_HFAULTMSB\_REG@{MAX31865\_HFAULTMSB\_REG}}
+\index{MAX31865\_HFAULTMSB\_REG@{MAX31865\_HFAULTMSB\_REG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_HFAULTMSB\_REG}{MAX31865\_HFAULTMSB\_REG}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+HFAULTMSB\+\_\+\+REG~0x03}
+
+\Hypertarget{rtd_8h_a39abdc6476e5ff73214a72a848d87337}\label{rtd_8h_a39abdc6476e5ff73214a72a848d87337} 
+\index{rtd.h@{rtd.h}!MAX31865\_LFAULTLSB\_REG@{MAX31865\_LFAULTLSB\_REG}}
+\index{MAX31865\_LFAULTLSB\_REG@{MAX31865\_LFAULTLSB\_REG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_LFAULTLSB\_REG}{MAX31865\_LFAULTLSB\_REG}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+LFAULTLSB\+\_\+\+REG~0x06}
+
+\Hypertarget{rtd_8h_adf4084b316d396281b0692f73a44f03f}\label{rtd_8h_adf4084b316d396281b0692f73a44f03f} 
+\index{rtd.h@{rtd.h}!MAX31865\_LFAULTMSB\_REG@{MAX31865\_LFAULTMSB\_REG}}
+\index{MAX31865\_LFAULTMSB\_REG@{MAX31865\_LFAULTMSB\_REG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_LFAULTMSB\_REG}{MAX31865\_LFAULTMSB\_REG}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+LFAULTMSB\+\_\+\+REG~0x05}
+
+\Hypertarget{rtd_8h_a7415843be3635e92651f05c2bcaa515a}\label{rtd_8h_a7415843be3635e92651f05c2bcaa515a} 
+\index{rtd.h@{rtd.h}!MAX31865\_RTDLSB\_REG@{MAX31865\_RTDLSB\_REG}}
+\index{MAX31865\_RTDLSB\_REG@{MAX31865\_RTDLSB\_REG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_RTDLSB\_REG}{MAX31865\_RTDLSB\_REG}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+RTDLSB\+\_\+\+REG~0x02}
+
+\Hypertarget{rtd_8h_a248d7397eeb1df3cce0d7d7ba5afa011}\label{rtd_8h_a248d7397eeb1df3cce0d7d7ba5afa011} 
+\index{rtd.h@{rtd.h}!MAX31865\_RTDMSB\_REG@{MAX31865\_RTDMSB\_REG}}
+\index{MAX31865\_RTDMSB\_REG@{MAX31865\_RTDMSB\_REG}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{MAX31865\_RTDMSB\_REG}{MAX31865\_RTDMSB\_REG}}
+{\footnotesize\ttfamily \#define MAX31865\+\_\+\+RTDMSB\+\_\+\+REG~0x01}
+
+\Hypertarget{rtd_8h_a67b098bcecf7d326638c621d3de7d3a4}\label{rtd_8h_a67b098bcecf7d326638c621d3de7d3a4} 
+\index{rtd.h@{rtd.h}!RTD\_A@{RTD\_A}}
+\index{RTD\_A@{RTD\_A}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{RTD\_A}{RTD\_A}}
+{\footnotesize\ttfamily \#define RTD\+\_\+A~3.\+9083e-\/3}
+
+\Hypertarget{rtd_8h_a1a4ebeac22bba6b479c6d968e49ae884}\label{rtd_8h_a1a4ebeac22bba6b479c6d968e49ae884} 
+\index{rtd.h@{rtd.h}!RTD\_B@{RTD\_B}}
+\index{RTD\_B@{RTD\_B}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{RTD\_B}{RTD\_B}}
+{\footnotesize\ttfamily \#define RTD\+\_\+B~-\/5.\+775e-\/7}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}\label{rtd_8h_a48743fc80570f18a35153cfdd8e2441a} 
+\index{rtd.h@{rtd.h}!RTDWireMode@{RTDWireMode}}
+\index{RTDWireMode@{RTDWireMode}!rtd.h@{rtd.h}}
+\doxysubsubsection{\texorpdfstring{RTDWireMode}{RTDWireMode}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{rtd_8h_a48743fc80570f18a35153cfdd8e2441a}{RTDWire\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Represents the Wire Mode for the \doxylink{class_r_t_d}{RTD}. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO\_WIRE@{TWO\_WIRE}!rtd.h@{rtd.h}}\index{rtd.h@{rtd.h}!TWO\_WIRE@{TWO\_WIRE}}}\Hypertarget{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644}\label{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa057a8226fd7f5958b3114f8d5c11f644} 
+TWO\+\_\+\+WIRE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{THREE\_WIRE@{THREE\_WIRE}!rtd.h@{rtd.h}}\index{rtd.h@{rtd.h}!THREE\_WIRE@{THREE\_WIRE}}}\Hypertarget{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa11669aabf4fc899adf6bf15ea687391d}\label{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa11669aabf4fc899adf6bf15ea687391d} 
+THREE\+\_\+\+WIRE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FOUR\_WIRE@{FOUR\_WIRE}!rtd.h@{rtd.h}}\index{rtd.h@{rtd.h}!FOUR\_WIRE@{FOUR\_WIRE}}}\Hypertarget{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa7e58e9e3e3d935d41ec0b3be14c691a8}\label{rtd_8h_a48743fc80570f18a35153cfdd8e2441aa7e58e9e3e3d935d41ec0b3be14c691a8} 
+FOUR\+\_\+\+WIRE&\\
+\hline
+
+\end{DoxyEnumFields}
